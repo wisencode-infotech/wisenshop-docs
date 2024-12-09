@@ -15,9 +15,9 @@ class TopicBlockSeeder extends Seeder
         TopicBlock::insert([
             [
                 'topic_id' => 1,
-                'title' => 'Introduction to the system',
+                'title' => 'Welcome to the WisenShop Documentation!',
                 'block_type_id' => 1,
-                'attributes' => json_encode(['content' => 'Welcome']),
+                'attributes' => json_encode(['content' => 'Here, you’ll discover comprehensive technical details and configuration guides to help you seamlessly integrate and optimize our script for your needs. Whether you’re setting up or fine-tuning, this resource is designed to empower you with the knowledge to make the most of WisenShop’s powerful features.']),
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -25,23 +25,12 @@ class TopicBlockSeeder extends Seeder
                 'topic_id' => 2,
                 'title' => 'How to get started',
                 'block_type_id' => 2,
-                'attributes' => json_encode(['content' => 'Setup guide']),
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'topic_id' => 3,
-                'title' => 'Feature A explanation',
-                'block_type_id' => 3,
-                'attributes' => json_encode(['feature' => 'A']),
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'topic_id' => 4,
-                'title' => 'Customization options',
-                'block_type_id' => 4,
-                'attributes' => json_encode(['theme' => 'dark']),
+                'attributes' => json_encode([
+                    'title' => 'Clone the repository to your machine using the following command',
+                    'description' => 'git clone https://github.com/wisencode-infotech/wisenshop.git',
+                    'copy_btn_text' => 'Copy',
+                    'copy_content' => 'git clone https://github.com/wisencode-infotech/wisenshop.git',
+                    ]),
                 'created_at' => now(),
                 'updated_at' => now()
             ]

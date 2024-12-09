@@ -3,19 +3,24 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Topic; // Assuming you have a Topic model
+use App\Models\Topic;
 
 class TopicController extends Controller
 {
-    /**
-     * Display a listing of the topics.
-     */
     public function index()
     {
-        // Fetch all topics from database
         $topics = Topic::all();
-
-        // Return topics in JSON format
         return response()->json($topics);
+    }
+
+    public function getTopicBlocks($id)
+    {
+        $topic = Topic::with(['blocks.blockType'])->find($id);
+
+        if (!$topic) {
+            return response()->json(['message' => 'Topic not found'], 404);
+        }
+
+        return response()->json($topic);
     }
 }

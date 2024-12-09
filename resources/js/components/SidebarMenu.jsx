@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const SidebarMenu = () => {
+const SidebarMenu = ({activeHash}) => {
     const [topics, setMenuItems] = useState([]);
-  
+
     useEffect(() => {
       const fetchTopics = async () => {
         try {
@@ -15,20 +15,26 @@ const SidebarMenu = () => {
       };
   
       fetchTopics();
+
     }, []);
 
     return (
         <nav className="space-y-1">
-            {topics.map((topic) => (
-                <a
-                    key={topic.id}
-                    href={topic.link}
-                    className="flex items-center space-x-3 py-3 px-4 rounded-lg bg-theme-dark text-white group"
-                >
-                    <i className="fa-solid fa-arrow-right"></i>
-                    <span>{topic.name}</span>
-                </a>
-            ))}
+            {topics.map((topic) => {
+            const isActive = `${topic.link}` === activeHash; // Check if the current hash matches the topic
+            return (
+              <a
+                key={topic.id}
+                href={`${topic.link}`} // Use hash links
+                className={`flex items-center space-x-3 py-3 px-4 rounded-lg ${
+                  isActive ? "bg-theme-dark text-white" : "text-gray-700"
+                } group`}
+              >
+                <i className="fa-solid fa-arrow-right"></i>
+                <span>{topic.name}</span>
+              </a>
+            );
+          })}
         </nav>
     );
 };

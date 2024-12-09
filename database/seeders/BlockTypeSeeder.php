@@ -14,29 +14,17 @@ class BlockTypeSeeder extends Seeder
     {
         BlockType::insert([
             [
-                'title' => 'Introduction',
-                'attributes' => json_encode(['key1' => 'value1', 'key2' => 'value2']),
+                'title' => 'description',
+                'attributes' => null,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
-                'title' => 'Getting Started',
-                'attributes' => json_encode(['key3' => 'value3', 'key4' => 'value4']),
+                'title' => 'copy_code',
+                'attributes' => null,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
-            [
-                'title' => 'Features',
-                'attributes' => json_encode(['key5' => 'value5']),
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'title' => 'Customization',
-                'attributes' => json_encode(['key6' => 'value6']),
-                'created_at' => now(),
-                'updated_at' => now()
-            ]
         ]);
     }
 }
