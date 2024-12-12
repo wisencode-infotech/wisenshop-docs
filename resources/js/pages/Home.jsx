@@ -64,7 +64,7 @@ const Home = () => {
   return (
     <div>
       <Header />
-      <div className="flex flex-col lg:flex-row h-screen">
+      <div className="flex flex-col lg:flex-row">
         <Sidebar activeHash={activeHash} />
         <ContentSection activeHash={activeHash} topicId={topicId} />
       </div>
