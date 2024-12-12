@@ -14,14 +14,32 @@ class BlockTypeSeeder extends Seeder
     {
         BlockType::insert([
             [
-                'title' => 'description',
-                'attributes' => null,
+                'type' => 'title',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
-                'title' => 'copy_code',
-                'attributes' => null,
+                'title' => 'subtitle',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'title' => 'description',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'title' => 'list',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'title' => 'code_block',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'title' => 'screenshot',
                 'created_at' => now(),
                 'updated_at' => now()
             ],

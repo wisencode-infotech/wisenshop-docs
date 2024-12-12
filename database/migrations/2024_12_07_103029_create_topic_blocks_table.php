@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('topic_blocks', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('topic_id');
-            $table->string('title');
             $table->unsignedBigInteger('block_type_id');
             $table->json('attributes')->nullable();
+            $table->unsignedBigInteger('order');
             $table->timestamps();
     
             $table->foreign('topic_id')->references('id')->on('block_types')->onDelete('cascade');

@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('block_types', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->json('attributes')->nullable();
+            $table->string('type');
             $table->timestamps();
         });
     }

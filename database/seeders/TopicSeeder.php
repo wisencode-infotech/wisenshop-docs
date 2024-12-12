@@ -10,11 +10,16 @@ class TopicSeeder extends Seeder
     public function run()
     {
         Topic::insert([
-            ['name' => 'Introduction', 'link' => '#topic1'],
-            ['name' => 'Getting Started', 'link' => '#topic2'],
-            ['name' => 'Features', 'link' => '#topic3'],
-            ['name' => 'Customization', 'link' => '#topic4'],
-            ['name' => 'FAQs', 'link' => '#topic5'],
+            ['name' => 'Introduction', 'link' => '#introduction'],
+            ['name' => 'Installer', 'link' => '#installer'],
+            ['name' => 'Themes', 'link' => '#themes'],
+            ['name' => 'Payment Methods', 'link' => '#payment-methods'],
+            ['name' => 'Home Page Settings', 'link' => '#home-page-settings'],
+            ['name' => 'Footer Segments', 'link' => '#footer-segments'],
+            ['name' => 'Custom Pages', 'link' => '#custom-pages'],
+            ['name' => 'Backend Site Settings', 'link' => '#backend-site-settings'],
+            ['name' => 'Terminal Commands', 'link' => '#terminal-commands'],
+            ['name' => 'FAQs', 'link' => '#faqs'],
         ]);
     }
 }
