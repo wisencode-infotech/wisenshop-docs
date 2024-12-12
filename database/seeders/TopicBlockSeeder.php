@@ -23,32 +23,24 @@ class TopicBlockSeeder extends Seeder
             ],
             [
                 'topic_id' => 1,
-                'block_type_id' => 3,
-                'attributes' => json_encode(['text' => 'Here, you’ll discover comprehensive technical details and configuration guides to help you seamlessly integrate and optimize our script for your needs. Whether you’re setting up or fine-tuning, this resource is designed to empower you with the knowledge to make the most of WisenShop’s powerful features.']),
+                'block_type_id' => 7,
+                'attributes' => json_encode(['type' => 'info', 'title' => 'Benifits', 'icon' => 'fa-solid fa-list', 'text' => 'Here, you’ll discover comprehensive technical details and configuration guides to help you seamlessly integrate and optimize our script for your needs. Whether you’re setting up or fine-tuning, this resource is designed to empower you with the knowledge to make the most of WisenShop’s powerful features.']),
                 'order' => 2,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
                 'topic_id' => 2,
-                'block_type_id' => 1,
-                'attributes' => json_encode(['text' => 'Installer Guide']),
-                'order' => 1,    
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'topic_id' => 2,
-                'block_type_id' => 3,
-                'attributes' => json_encode(['text' => 'The installer provides two methods for setting up the application. Both methods ensure a fully configured website with essential defaults:']),
+                'block_type_id' => 7,
+                'attributes' => json_encode(['type' => 'warning', 'title' => 'Installer will do below operations on the application level', 'icon' => 'fa-solid fa-check-circle', 'text' => '<ul><li>Database creation</li><li>Migration execution</li><li>Seeder execution</li><li>Setting up default website configurations in the database</li></ul>']),
                 'order' => 2,    
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
                 'topic_id' => 2,
-                'block_type_id' => 4,
-                'attributes' => json_encode(['list' => ["Database creation", "Migration execution", "Seeder execution", "Setting up default website configurations in the database"]]),
+                'block_type_id' => 1,
+                'attributes' => json_encode(['text' => 'We provide two methods for setting up the application. Both methods ensure a fully configured website with essential defaults']),
                 'order' => 3,    
                 'created_at' => now(),
                 'updated_at' => now()
@@ -100,15 +92,12 @@ class TopicBlockSeeder extends Seeder
             ],
             [
                 'topic_id' => 2,
-                'block_type_id' => 3,
-                'attributes' => json_encode(['text' => '<h3>Output:</h3><p>Once the command executes successfully, you will see a confirmation message like:</p><pre>Installation completed successfully. Your application is ready to use!</pre>']),
+                'block_type_id' => 7,
+                'attributes' => json_encode(['type' => 'success', 'title' => 'Output', 'icon' => 'fa-solid fa-info-circle', 'text' => 'Once the command executes successfully, you will see a confirmation message as mentioned below: <br><strong>Installation completed successfully. Your application is ready to use!</strong>']),
                 'order' => 9,    
                 'created_at' => now(),
                 'updated_at' => now()
             ]
-
-            
-
         ]);
     }
 }

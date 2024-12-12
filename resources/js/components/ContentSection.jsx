@@ -5,6 +5,7 @@ import Subtitle from '../components/Subtitle/Subtitle';
 import Description from '../components/Description/Description';
 import CodeBlock from '../components/CodeBlock/CodeBlock';
 import List from '../components/List/List';
+import Note from '../components/Note/Note';
 
 const ContentSection = ({ activeHash, topicId }) => {
   const [topic, setTopic] = useState(null);
@@ -69,6 +70,15 @@ const ContentSection = ({ activeHash, topicId }) => {
                   buttonText={parsedAttributes?.copy_btn_text}
                   copyContent={parsedAttributes?.copy_content}
                 />
+              )}
+
+              {block.block_type.type === 'note' && (
+                  <Note
+                    type={parsedAttributes?.type}
+                    title={parsedAttributes?.title}
+                    icon={parsedAttributes?.icon}
+                    text={parsedAttributes?.text}
+                  />
               )}
               
               {block.block_type.type === 'list' && (
