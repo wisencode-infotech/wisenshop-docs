@@ -147,8 +147,7 @@ class TopicBlockSeeder extends Seeder
                     'icon' => 'fa-solid fa-check-circle',
                     'text' => '<ul>
                         <li><strong>Database Configuration:</strong> Enter database hostname, username, password, and database name. Test the connection to ensure the details are correct.</li>
-                        <li><strong>Admin Settings:</strong> Configure the website\'s admin email, username, and password.</li>
-                        <li><strong>Default Configurations:</strong> Provide details for default website settings such as site name, time zone, and logo (optional).</li>
+                        <li><strong>Default Configurations:</strong> Provide details for default website settings such as site name.</li>
                         <li><strong>Installation Execution:</strong> Click the "Install" button to complete the setup.</li>
                     </ul>'
                 ]),
@@ -747,6 +746,118 @@ class TopicBlockSeeder extends Seeder
                 'order' => 10,
                 'created_at' => now(),
                 'updated_at' => now()
+            ],
+            [
+                'topic_id' => 8,
+                'block_type_id' => 1,
+                'attributes' => json_encode(['text' => 'Overview']),
+                'order' => 1,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'topic_id' => 8,
+                'block_type_id' => 3,
+                'attributes' => json_encode([
+                    'text' => 'Backend Site Settings allow you to configure the foundational elements of your website\'s backend, including contact information, logos, correspondence preferences, social media links, and general settings. These options help ensure your website reflects your brand identity and meets user needs.'
+                ]),
+                'order' => 2,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'topic_id' => 8,
+                'block_type_id' => 1,
+                'attributes' => json_encode(['text' => 'List of Available Settings']),
+                'order' => 3,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'topic_id' => 8,
+                'block_type_id' => 7,
+                'attributes' => json_encode([
+                    'type' => 'info',
+                    'title' => 'Order Settings',
+                    'icon' => 'fa-solid fa-check-circle',
+                    'text' => '<ul>
+                        <li><strong>Order Number Prefix:</strong> Specify a prefix for order numbers (e.g., ORD-, WS-). This helps in easily identifying and managing orders in your system.</li>
+                    </ul>'
+                ]),
+                'order' => 4,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'topic_id' => 8,
+                'block_type_id' => 7,
+                'attributes' => json_encode([
+                    'type' => 'info',
+                    'title' => 'General Settings',
+                    'icon' => 'fa-solid fa-check-circle',
+                    'text' => '<ul>
+                        <li><strong>Site Title:</strong> Define the title of your website that will appear in the browser tab and other metadata areas.</li>
+                        <li><strong>Site Currency:</strong> Set the default currency for your website (e.g., USD, EUR).</li>
+                        <li><strong>Site Locale:</strong> Configure the website\'s locale for language and regional settings.</li>
+                    </ul>'
+                ]),
+                'order' => 5,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'topic_id' => 8,
+                'block_type_id' => 7,
+                'attributes' => json_encode([
+                    'type' => 'info',
+                    'title' => 'Logos',
+                    'icon' => 'fa-solid fa-check-circle',
+                    'text' => '<ul>
+                        <li><strong>Header Logo:</strong> The logo displayed in the header section of your website.</li>
+                        <li><strong>Footer Logo:</strong> The logo displayed in the footer section of your website.</li>
+                        <li><strong>Fav Icon (Logo):</strong> The favicon logo that appears in the browser tab.</li>
+                        <li><strong>Email Header Logo:</strong> The logo displayed in the header of emails sent from your website.</li>
+                    </ul>'
+                ]),
+                'order' => 6,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'topic_id' => 8,
+                'block_type_id' => 7,
+                'attributes' => json_encode([
+                    'type' => 'info',
+                    'title' => 'Contact Information',
+                    'icon' => 'fa-solid fa-check-circle',
+                    'text' => '<ul>
+                        <li><strong>Phone Number:</strong> Primary phone number (e.g., 9696669999).</li>
+                        <li><strong>Email:</strong> The main email address for your website (e.g., example@domain.com).</li>
+                        <li><strong>Address:</strong> Physical address of your business (e.g., 123 Example Street, Sample City, ST 12345).</li>
+                        <li><strong>Website URL:</strong> The URL of your website (e.g., https://www.example.com).</li>
+                    </ul>'
+                ]),
+                'order' => 7,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'topic_id' => 8,
+                'block_type_id' => 7,
+                'attributes' => json_encode([
+                    'type' => 'info',
+                    'title' => 'Social Media Links',
+                    'icon' => 'fa-solid fa-check-circle',
+                    'text' => '<ul>
+                        <li><strong>Twitter Link</strong></li>
+                        <li><strong>Facebook Link</strong></li>
+                        <li><strong>Instagram Link</strong></li>
+                        <li><strong>Copyright Link </strong> (e.g., "© 2024 WisenShop. All rights reserved.")</li>
+                    </ul>'
+                ]),
+                'order' => 8,
+                'created_at' => now(),
+                'updated_at' => now(),
             ]
         ]);
     }
