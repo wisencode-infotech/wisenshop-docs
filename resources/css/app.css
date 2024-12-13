@@ -3,3 +3,20 @@
 @tailwind utilities;
 
 
+.main-content{
+    overflow-y: auto;
+    height: 100vh;
+}
+
+.left-sidebar{
+    overflow-y: auto;
+}
+
+code {
+    background-color: #f4f4f4;
+    color: #c7254e;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.95em;
+}

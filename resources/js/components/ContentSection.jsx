@@ -6,6 +6,7 @@ import Description from '../components/Description/Description';
 import CodeBlock from '../components/CodeBlock/CodeBlock';
 import List from '../components/List/List';
 import Note from '../components/Note/Note';
+import Screenshot from '../components/Screenshot/Screenshot';
 
 const ContentSection = ({ activeHash, topicId }) => {
   const [topic, setTopic] = useState(null);
@@ -38,8 +39,8 @@ const ContentSection = ({ activeHash, topicId }) => {
   }
 
   return (
-    <main className="flex-1 p-6">
-      <div className="bg-gray-800 rounded-xl shadow-lg p-8">
+    <main className="flex-1 p-6 main-content">
+      <div className="bg-gray-800 rounded-xl shadow-lg p-8 right-side-content">
         <h2 className="text-3xl font-bold text-gray-100 mb-4">{topic.name}</h2>
         {topic.blocks.map((block) => {
           let parsedAttributes = {};
@@ -83,6 +84,14 @@ const ContentSection = ({ activeHash, topicId }) => {
               
               {block.block_type.type === 'list' && (
                 <List items={parsedAttributes?.list || []} />
+              )}
+
+              {block.block_type.type === 'screenshot' && (
+                <Screenshot
+                  title={parsedAttributes?.title}
+                  description={parsedAttributes?.description}
+                  imageUrl={parsedAttributes?.imageUrl} // Pass the image URL
+                />
               )}
             </div>
           );

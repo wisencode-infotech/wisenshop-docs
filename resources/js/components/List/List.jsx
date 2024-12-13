@@ -5,7 +5,7 @@ const List = ({ items }) => {
   return (
     <ul className="list-disc pl-6 text-gray-400">
       {items.map((item, index) => (
-        <li key={index} className="mb-2">{item}</li>
+        <li key={index} className="mb-2" dangerouslySetInnerHTML={{ __html: item }}></li>
       ))}
     </ul>
   );
