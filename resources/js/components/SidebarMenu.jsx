@@ -27,7 +27,7 @@ const SidebarMenu = ({activeHash}) => {
                 key={topic.id}
                 href={`${topic.link}`} // Use hash links
                 className={`flex items-center space-x-3 py-3 px-4 rounded-lg ${
-                  isActive ? "bg-theme-dark text-white" : "text-gray-700"
+                  isActive ? "bg-theme-dark text-white" : "text-gray-400"
                 } group`}
               >
                 <i className="fa-solid fa-arrow-right"></i>

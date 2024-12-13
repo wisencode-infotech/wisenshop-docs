@@ -11,7 +11,7 @@ class Topic extends Model
 
     public function blocks()
     {
-        return $this->hasMany(TopicBlock::class);
+        return $this->hasMany(TopicBlock::class)->orderBy('order', 'asc');
     }
 }
 
