@@ -41,11 +41,23 @@ const ScreenshotGallery = ({ images }) => {
 
       {/* Modal for the image */}
       {isModalOpen && (
-        <ImageModal
-          image={images[currentIndex]}
-          closeModal={closeModal}
-        />
-      )}
+            <ImageModal
+                isOpen={isModalOpen}
+                imageUrl={images[currentIndex].imageUrl}
+                title={images[currentIndex].title}
+                description={images[currentIndex].description}
+                closeModal={closeModal}
+                zoomIn={() => {}} 
+                zoomOut={() => {}}
+                resetZoom={() => {}}
+                moveImage={() => {}}
+                showNextImage={() => setCurrentIndex((prev) => (prev + 1) % images.length)}
+                showPreviousImage={() => setCurrentIndex((prev) => (prev - 1 + images.length) % images.length)}
+                zoomLevel={1} 
+                offset={{ x: 0, y: 0 }}
+                isSingleImage={images.length === 1}
+            />
+        )}
     </div>
   );
 };
