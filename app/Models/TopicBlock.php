@@ -15,4 +15,9 @@ class TopicBlock extends Model
     {
         return $this->belongsTo(BlockType::class, 'block_type_id');
     }
+
+    public function topic()
+    {
+        return $this->belongsTo(Topic::class, 'topic_id');
+    }
 }

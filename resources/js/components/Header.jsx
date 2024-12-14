@@ -1,25 +1,108 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const Header = () => {
+    const [isSearchOpen, setIsSearchOpen] = useState(false);
+    const [searchQuery, setSearchQuery] = useState("");
+    const [searchResults, setSearchResults] = useState({ topics: [], block_types: [], topic_blocks: [] });
+    const [isLoading, setIsLoading] = useState(false);
+
+    useEffect(() => {
+        if (searchQuery.trim() === "") {
+            setSearchResults({ topics: [], block_types: [], topic_blocks: [] });
+            return;
+        }
+
+        const timer = setTimeout(async () => {
+            setIsLoading(true);
+            try {
+                const response = await axios.get("/api/search", {
+                    params: { query: searchQuery },
+                });
+                setSearchResults(response.data);
+            } catch (error) {
+                console.error("Error fetching search results:", error);
+            } finally {
+                setIsLoading(false);
+            }
+        }, 500);
+
+        return () => clearTimeout(timer);
+    }, [searchQuery]);
+
+    const handleSearchChange = (e) => {
+        setSearchQuery(e.target.value);
+    };
+
+    const handleResultClick = () => {
+        setIsSearchOpen(false);
+        setSearchQuery(""); // Reset search query when closing
+    };
+
+    // Function to highlight the matched query in the result text
+    const highlightText = (text) => {
+        if (!searchQuery.trim()) return text;
+        const regex = new RegExp(`(${searchQuery.trim()})`, "gi");
+        return text.split(regex).map((part, index) =>
+            part.toLowerCase() === searchQuery.trim().toLowerCase() ? (
+                <span key={index} className="font-bold text-white">{part}</span>
+            ) : (
+                part
+            )
+        );
+    };
+
     return (
         <header className="bg-gray-800 shadow-lg sticky top-0 z-10">
-        <div className="container mx-auto flex items-center justify-between px-6 py-4">
-            <div className="flex items-center space-x-3"></div>
-            <div className="hidden md:flex flex-grow max-w-md mx-4">
-                <input 
-                    type="text" 
-                    placeholder="Search..." 
-                    className="w-full px-4 py-2 bg-gray-700 rounded-lg text-gray-300 focus:outline-none focus:ring-1 focus:ring-theme"
-                />
+            <div className="container mx-auto flex items-center justify-center px-6 py-4">
+                <div className="flex items-center space-x-3"></div>
+                <div className="flex-grow max-w-md mx-4 cursor-pointer" onClick={() => setIsSearchOpen(!isSearchOpen)}>
+                    <button className="w-full px-4 py-2 bg-gray-700 rounded-lg text-gray-300 focus:outline-none focus:ring-1 focus:ring-theme">
+                        Search
+                    </button>
+                </div>
             </div>
 
-            <div>
-                <select className="px-4 py-2 bg-gray-700 rounded-lg text-gray-300 focus:outline-none focus:ring-1 focus:ring-theme">
-                    <option>v1.0</option>
-                </select>
-            </div>
-        </div>
-    </header>
+            {isSearchOpen && (
+                <div className="fixed inset-0 bg-gray-800 bg-opacity-70 flex justify-center items-center z-20" onClick={() => setIsSearchOpen(false)}>
+                    <div
+                        className="relative w-full max-w-lg p-8 bg-gray-700 rounded-lg" 
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <input
+                            type="text"
+                            placeholder="Search..."
+                            value={searchQuery}
+                            onChange={handleSearchChange}
+                            className="w-full px-4 py-2 bg-gray-600 rounded-lg text-gray-300 focus:outline-none focus:ring-1 focus:ring-theme"
+                        />
+                        
+                        {isLoading && <p className="text-gray-300">Loading...</p>}
+                        
+                        {(searchResults.topics.length > 0) && (
+                            <div className="mt-2">
+                                {searchResults.topics.map((result) => (
+                                    <div
+                                        key={result.id}
+                                        className="p-2 hover:bg-gray-600 rounded-lg cursor-pointer"
+                                        onClick={handleResultClick}
+                                    >
+                                        <a href={result.link} className="text-gray-300">
+                                            {highlightText(`#${result.name}`)}
+                                        </a>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+
+                        {searchQuery.trim() !== "" && !isLoading && searchResults.topics.length === 0 && (
+                            <p className="text-gray-400 mt-2">No results found.</p>
+                        )}
+                        
+                    </div>
+                </div>
+            )}
+        </header>
     );
 };
 
