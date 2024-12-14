@@ -3,32 +3,9 @@ import ImageModal from "./ImageModal"; // Import ImageModal
 
 const ScreenshotImage = ({ title, description, imageUrl }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [zoomLevel, setZoomLevel] = useState(1);
-  const [offset, setOffset] = useState({ x: 0, y: 0 });
 
   const openModal = () => setIsModalOpen(true);
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setZoomLevel(1);
-    setOffset({ x: 0, y: 0 });
-  };
-
-  const zoomIn = () => setZoomLevel((prev) => Math.min(prev + 0.2, 3));
-  const zoomOut = () => setZoomLevel((prev) => Math.max(prev - 0.2, 0.5));
-  const resetZoom = () => {
-    setZoomLevel(1);
-    setOffset({ x: 0, y: 0 });
-  };
-
-  const moveImage = (e) => {
-    if (zoomLevel <= 1) return;
-    const container = e.currentTarget.getBoundingClientRect();
-    const mouseX = e.clientX - container.left;
-    const mouseY = e.clientY - container.top;
-    const newOffsetX = (mouseX - container.width / 2) / 5;
-    const newOffsetY = (mouseY - container.height / 2) / 5;
-    setOffset({ x: newOffsetX, y: newOffsetY });
-  };
+  const closeModal = () => setIsModalOpen(false);
 
   return (
     <div className="mb-6">
@@ -65,12 +42,6 @@ const ScreenshotImage = ({ title, description, imageUrl }) => {
         title={title}
         description={description}
         closeModal={closeModal}
-        zoomIn={zoomIn}
-        zoomOut={zoomOut}
-        resetZoom={resetZoom}
-        moveImage={moveImage}
-        zoomLevel={zoomLevel}
-        offset={offset}
         isSingleImage={true}
       />
     </div>

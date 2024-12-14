@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const ImageModal = ({
   isOpen,
@@ -6,17 +6,52 @@ const ImageModal = ({
   title,
   description,
   closeModal,
-  zoomIn,
-  zoomOut,
-  resetZoom,
-  moveImage,
   showNextImage,
   showPreviousImage,
-  zoomLevel,
-  offset,
   isSingleImage
 }) => {
-  if (!isOpen) return null;
+  const [zoomLevel, setZoomLevel] = useState(1); // Zoom level state
+  const [offset, setOffset] = useState({ x: 0, y: 0 }); // Offset state for moving the image
+
+  useEffect(() => {
+    // Reset zoom and offset when modal is opened
+    if (isOpen) {
+      setZoomLevel(1);
+      setOffset({ x: 0, y: 0 });
+    }
+  }, [isOpen]);
+
+  // Zoom in
+  const zoomIn = () => {
+    setZoomLevel((prevZoom) => Math.min(prevZoom + 0.1, 3)); // Max zoom level 3
+  };
+
+  // Zoom out
+  const zoomOut = () => {
+    setZoomLevel((prevZoom) => Math.max(prevZoom - 0.1, 1)); // Min zoom level 1
+  };
+
+  // Reset zoom and offset
+  const resetZoom = () => {
+    setZoomLevel(1);
+    setOffset({ x: 0, y: 0 });
+  };
+
+  // Move image when zoomed in
+  const moveImage = (e) => {
+    if (zoomLevel > 1) {
+      const newOffset = {
+        x: e.clientX - e.target.offsetWidth / 2,
+        y: e.clientY - e.target.offsetHeight / 2,
+      };
+      setOffset(newOffset);
+    }
+  };
+
+  // Prevent the modal from closing when clicking inside the modal content
+  const stopPropagation = (e) => e.stopPropagation();
+
+  if (!isOpen) return null; // If modal is not open, don't render it
 
   return (
     <div
@@ -24,8 +59,8 @@ const ImageModal = ({
       onClick={closeModal}
     >
       <div
-        className="relative w-[70vw] p-0 max-h-[80vh] flex flex-col justify-between"
-        onClick={(e) => e.stopPropagation()} // Prevent closing modal on content click
+        className="relative w-[70vw] max-h-[80vh] flex flex-col justify-between"
+        onClick={stopPropagation} // Prevent closing modal on content click
       >
         {/* Header with Title and Description */}
         <div className="mb-0 bg-theme-dark bg-opacity-75 p-2 rounded-t-lg">
@@ -37,9 +72,7 @@ const ImageModal = ({
         <div
           className="relative w-full h-full overflow-hidden"
           onMouseMove={moveImage}
-          style={{
-            cursor: zoomLevel > 1 ? "move" : "default",
-          }}
+          style={{ cursor: zoomLevel > 1 ? "move" : "default" }}
         >
           <img
             src={imageUrl}
@@ -49,20 +82,21 @@ const ImageModal = ({
               transform: `scale(${zoomLevel}) translate(${offset.x}px, ${offset.y}px)`,
               transition: "transform 0.3s ease",
             }}
+            onClick={resetZoom} // Reset zoom when clicked
           />
         </div>
 
-        {/* Navigation Controls */}
+        {/* Navigation Controls (Show when more than one image) */}
         {!isSingleImage && (
           <>
             <button
-              className="absolute top-1/2 left-4 transform -translate-y-1/2 text-white bg-gray-800 hover:bg-gray-600 rounded-full p-2"
+              className="absolute top-1/2 left-4 transform -translate-y-1/2 text-white bg-gray-700 hover:bg-gray-600 rounded-full p-1 px-3"
               onClick={showPreviousImage}
             >
               <i className="fas fa-chevron-left text-2xl"></i>
             </button>
             <button
-              className="absolute top-1/2 right-4 transform -translate-y-1/2 text-white bg-gray-800 hover:bg-gray-600 rounded-full p-2"
+              className="absolute top-1/2 right-4 transform -translate-y-1/2 text-white bg-gray-700 hover:bg-gray-600 rounded-full p-1 px-3"
               onClick={showNextImage}
             >
               <i className="fas fa-chevron-right text-2xl"></i>
@@ -72,7 +106,7 @@ const ImageModal = ({
 
         {/* Close Button */}
         <button
-          className="absolute top-1 right-2 text-white text-white hover:text-gray-300 p-1 px-3"
+          className="absolute top-1 right-2 text-white hover:text-gray-300 p-1 px-3"
           onClick={closeModal}
         >
           <i className="fas fa-times"></i>
@@ -80,29 +114,29 @@ const ImageModal = ({
 
         {/* Zoom Controls */}
         <div
-        className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-4 bg-gray-800 bg-opacity-80 p-2 rounded-lg"
+          className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-4 bg-gray-800 bg-opacity-80 p-2 rounded-lg"
         >
-            <button
-                onClick={zoomIn}
-                className="text-white hover:text-green-400 transition"
-                title="Zoom In"
-            >
-                <i className="fas fa-search-plus text-lg"></i>
-            </button>
-            <button
-                onClick={zoomOut}
-                className="text-white hover:text-red-400 transition"
-                title="Zoom Out"
-            >
-                <i className="fas fa-search-minus text-lg"></i>
-            </button>
-            <button
-                onClick={resetZoom}
-                className="text-white hover:text-blue-400 transition"
-                title="Reset Zoom"
-            >
-                <i className="fas fa-sync text-lg"></i>
-            </button>
+          <button
+            onClick={zoomIn}
+            className="text-white hover:text-green-400 transition"
+            title="Zoom In"
+          >
+            <i className="fas fa-search-plus text-lg"></i>
+          </button>
+          <button
+            onClick={zoomOut}
+            className="text-white hover:text-red-400 transition"
+            title="Zoom Out"
+          >
+            <i className="fas fa-search-minus text-lg"></i>
+          </button>
+          <button
+            onClick={resetZoom}
+            className="text-white hover:text-blue-400 transition"
+            title="Reset Zoom"
+          >
+            <i className="fas fa-sync text-lg"></i>
+          </button>
         </div>
       </div>
     </div>
