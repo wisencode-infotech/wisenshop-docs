@@ -753,17 +753,15 @@ class TopicBlockSeeder extends Seeder
                 'attributes' => json_encode(['text' => 'Overview']),
                 'order' => 1,
                 'created_at' => now(),
-                'updated_at' => now()
+                'updated_at' => now(),
             ],
             [
                 'topic_id' => 8,
                 'block_type_id' => 3,
-                'attributes' => json_encode([
-                    'text' => 'Backend Site Settings allow you to configure the foundational elements of your website\'s backend, including contact information, logos, correspondence preferences, social media links, and general settings. These options help ensure your website reflects your brand identity and meets user needs.'
-                ]),
+                'attributes' => json_encode(['text' => 'Backend Site Settings allow you to configure the foundational elements of your website\'s backend, including contact information, logos, correspondence preferences, social media links, and general settings. These options help ensure your website reflects your brand identity and meets user needs.']),
                 'order' => 2,
                 'created_at' => now(),
-                'updated_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'topic_id' => 8,
@@ -771,7 +769,7 @@ class TopicBlockSeeder extends Seeder
                 'attributes' => json_encode(['text' => 'List of Available Settings']),
                 'order' => 3,
                 'created_at' => now(),
-                'updated_at' => now()
+                'updated_at' => now(),
             ],
             [
                 'topic_id' => 8,
@@ -858,7 +856,391 @@ class TopicBlockSeeder extends Seeder
                 'order' => 8,
                 'created_at' => now(),
                 'updated_at' => now(),
+            ],
+            [
+                'topic_id' => 8,
+                'block_type_id' => 1,
+                'attributes' => json_encode(['text' => 'Backend Site Settings Screenshot']),
+                'order' => 9,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'topic_id' => 8,
+                'block_type_id' => 6,
+                'attributes' => json_encode([
+                    'title' => '',
+                    'description' => '',
+                    'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-backend-setting1.png'
+                ]),
+                'order' => 10,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'topic_id' => 8,
+                'block_type_id' => 6,
+                'attributes' => json_encode([
+                    'title' => '',
+                    'description' => '',
+                    'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-backend-setting2.png'
+                ]),
+                'order' => 11,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'topic_id' => 8,
+                'block_type_id' => 6,
+                'attributes' => json_encode([
+                    'title' => '',
+                    'description' => '',
+                    'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-backend-setting3.png'
+                ]),
+                'order' => 12,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'topic_id' => 9,
+                'block_type_id' => 1,
+                'attributes' => json_encode(['text' => 'Overview']),
+                'order' => 1,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'topic_id' => 9,
+                'block_type_id' => 3,
+                'attributes' => json_encode(['text' => 'This section provides a list of terminal commands used to manage, maintain, and interact with the this application.']),
+                'order' => 2,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'topic_id' => 9,
+                'block_type_id' => 2,
+                'attributes' => json_encode(['text' => '1. Installation Commands']),
+                'order' => 3,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'topic_id' => 9,
+                'block_type_id' => 5,
+                'attributes' => json_encode([
+                    'title' => 'Install system command:',
+                    'description' => 'php artisan wisenshop:fresh-install',
+                    'copy_btn_text' => 'Copy',
+                    'copy_content' => 'php artisan wisenshop:fresh-install',
+                    ]),
+                'order' => 4,    
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'topic_id' => 9,
+                'block_type_id' => 2,
+                'attributes' => json_encode(['text' => '2. Development Commands']),
+                'order' => 5,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'topic_id' => 9,
+                'block_type_id' => 5,
+                'attributes' => json_encode([
+                    'title' => 'Running the Development Server:',
+                    'description' => 'php artisan serve',
+                    'copy_btn_text' => 'Copy',
+                    'copy_content' => 'php artisan serve',
+                    ]),
+                'order' => 6,    
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'topic_id' => 9,
+                'block_type_id' => 5,
+                'attributes' => json_encode([
+                    'title' => 'Building Assets:',
+                    'description' => 'npm run build',
+                    'copy_btn_text' => 'Copy',
+                    'copy_content' => 'npm run build',
+                    ]),
+                'order' => 7,    
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'topic_id' => 9,
+                'block_type_id' => 2,
+                'attributes' => json_encode(['text' => '3. Database Commands']),
+                'order' => 8,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'topic_id' => 9,
+                'block_type_id' => 5,
+                'attributes' => json_encode([
+                    'title' => 'Setting Up the Database:',
+                    'description' => 'php artisan migrate',
+                    'copy_btn_text' => 'Copy',
+                    'copy_content' => 'php artisan migrate',
+                    ]),
+                'order' => 9,    
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'topic_id' => 9,
+                'block_type_id' => 5,
+                'attributes' => json_encode([
+                    'title' => 'Seeding the Database:',
+                    'description' => 'php artisan db:seed',
+                    'copy_btn_text' => 'Copy',
+                    'copy_content' => 'php artisan db:seed',
+                    ]),
+                'order' => 10,    
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'topic_id' => 9,
+                'block_type_id' => 5,
+                'attributes' => json_encode([
+                    'title' => 'Resetting the Database:',
+                    'description' => 'php artisan migrate:fresh --seed',
+                    'copy_btn_text' => 'Copy',
+                    'copy_content' => 'php artisan migrate:fresh --seed',
+                    ]),
+                'order' => 11,    
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'topic_id' => 9,
+                'block_type_id' => 2,
+                'attributes' => json_encode(['text' => '4. Maintenance Commands']),
+                'order' => 12,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'topic_id' => 9,
+                'block_type_id' => 5,
+                'attributes' => json_encode([
+                    'title' => 'Clearing Cache:',
+                    'description' => 'php artisan cache:clear',
+                    'copy_btn_text' => 'Copy',
+                    'copy_content' => 'php artisan cache:clear',
+                    ]),
+                'order' => 13,    
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'topic_id' => 9,
+                'block_type_id' => 5,
+                'attributes' => json_encode([
+                    'title' => 'Clearing Config Cache:',
+                    'description' => 'php artisan config:clear',
+                    'copy_btn_text' => 'Copy',
+                    'copy_content' => 'php artisan config:clear',
+                    ]),
+                'order' => 14,    
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'topic_id' => 9,
+                'block_type_id' => 2,
+                'attributes' => json_encode(['text' => 'Optimizing the Application']),
+                'order' => 15,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'topic_id' => 9,
+                'block_type_id' => 5,
+                'attributes' => json_encode([
+                    'title' => 'Optimizing the Application',
+                    'description' => 'php artisan optimize',
+                    'copy_btn_text' => 'Copy',
+                    'copy_content' => 'php artisan optimize',
+                    ]),
+                'order' => 16,    
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'topic_id' => 9,
+                'block_type_id' => 5,
+                'attributes' => json_encode([
+                    'title' => 'Managing Queues',
+                    'description' => 'php artisan queue:work',
+                    'copy_btn_text' => 'Copy',
+                    'copy_content' => 'php artisan queue:work',
+                    ]),
+                'order' => 17,    
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'topic_id' => 10,
+                'block_type_id' => 1,
+                'attributes' => json_encode(['text' => 'General']),
+                'order' => 1,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'topic_id' => 10,
+                'block_type_id' => 2,
+                'attributes' => json_encode(['text' => 'What is Wisenshop?']),
+                'order' => 2,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'topic_id' => 10,
+                'block_type_id' => 3,
+                'attributes' => json_encode(['text' => 'Wisenshop is a feature-rich e-commerce platform that allows you to create and manage online stores effortlessly.']),
+                'order' => 3,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'topic_id' => 10,
+                'block_type_id' => 2,
+                'attributes' => json_encode(['text' => 'Who can use Wisenshop?']),
+                'order' => 4,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'topic_id' => 10,
+                'block_type_id' => 3,
+                'attributes' => json_encode(['text' => 'Anyone looking to build an online store, from small business owners to large enterprises.']),
+                'order' => 5,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'topic_id' => 10,
+                'block_type_id' => 2,
+                'attributes' => json_encode(['text' => 'What are the system requirements for Wisenshop?']),
+                'order' => 6,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'topic_id' => 10,
+                'block_type_id' => 7,
+                'attributes' => json_encode(['type' => 'info', 'title' => 'System requirements', 'icon' => 'fa-solid fa-list', 'text' => '<ul><li>PHP 8.1 or higher</li><li>MySQL 8.0 or higher</li><li>Node.js 16 or higher</li><li>Composer 2.x</li></ul>']),
+                'order' => 7,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'topic_id' => 10,
+                'block_type_id' => 2,
+                'attributes' => json_encode(['text' => 'How do I configure the database?']),
+                'order' => 8,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'topic_id' => 10,
+                'block_type_id' => 7,
+                'attributes' => json_encode(['type' => 'warning', 'title' => 'Update your .env file with the database credentials:', 'icon' => 'fa-solid fa-list', 'text' => '<ul><li>DB_CONNECTION=mysql</li><li>DB_HOST=127.0.0.1</li><li>DB_PORT=3306</li><li>DB_USERNAME=your_username</li><li>DB_PASSWORD=your_password</li></ul>']),
+                'order' => 9,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'topic_id' => 10,
+                'block_type_id' => 1,
+                'attributes' => json_encode(['text' => 'Advanced']),
+                'order' => 10,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'topic_id' => 10,
+                'block_type_id' => 2,
+                'attributes' => json_encode(['text' => 'Can I integrate third-party APIs with Wisenshop?']),
+                'order' => 11,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'topic_id' => 10,
+                'block_type_id' => 3,
+                'attributes' => json_encode(['text' => 'Yes, Wisenshop is extensible and allows integration with third-party APIs. Use the ServiceProvider and middleware for seamless integration.']),
+                'order' => 12,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'topic_id' => 10,
+                'block_type_id' => 2,
+                'attributes' => json_encode(['text' => 'How do I enable SSL for my store?']),
+                'order' => 13,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'topic_id' => 10,
+                'block_type_id' => 3,
+                'attributes' => json_encode(['text' => 'Install an SSL certificate on your server and update the APP_URL in the .env file to use https.']),
+                'order' => 14,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'topic_id' => 10,
+                'block_type_id' => 2,
+                'attributes' => json_encode(['text' => 'Does Wisenshop support caching?']),
+                'order' => 15,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'topic_id' => 10,
+                'block_type_id' => 3,
+                'attributes' => json_encode(['text' => 'Yes, Wisenshop supports caching mechanisms like Redis and file-based caching. Configure the CACHE_DRIVER in your .env file.']),
+                'order' => 16,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'topic_id' => 10,
+                'block_type_id' => 1,
+                'attributes' => json_encode(['text' => 'Support']),
+                'order' => 17,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'topic_id' => 10,
+                'block_type_id' => 2,
+                'attributes' => json_encode(['text' => 'Where can I get help with Wisenshop?']),
+                'order' => 18,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'topic_id' => 10,
+                'block_type_id' => 7,
+                'attributes' => json_encode(['type' => 'warning', 'title' => 'You can get support from:', 'icon' => 'fa-solid fa-list', 'text' => '<ul><li>The official documentation.</li><li>Our community forum.</li><li>Email: support@wisenshop.com</li></ul>']),
+                'order' => 19,
+                'created_at' => now(),
+                'updated_at' => now()
             ]
+
+
         ]);
     }
 }

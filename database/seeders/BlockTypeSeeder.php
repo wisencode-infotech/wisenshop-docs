@@ -47,7 +47,7 @@ class BlockTypeSeeder extends Seeder
                 'title' => 'note',
                 'created_at' => now(),
                 'updated_at' => now()
-            ],
+            ]
         ]);
     }
 }
