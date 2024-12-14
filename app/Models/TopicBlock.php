@@ -9,7 +9,7 @@ class TopicBlock extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['topic_id', 'title', 'block_type_id', 'attributes'];
+    protected $fillable = ['topic_id', 'title', 'block_type_id', 'attributes','order','start_content_level'];
 
     public function blockType()
     {

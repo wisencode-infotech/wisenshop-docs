@@ -18,6 +18,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 1,
                 'attributes' => json_encode(['text' => 'Welcome to the WisenShop Documentation!']),
                 'order' => 1,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -26,6 +27,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 7,
                 'attributes' => json_encode(['type' => 'info', 'title' => 'Benifits', 'icon' => 'fa-solid fa-list', 'text' => 'Here, you’ll discover comprehensive technical details and configuration guides to help you seamlessly integrate and optimize our script for your needs. Whether you’re setting up or fine-tuning, this resource is designed to empower you with the knowledge to make the most of WisenShop’s powerful features.']),
                 'order' => 2,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -33,7 +35,8 @@ class TopicBlockSeeder extends Seeder
                 'topic_id' => 2,
                 'block_type_id' => 7,
                 'attributes' => json_encode(['type' => 'warning', 'title' => 'Installer will do below operations on the application level', 'icon' => 'fa-solid fa-check-circle', 'text' => '<ul><li>Database creation</li><li>Migration execution</li><li>Seeder execution</li><li>Setting up default website configurations in the database</li></ul>']),
-                'order' => 2,    
+                'order' => 2,
+                'start_content_level' => 1,    
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -42,6 +45,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 1,
                 'attributes' => json_encode(['text' => 'We provide two methods for setting up the application. Both methods ensure a fully configured website with essential defaults']),
                 'order' => 3,    
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -50,6 +54,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 1,
                 'attributes' => json_encode(['text' => '1. Setup Using the Command Line']),
                 'order' => 4,    
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -57,7 +62,8 @@ class TopicBlockSeeder extends Seeder
                 'topic_id' => 2,
                 'block_type_id' => 3,
                 'attributes' => json_encode(['text' => 'This is the quickest and easiest way to set up the application. Suitable for users comfortable with the command line interface.']),
-                'order' => 5,    
+                'order' => 5,  
+                'start_content_level' => 2, 
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -66,6 +72,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 2,
                 'attributes' => json_encode(['text' => 'Steps:']),
                 'order' => 6,    
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -73,7 +80,8 @@ class TopicBlockSeeder extends Seeder
                 'topic_id' => 2,
                 'block_type_id' => 4,
                 'attributes' => json_encode(['list' => ["Open your terminal or command prompt", "Navigate to your project directory"]]),
-                'order' => 7,    
+                'order' => 7,   
+                'start_content_level' => 3, 
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -86,7 +94,8 @@ class TopicBlockSeeder extends Seeder
                     'copy_btn_text' => 'Copy',
                     'copy_content' => 'php artisan wisenshop:fresh-install',
                     ]),
-                'order' => 8,    
+                'order' => 8,  
+                'start_content_level' => 2,  
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -94,7 +103,8 @@ class TopicBlockSeeder extends Seeder
                 'topic_id' => 2,
                 'block_type_id' => 7,
                 'attributes' => json_encode(['type' => 'success', 'title' => 'Output', 'icon' => 'fa-solid fa-info-circle', 'text' => 'Once the command executes successfully, you will see a confirmation message as mentioned below: <br><strong>Installation completed successfully. Your application is ready to use!</strong>']),
-                'order' => 9,    
+                'order' => 9,   
+                'start_content_level' => 2, 
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -103,6 +113,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 1,
                 'attributes' => json_encode(['text' => '2. Setup Through the Website']),
                 'order' => 10,    
+                'start_content_level' => 1, 
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -111,6 +122,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 3,
                 'attributes' => json_encode(['text' => 'This method is user-friendly and suitable for non-technical users. It allows configuration directly from the browser.']),
                 'order' => 11,    
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -119,6 +131,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 2,
                 'attributes' => json_encode(['text' => 'How It Works:']),
                 'order' => 12,    
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -126,7 +139,8 @@ class TopicBlockSeeder extends Seeder
                 'topic_id' => 2,
                 'block_type_id' => 4,
                 'attributes' => json_encode(['list' => ["When a user visits the website for the first time, the system checks for the presence of the <code>.installer</code> file in the <code>storage</code> folder.", "If the <code>.installer</code> file is not found, the system redirects the user to the <strong>Setup Wizard</strong>."]]),
-                'order' => 13,    
+                'order' => 13,   
+                'start_content_level' => 3, 
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -135,6 +149,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 2,
                 'attributes' => json_encode(['text' => 'Setup Wizard:']),
                 'order' => 14,    
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -152,6 +167,7 @@ class TopicBlockSeeder extends Seeder
                     </ul>'
                 ]),
                 'order' => 15,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -160,6 +176,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 2,
                 'attributes' => json_encode(['text' => 'Post-Setup:']),
                 'order' => 16,    
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -167,7 +184,8 @@ class TopicBlockSeeder extends Seeder
                 'topic_id' => 2,
                 'block_type_id' => 4,
                 'attributes' => json_encode(['list' => ["After successful installation, the system creates a <code>.installer</code> file in the <code>storage</code> folder to prevent reinstallation.", "The user is redirected to the homepage or admin panel, depending on the configuration."]]),
-                'order' => 17,    
+                'order' => 17,  
+                'start_content_level' => 3,  
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -176,6 +194,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 2,
                 'attributes' => json_encode(['text' => 'Example Flow:']),
                 'order' => 18,    
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -183,7 +202,8 @@ class TopicBlockSeeder extends Seeder
                 'topic_id' => 2,
                 'block_type_id' => 2,
                 'attributes' => json_encode(['text' => '1. User visits the website for the first time:']),
-                'order' => 19,    
+                'order' => 19,   
+                'start_content_level' => 2, 
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -196,6 +216,7 @@ class TopicBlockSeeder extends Seeder
                     'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot.png'
                 ]),
                 'order' => 20,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -203,7 +224,8 @@ class TopicBlockSeeder extends Seeder
                 'topic_id' => 2,
                 'block_type_id' => 2,
                 'attributes' => json_encode(['text' => '2. System completes the setup and redirects:']),
-                'order' => 21,    
+                'order' => 21,  
+                'start_content_level' => 2,  
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -220,6 +242,7 @@ class TopicBlockSeeder extends Seeder
                         </ul>'
                 ]),
                 'order' => 22,
+                'start_content_level' => 3,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -228,6 +251,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 1,
                 'attributes' => json_encode(['text' => 'Overview']),
                 'order' => 1,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -236,6 +260,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 3,
                 'attributes' => json_encode(['text' => 'The Theme Settings allow administrators to customize the appearance of the website by selecting a theme and adjusting the colors for various elements. This section provides flexibility for maintaining consistent branding and a visually appealing design.']),
                 'order' => 2,    
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -244,6 +269,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 1,
                 'attributes' => json_encode(['text' => 'Theme Settings Section']),
                 'order' => 3,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -252,6 +278,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 2,
                 'attributes' => json_encode(['text' => '1. Site Colors']),
                 'order' => 4,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -260,6 +287,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 3,
                 'attributes' => json_encode(['text' => 'This section allows the administrator to customize the color palette of the website. The colors affect various frontend elements like buttons, links, backgrounds, borders, and text.']),
                 'order' => 5,    
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -268,6 +296,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 2,
                 'attributes' => json_encode(['text' => 'Available Color Settings:']),
                 'order' => 6,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -292,6 +321,7 @@ class TopicBlockSeeder extends Seeder
                     '<strong>Color-border-50 to Color-border-400: </strong>Variations in border color for different visual intensities, ideal for subtle borders.',
                 ]]),
                 'order' => 7,
+                'start_content_level' => 3,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -300,6 +330,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 2,
                 'attributes' => json_encode(['text' => 'Best Practices for Site Colors:']),
                 'order' => 8,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -315,6 +346,7 @@ class TopicBlockSeeder extends Seeder
                     '<strong>Color Blindness: </strong>Use color-blind-friendly design principles. Rely on color contrast, rather than color alone, to indicate key information or interactions.',
                 ]]),
                 'order' => 9,
+                'start_content_level' => 3,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -323,6 +355,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 2,
                 'attributes' => json_encode(['text' => '2. Site Theme Selection']),
                 'order' => 10,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -331,6 +364,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 3,
                 'attributes' => json_encode(['text' => 'At the bottom of the Theme Settings, administrators can select the desired Site Theme. This dropdown allows administrators to change the overall layout, design structure, and visual style of the frontend.']),
                 'order' => 11,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -339,6 +373,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 7,
                 'attributes' => json_encode(['type' => 'warning', 'title' => 'Steps to Select a Site Theme:', 'icon' => 'fa-solid fa-check-circle', 'text' => '<ul><li>Log in to the Admin Panel.</li><li>Navigate to <b>Settings</b> menu</li><li>Under <b>Site Theme</b>, select the preferred theme from the dropdown list (e.g., Default [Classis e-commerce theme]).</li><li>Click <b>Update</b> to apply the selected theme to the website.</li></ul>']),
                 'order' => 12,    
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -360,6 +395,7 @@ class TopicBlockSeeder extends Seeder
                     ]
                 ]),
                 'order' => 13,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -373,6 +409,7 @@ class TopicBlockSeeder extends Seeder
                     'text' => 'Make sure to back up your theme settings before making significant changes to avoid data loss or unintended configurations.'
                 ]),
                 'order' => 14,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -381,6 +418,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 1,
                 'attributes' => json_encode(['text' => 'Overview']),
                 'order' => 1,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -391,6 +429,7 @@ class TopicBlockSeeder extends Seeder
                     'text' => 'The Payment Methods module allows administrators to manage payment options for the system. It includes functionality to create, update, and delete payment methods while providing an option for integration with external APIs or services.'
                 ]),
                 'order' => 2,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -410,6 +449,7 @@ class TopicBlockSeeder extends Seeder
                     </ul>'
                 ]),
                 'order' => 3,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -418,6 +458,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 1,
                 'attributes' => json_encode(['text' => 'Payment Methods Screenshot']),
                 'order' => 4,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -439,6 +480,7 @@ class TopicBlockSeeder extends Seeder
                     ]
                 ]),
                 'order' => 5,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -447,6 +489,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 1,
                 'attributes' => json_encode(['text' => 'Overview']),
                 'order' => 1,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -457,6 +500,7 @@ class TopicBlockSeeder extends Seeder
                     'text' => 'The <b>Home Page</b> Settings section allows administrators to manage how products are displayed on the homepage of the website. It includes settings for default categories, banner configurations, and the default sorting method for products.'
                 ]),
                 'order' => 2,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -465,6 +509,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 1,
                 'attributes' => json_encode(['text' => '1. Default Categories']),
                 'order' => 3,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -475,6 +520,7 @@ class TopicBlockSeeder extends Seeder
                     'text' => '<b>Purpose:</b> This setting allows the admin to define which categories of products will appear on the home page by default. These categories can be toggled on or off, and only the categories that are enabled will be visible to users on the front-end.'
                 ]),
                 'order' => 4,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -492,6 +538,7 @@ class TopicBlockSeeder extends Seeder
                     </ul>'
                 ]),
                 'order' => 5,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -509,6 +556,7 @@ class TopicBlockSeeder extends Seeder
                     </ul>'
                 ]),
                 'order' => 6,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -517,6 +565,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 1,
                 'attributes' => json_encode(['text' => '2. Banner Settings']),
                 'order' => 7,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -527,6 +576,7 @@ class TopicBlockSeeder extends Seeder
                     'text' => '<b>Purpose:</b> This section allows the admin to configure banners that will be displayed on the homepage, promoting specific products, categories, or offers.'
                 ]),
                 'order' => 8,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -543,6 +593,7 @@ class TopicBlockSeeder extends Seeder
                     </ul>'
                 ]),
                 'order' => 9,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -561,6 +612,7 @@ class TopicBlockSeeder extends Seeder
                     </ul>'
                 ]),
                 'order' => 10,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -569,6 +621,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 1,
                 'attributes' => json_encode(['text' => '3. Default Home Sorting Method']),
                 'order' => 11,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -579,6 +632,7 @@ class TopicBlockSeeder extends Seeder
                     'text' => '<b>Purpose:</b> This setting defines the order in which products will be displayed on the home page. It controls the default sorting method for product listings.'
                 ]),
                 'order' => 12,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -594,6 +648,7 @@ class TopicBlockSeeder extends Seeder
                     </ul>'
                 ]),
                 'order' => 13,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -610,6 +665,7 @@ class TopicBlockSeeder extends Seeder
                     </ul>'
                 ]),
                 'order' => 14,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -622,6 +678,7 @@ class TopicBlockSeeder extends Seeder
                     'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-home-page-settings.png'
                 ]),
                 'order' => 15,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -630,6 +687,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 1,
                 'attributes' => json_encode(['text' => 'Overview']),
                 'order' => 1,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -640,6 +698,7 @@ class TopicBlockSeeder extends Seeder
                     'text' => 'The Footer Section module allows administrators to manage the footer menus and their items dynamically. This module ensures flexibility in customizing the footer structure to meet the specific requirements of the website.'
                 ]),
                 'order' => 2,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -648,6 +707,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 1,
                 'attributes' => json_encode(['text' => 'Features']),
                 'order' => 3,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -665,6 +725,7 @@ class TopicBlockSeeder extends Seeder
                     </ul>'
                 ]),
                 'order' => 4,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -682,6 +743,7 @@ class TopicBlockSeeder extends Seeder
                     </ul>'
                 ]),
                 'order' => 5,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -690,6 +752,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 1,
                 'attributes' => json_encode(['text' => 'Footer Segments Screenshot']),
                 'order' => 6,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -721,6 +784,7 @@ class TopicBlockSeeder extends Seeder
                     ]
                 ]),
                 'order' => 7,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -729,6 +793,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 1,
                 'attributes' => json_encode(['text' => 'Introduction to Custom Pages']),
                 'order' => 1,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -737,6 +802,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 3,
                 'attributes' => json_encode(['text' => 'Custom Pages allow you to add unique content to your e-commerce store, such as About Us, Contact Us, or Terms and Conditions pages. These pages can be easily managed through the admin panel or via code.']),
                 'order' => 2,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -745,6 +811,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 7,
                 'attributes' => json_encode(['type' => 'info', 'title' => 'Features of Custom Pages:', 'icon' => 'fa-solid fa-list', 'text' => '<ul><li><b>Static Pages</b>: Add content like text, images, or embedded videos.</li><li><b>Dynamic Pages</b>: Include dynamic content using templates or database-driven data.</li><li><b>Content</b>: Use the WYSIWYG editor to add content (text, images, or HTML).</li></ul>']),
                 'order' => 3,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -757,6 +824,7 @@ class TopicBlockSeeder extends Seeder
                     'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-custom-page.png'
                 ]),
                 'order' => 4,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -765,6 +833,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 1,
                 'attributes' => json_encode(['text' => 'Overview']),
                 'order' => 1,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -773,6 +842,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 3,
                 'attributes' => json_encode(['text' => 'Backend Site Settings allow you to configure the foundational elements of your website\'s backend, including contact information, logos, correspondence preferences, social media links, and general settings. These options help ensure your website reflects your brand identity and meets user needs.']),
                 'order' => 2,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -781,6 +851,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 1,
                 'attributes' => json_encode(['text' => 'List of Available Settings']),
                 'order' => 3,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -796,6 +867,7 @@ class TopicBlockSeeder extends Seeder
                     </ul>'
                 ]),
                 'order' => 4,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -813,6 +885,7 @@ class TopicBlockSeeder extends Seeder
                     </ul>'
                 ]),
                 'order' => 5,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -831,6 +904,7 @@ class TopicBlockSeeder extends Seeder
                     </ul>'
                 ]),
                 'order' => 6,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -849,6 +923,7 @@ class TopicBlockSeeder extends Seeder
                     </ul>'
                 ]),
                 'order' => 7,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -867,6 +942,7 @@ class TopicBlockSeeder extends Seeder
                     </ul>'
                 ]),
                 'order' => 8,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -875,6 +951,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 1,
                 'attributes' => json_encode(['text' => 'Backend Site Settings Screenshot']),
                 'order' => 9,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -901,6 +978,7 @@ class TopicBlockSeeder extends Seeder
                     ]
                 ]),
                 'order' => 10,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -909,6 +987,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 1,
                 'attributes' => json_encode(['text' => 'Overview']),
                 'order' => 1,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -917,6 +996,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 3,
                 'attributes' => json_encode(['text' => 'This section provides a list of terminal commands used to manage, maintain, and interact with the this application.']),
                 'order' => 2,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -925,6 +1005,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 2,
                 'attributes' => json_encode(['text' => '1. This command initializes a fresh installation of Wisenshop by setting up essential configurations, running migrations, and seeding the database.']),
                 'order' => 3,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -938,6 +1019,7 @@ class TopicBlockSeeder extends Seeder
                     'copy_content' => 'php artisan wisenshop:fresh-install',
                     ]),
                 'order' => 4,    
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -946,6 +1028,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 7,
                 'attributes' => json_encode(['type' => 'warning', 'title' => '--force', 'icon' => 'fa-solid fa-list', 'text' => '<ul><li><b>php artisan wisenshop:fresh-install --force</b></li><li>Use this parameter to run the command forcefully without confirmation prompts.</li>']),
                 'order' => 5,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -954,6 +1037,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 2,
                 'attributes' => json_encode(['text' => '2. This command creates a new payment method for the Wisenshop platform with specified attributes.']),
                 'order' => 6,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -967,6 +1051,7 @@ class TopicBlockSeeder extends Seeder
                     'copy_content' => 'php artisan wisenshop:create-payment-method',
                     ]),
                 'order' => 7,    
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -975,6 +1060,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 7,
                 'attributes' => json_encode(['type' => 'warning', 'title' => '--name (required):', 'icon' => 'fa-solid fa-list', 'text' => '<ul><li><b>php artisan wisenshop:create-payment-method --name="Credit Card"</b></li><li>The name of the payment method to create.</li>']),
                 'order' => 8,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -983,6 +1069,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 7,
                 'attributes' => json_encode(['type' => 'warning', 'title' => '--description (optional):', 'icon' => 'fa-solid fa-list', 'text' => '<ul><li><b>php artisan wisenshop:create-payment-method --name="Credit Card" --description="Supports Visa, MasterCard, and American Express."</b></li><li>A brief description of the payment method.</li>']),
                 'order' => 9,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -991,6 +1078,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 7,
                 'attributes' => json_encode(['type' => 'warning', 'title' => '--is_default (optional):', 'icon' => 'fa-solid fa-list', 'text' => '<ul><li><b>php artisan wisenshop:create-payment-method --name="Credit Card" --is_default=true</b></li><li>Whether this payment method should be set as the default option. Accepts true or false</li>']),
                 'order' => 10,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -999,6 +1087,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 2,
                 'attributes' => json_encode(['text' => '3. This command fetches the latest currency exchange rates from an external API and updates the currency rates in the Wisenshop system.']),
                 'order' => 11,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -1012,6 +1101,7 @@ class TopicBlockSeeder extends Seeder
                     'copy_content' => 'php artisan wisenshop:update-currency-exchange-rates',
                     ]),
                 'order' => 12,    
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -1020,6 +1110,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 1,
                 'attributes' => json_encode(['text' => 'General']),
                 'order' => 1,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -1028,6 +1119,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 2,
                 'attributes' => json_encode(['text' => 'What is Wisenshop?']),
                 'order' => 2,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -1036,6 +1128,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 3,
                 'attributes' => json_encode(['text' => 'Wisenshop is a feature-rich e-commerce platform that allows you to create and manage online stores effortlessly.']),
                 'order' => 3,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -1044,6 +1137,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 2,
                 'attributes' => json_encode(['text' => 'Who can use Wisenshop?']),
                 'order' => 4,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -1052,6 +1146,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 3,
                 'attributes' => json_encode(['text' => 'Anyone looking to build an online store, from small business owners to large enterprises.']),
                 'order' => 5,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -1060,6 +1155,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 2,
                 'attributes' => json_encode(['text' => 'What are the system requirements for Wisenshop?']),
                 'order' => 6,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -1068,6 +1164,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 7,
                 'attributes' => json_encode(['type' => 'info', 'title' => 'System requirements', 'icon' => 'fa-solid fa-list', 'text' => '<ul><li>PHP 8.1 or higher</li><li>MySQL 8.0 or higher</li><li>Node.js 16 or higher</li><li>Composer 2.x</li></ul>']),
                 'order' => 7,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -1076,6 +1173,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 2,
                 'attributes' => json_encode(['text' => 'How do I configure the database?']),
                 'order' => 8,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -1084,6 +1182,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 7,
                 'attributes' => json_encode(['type' => 'warning', 'title' => 'Update your .env file with the database credentials:', 'icon' => 'fa-solid fa-list', 'text' => '<ul><li>DB_CONNECTION=mysql</li><li>DB_HOST=127.0.0.1</li><li>DB_PORT=3306</li><li>DB_USERNAME=your_username</li><li>DB_PASSWORD=your_password</li></ul>']),
                 'order' => 9,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -1092,6 +1191,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 1,
                 'attributes' => json_encode(['text' => 'Advanced']),
                 'order' => 10,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -1100,6 +1200,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 2,
                 'attributes' => json_encode(['text' => 'Can I integrate third-party APIs with Wisenshop?']),
                 'order' => 11,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -1108,6 +1209,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 3,
                 'attributes' => json_encode(['text' => 'Yes, Wisenshop is extensible and allows integration with third-party APIs. Use the ServiceProvider and middleware for seamless integration.']),
                 'order' => 12,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -1116,6 +1218,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 2,
                 'attributes' => json_encode(['text' => 'How do I enable SSL for my store?']),
                 'order' => 13,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -1124,6 +1227,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 3,
                 'attributes' => json_encode(['text' => 'Install an SSL certificate on your server and update the APP_URL in the .env file to use https.']),
                 'order' => 14,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -1132,6 +1236,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 2,
                 'attributes' => json_encode(['text' => 'Does Wisenshop support caching?']),
                 'order' => 15,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -1140,6 +1245,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 3,
                 'attributes' => json_encode(['text' => 'Yes, Wisenshop supports caching mechanisms like Redis and file-based caching. Configure the CACHE_DRIVER in your .env file.']),
                 'order' => 16,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -1148,6 +1254,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 1,
                 'attributes' => json_encode(['text' => 'Support']),
                 'order' => 17,
+                'start_content_level' => 1,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -1156,6 +1263,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 2,
                 'attributes' => json_encode(['text' => 'Where can I get help with Wisenshop?']),
                 'order' => 18,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -1164,6 +1272,7 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 7,
                 'attributes' => json_encode(['type' => 'warning', 'title' => 'You can get support from:', 'icon' => 'fa-solid fa-list', 'text' => '<ul><li>The official documentation.</li><li>Our community forum.</li><li>Email: support@wisenshop.com</li></ul>']),
                 'order' => 19,
+                'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now()
             ]

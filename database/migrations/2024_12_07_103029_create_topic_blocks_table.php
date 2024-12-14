@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('block_type_id');
             $table->json('attributes')->nullable();
             $table->unsignedBigInteger('order');
+            $table->unsignedInteger('start_content_level')->nullable();
             $table->timestamps();
     
             $table->foreign('topic_id')->references('id')->on('topics')->onDelete('cascade');

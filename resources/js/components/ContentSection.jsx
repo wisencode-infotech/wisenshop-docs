@@ -51,8 +51,15 @@ const ContentSection = ({ activeHash, topicId }) => {
             console.error('Failed to parse block.attributes:', error);
           }
 
+        const paddingLeft = block.start_content_level === 1 
+        ? '0%' 
+        : block.start_content_level === 2 
+        ? '2%' 
+        : '5%';
+
+
           return (
-            <div key={block.id} className="mb-6">
+            <div key={block.id}  style={{ paddingLeft }} className="mb-6">
               {block.block_type.type === 'title' && (
                 <Title text={parsedAttributes?.text} level="h2" />
               )}

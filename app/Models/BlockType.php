@@ -9,7 +9,7 @@ class BlockType extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'attributes'];
+    protected $fillable = ['title'];
 
     public function topicBlocks()
     {
