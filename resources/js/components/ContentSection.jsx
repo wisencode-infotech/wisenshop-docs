@@ -94,6 +94,10 @@ const ContentSection = ({ activeHash, topicId }) => {
                 imageUrl={parsedAttributes?.imageUrl} // Pass the image URL
               />
               )}
+
+              {block.block_type.type === 'screenshot-gallery' && (
+                <ScreenshotGallery images={parsedAttributes?.images || []} />
+              )}
             </div>
           );
         })}

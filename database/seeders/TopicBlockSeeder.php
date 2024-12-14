@@ -344,23 +344,20 @@ class TopicBlockSeeder extends Seeder
             ],
             [
                 'topic_id' => 3,
-                'block_type_id' => 6,
+                'block_type_id' => 8,
                 'attributes' => json_encode([
-                    'title' => 'Theme Settings Interface Screenshot',
-                    'description' => 'This screenshot shows how the theme settings appear in the admin panel, where you can easily toggle features and set your preferences.',
-                    'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-theme-setting1.png'
-                ]),
-                'order' => 13,
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'topic_id' => 3,
-                'block_type_id' => 6,
-                'attributes' => json_encode([
-                    'title' => 'Theme Color Settings Interface Screenshot',
-                    'description' => 'This screenshot shows how the theme color settings appear in the admin panel, where you can easily toggle features and set your preferences.',
-                    'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-theme-setting2.png'
+                    'images' => [
+                        [
+                            'title' => 'Theme Settings Interface Screenshot',
+                            'description' => 'This screenshot shows how the theme settings appear in the admin panel, where you can easily toggle features and set your preferences.',
+                            'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-theme-setting1.png'
+                        ],
+                        [
+                            'title' => 'Theme Color Settings Interface Screenshot',
+                            'description' => 'This screenshot shows how the theme color settings appear in the admin panel, where you can easily toggle features and set your preferences.',
+                            'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-theme-setting2.png'
+                        ]
+                    ]
                 ]),
                 'order' => 13,
                 'created_at' => now(),
@@ -426,25 +423,22 @@ class TopicBlockSeeder extends Seeder
             ],
             [
                 'topic_id' => 4,
-                'block_type_id' => 6,
+                'block_type_id' => 8,
                 'attributes' => json_encode([
-                    'title' => '',
-                    'description' => 'Here is a screenshot of the Payment Methods Listing.',
-                    'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-payment-method-setting1.png'
+                    'images' => [
+                        [
+                            'title' => 'Payment Methods Listing.',
+                            'description' => 'Here is a screenshot of the Payment Methods Listing.',
+                            'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-payment-method-setting1.png'
+                        ],
+                        [
+                            'title' => 'Payment Method Form.',
+                            'description' => 'Here is a screenshot of the Payment Method Form.',
+                            'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-payment-method-setting2.png'
+                        ]
+                    ]
                 ]),
                 'order' => 5,
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'topic_id' => 4,
-                'block_type_id' => 6,
-                'attributes' => json_encode([
-                    'title' => '',
-                    'description' => 'Here is a screenshot of the Payment Method Form.',
-                    'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-payment-method-setting2.png'
-                ]),
-                'order' => 6,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -701,49 +695,32 @@ class TopicBlockSeeder extends Seeder
             ],
             [
                 'topic_id' => 6,
-                'block_type_id' => 6,
+                'block_type_id' => 8,
                 'attributes' => json_encode([
-                    'title' => '',
-                    'description' => 'Here is a screenshot of the Footer Menu Listing.',
-                    'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-footer-setting1.png'
+                    'images' => [
+                        [
+                            'title' => 'Footer Menu Listing.',
+                            'description' => 'Here is a screenshot of the Footer Menu Listing.',
+                            'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-footer-setting1.png'
+                        ],
+                        [
+                            'title' => 'Footer Menu Item Listing.',
+                            'description' => 'Here is a screenshot of the Footer Menu Item Listing.',
+                            'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-footer-setting2.png'
+                        ],
+                        [
+                            'title' => 'Footer Menu Item Form.',
+                            'description' => 'Here is a screenshot of the Footer Menu Item Form.',
+                            'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-footer-setting3.png'
+                        ],
+                        [
+                            'title' => 'Footer Menu Item Form.',
+                            'description' => 'Here is a screenshot of the Footer Menu Item Form.',
+                            'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-footer-setting4.png'
+                        ]
+                    ]
                 ]),
                 'order' => 7,
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'topic_id' => 6,
-                'block_type_id' => 6,
-                'attributes' => json_encode([
-                    'title' => '',
-                    'description' => 'Here is a screenshot of the Footer Menu Item Listing.',
-                    'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-footer-setting2.png'
-                ]),
-                'order' => 8,
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'topic_id' => 6,
-                'block_type_id' => 6,
-                'attributes' => json_encode([
-                    'title' => '',
-                    'description' => 'Here is a screenshot of the Footer Menu Item Form.',
-                    'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-footer-setting3.png'
-                ]),
-                'order' => 9,
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'topic_id' => 6,
-                'block_type_id' => 6,
-                'attributes' => json_encode([
-                    'title' => '',
-                    'description' => 'Here is a screenshot of the Footer Menu Item Form.',
-                    'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-footer-setting4.png'
-                ]),
-                'order' => 10,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -903,37 +880,27 @@ class TopicBlockSeeder extends Seeder
             ],
             [
                 'topic_id' => 8,
-                'block_type_id' => 6,
+                'block_type_id' => 8,
                 'attributes' => json_encode([
-                    'title' => '',
-                    'description' => '',
-                    'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-backend-setting1.png'
+                    'images' => [
+                        [
+                            'title' => 'Logo and order prefix settings',
+                            'description' => 'Here is a screenshot of the Logo and order prefix settings.',
+                            'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-backend-setting1.png'
+                        ],
+                        [
+                            'title' => 'Contact Correspondence & Social Media Links Settings.',
+                            'description' => 'Here is a screenshot of the Contact Correspondence & Social Media Links Settings.',
+                            'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-backend-setting2.png'
+                        ],
+                        [
+                            'title' => 'General Site Settings.',
+                            'description' => 'Here is a screenshot of the General Site Settings.',
+                            'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-backend-setting3.png'
+                        ]
+                    ]
                 ]),
                 'order' => 10,
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'topic_id' => 8,
-                'block_type_id' => 6,
-                'attributes' => json_encode([
-                    'title' => '',
-                    'description' => '',
-                    'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-backend-setting2.png'
-                ]),
-                'order' => 11,
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'topic_id' => 8,
-                'block_type_id' => 6,
-                'attributes' => json_encode([
-                    'title' => '',
-                    'description' => '',
-                    'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-backend-setting3.png'
-                ]),
-                'order' => 12,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
