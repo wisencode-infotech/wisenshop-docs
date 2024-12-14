@@ -748,6 +748,42 @@ class TopicBlockSeeder extends Seeder
                 'updated_at' => now()
             ],
             [
+                'topic_id' => 7,
+                'block_type_id' => 1,
+                'attributes' => json_encode(['text' => 'Introduction to Custom Pages']),
+                'order' => 1,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'topic_id' => 7,
+                'block_type_id' => 3,
+                'attributes' => json_encode(['text' => 'Custom Pages allow you to add unique content to your e-commerce store, such as About Us, Contact Us, or Terms and Conditions pages. These pages can be easily managed through the admin panel or via code.']),
+                'order' => 2,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'topic_id' => 7,
+                'block_type_id' => 7,
+                'attributes' => json_encode(['type' => 'info', 'title' => 'Features of Custom Pages:', 'icon' => 'fa-solid fa-list', 'text' => '<ul><li><b>Static Pages</b>: Add content like text, images, or embedded videos.</li><li><b>Dynamic Pages</b>: Include dynamic content using templates or database-driven data.</li><li><b>Content</b>: Use the WYSIWYG editor to add content (text, images, or HTML).</li></ul>']),
+                'order' => 3,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'topic_id' => 7,
+                'block_type_id' => 6,
+                'attributes' => json_encode([
+                    'title' => 'Custom Pages Screenshot',
+                    'description' => 'Here is a screenshot of the Custom Pages.',
+                    'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-custom-page.png'
+                ]),
+                'order' => 4,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
                 'topic_id' => 8,
                 'block_type_id' => 1,
                 'attributes' => json_encode(['text' => 'Overview']),
@@ -1239,7 +1275,6 @@ class TopicBlockSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now()
             ]
-
 
         ]);
     }
