@@ -956,7 +956,7 @@ class TopicBlockSeeder extends Seeder
             [
                 'topic_id' => 9,
                 'block_type_id' => 2,
-                'attributes' => json_encode(['text' => '1. Installation Commands']),
+                'attributes' => json_encode(['text' => '1. This command initializes a fresh installation of Wisenshop by setting up essential configurations, running migrations, and seeding the database.']),
                 'order' => 3,
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -965,7 +965,7 @@ class TopicBlockSeeder extends Seeder
                 'topic_id' => 9,
                 'block_type_id' => 5,
                 'attributes' => json_encode([
-                    'title' => 'Install system command:',
+                    'title' => 'Fresh System Install Command:',
                     'description' => 'php artisan wisenshop:fresh-install',
                     'copy_btn_text' => 'Copy',
                     'copy_content' => 'php artisan wisenshop:fresh-install',
@@ -976,9 +976,17 @@ class TopicBlockSeeder extends Seeder
             ],
             [
                 'topic_id' => 9,
-                'block_type_id' => 2,
-                'attributes' => json_encode(['text' => '2. Development Commands']),
+                'block_type_id' => 7,
+                'attributes' => json_encode(['type' => 'warning', 'title' => '--force', 'icon' => 'fa-solid fa-list', 'text' => '<ul><li><b>php artisan wisenshop:fresh-install --force</b></li><li>Use this parameter to run the command forcefully without confirmation prompts.</li>']),
                 'order' => 5,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'topic_id' => 9,
+                'block_type_id' => 2,
+                'attributes' => json_encode(['text' => '2. This command creates a new payment method for the Wisenshop platform with specified attributes.']),
+                'order' => 6,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -986,23 +994,10 @@ class TopicBlockSeeder extends Seeder
                 'topic_id' => 9,
                 'block_type_id' => 5,
                 'attributes' => json_encode([
-                    'title' => 'Running the Development Server:',
-                    'description' => 'php artisan serve',
+                    'title' => 'Create Payment Method Command:',
+                    'description' => 'php artisan wisenshop:create-payment-method',
                     'copy_btn_text' => 'Copy',
-                    'copy_content' => 'php artisan serve',
-                    ]),
-                'order' => 6,    
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'topic_id' => 9,
-                'block_type_id' => 5,
-                'attributes' => json_encode([
-                    'title' => 'Building Assets:',
-                    'description' => 'npm run build',
-                    'copy_btn_text' => 'Copy',
-                    'copy_content' => 'npm run build',
+                    'copy_content' => 'php artisan wisenshop:create-payment-method',
                     ]),
                 'order' => 7,    
                 'created_at' => now(),
@@ -1010,56 +1005,33 @@ class TopicBlockSeeder extends Seeder
             ],
             [
                 'topic_id' => 9,
-                'block_type_id' => 2,
-                'attributes' => json_encode(['text' => '3. Database Commands']),
+                'block_type_id' => 7,
+                'attributes' => json_encode(['type' => 'warning', 'title' => '--name (required):', 'icon' => 'fa-solid fa-list', 'text' => '<ul><li><b>php artisan wisenshop:create-payment-method --name="Credit Card"</b></li><li>The name of the payment method to create.</li>']),
                 'order' => 8,
                 'created_at' => now(),
-                'updated_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'topic_id' => 9,
-                'block_type_id' => 5,
-                'attributes' => json_encode([
-                    'title' => 'Setting Up the Database:',
-                    'description' => 'php artisan migrate',
-                    'copy_btn_text' => 'Copy',
-                    'copy_content' => 'php artisan migrate',
-                    ]),
-                'order' => 9,    
+                'block_type_id' => 7,
+                'attributes' => json_encode(['type' => 'warning', 'title' => '--description (optional):', 'icon' => 'fa-solid fa-list', 'text' => '<ul><li><b>php artisan wisenshop:create-payment-method --name="Credit Card" --description="Supports Visa, MasterCard, and American Express."</b></li><li>A brief description of the payment method.</li>']),
+                'order' => 9,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
                 'topic_id' => 9,
-                'block_type_id' => 5,
-                'attributes' => json_encode([
-                    'title' => 'Seeding the Database:',
-                    'description' => 'php artisan db:seed',
-                    'copy_btn_text' => 'Copy',
-                    'copy_content' => 'php artisan db:seed',
-                    ]),
-                'order' => 10,    
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'topic_id' => 9,
-                'block_type_id' => 5,
-                'attributes' => json_encode([
-                    'title' => 'Resetting the Database:',
-                    'description' => 'php artisan migrate:fresh --seed',
-                    'copy_btn_text' => 'Copy',
-                    'copy_content' => 'php artisan migrate:fresh --seed',
-                    ]),
-                'order' => 11,    
+                'block_type_id' => 7,
+                'attributes' => json_encode(['type' => 'warning', 'title' => '--is_default (optional):', 'icon' => 'fa-solid fa-list', 'text' => '<ul><li><b>php artisan wisenshop:create-payment-method --name="Credit Card" --is_default=true</b></li><li>Whether this payment method should be set as the default option. Accepts true or false</li>']),
+                'order' => 10,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
                 'topic_id' => 9,
                 'block_type_id' => 2,
-                'attributes' => json_encode(['text' => '4. Maintenance Commands']),
-                'order' => 12,
+                'attributes' => json_encode(['text' => '3. This command fetches the latest currency exchange rates from an external API and updates the currency rates in the Wisenshop system.']),
+                'order' => 11,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -1067,59 +1039,12 @@ class TopicBlockSeeder extends Seeder
                 'topic_id' => 9,
                 'block_type_id' => 5,
                 'attributes' => json_encode([
-                    'title' => 'Clearing Cache:',
-                    'description' => 'php artisan cache:clear',
+                    'title' => 'Update Currency Exchange Rates Command:',
+                    'description' => 'php artisan wisenshop:update-currency-exchange-rates',
                     'copy_btn_text' => 'Copy',
-                    'copy_content' => 'php artisan cache:clear',
+                    'copy_content' => 'php artisan wisenshop:update-currency-exchange-rates',
                     ]),
-                'order' => 13,    
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'topic_id' => 9,
-                'block_type_id' => 5,
-                'attributes' => json_encode([
-                    'title' => 'Clearing Config Cache:',
-                    'description' => 'php artisan config:clear',
-                    'copy_btn_text' => 'Copy',
-                    'copy_content' => 'php artisan config:clear',
-                    ]),
-                'order' => 14,    
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'topic_id' => 9,
-                'block_type_id' => 2,
-                'attributes' => json_encode(['text' => 'Optimizing the Application']),
-                'order' => 15,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'topic_id' => 9,
-                'block_type_id' => 5,
-                'attributes' => json_encode([
-                    'title' => 'Optimizing the Application',
-                    'description' => 'php artisan optimize',
-                    'copy_btn_text' => 'Copy',
-                    'copy_content' => 'php artisan optimize',
-                    ]),
-                'order' => 16,    
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'topic_id' => 9,
-                'block_type_id' => 5,
-                'attributes' => json_encode([
-                    'title' => 'Managing Queues',
-                    'description' => 'php artisan queue:work',
-                    'copy_btn_text' => 'Copy',
-                    'copy_content' => 'php artisan queue:work',
-                    ]),
-                'order' => 17,    
+                'order' => 12,    
                 'created_at' => now(),
                 'updated_at' => now()
             ],
