@@ -6,7 +6,8 @@ import Description from '../components/Description/Description';
 import CodeBlock from '../components/CodeBlock/CodeBlock';
 import List from '../components/List/List';
 import Note from '../components/Note/Note';
-import Screenshot from '../components/Screenshot/Screenshot';
+import ScreenshotImage from './Screenshot/ScreenshotImage';
+import ScreenshotGallery from '../components/Screenshot/ScreenshotGallery';
 
 const ContentSection = ({ activeHash, topicId }) => {
   const [topic, setTopic] = useState(null);
@@ -87,11 +88,11 @@ const ContentSection = ({ activeHash, topicId }) => {
               )}
 
               {block.block_type.type === 'screenshot' && (
-                <Screenshot
-                  title={parsedAttributes?.title}
-                  description={parsedAttributes?.description}
-                  imageUrl={parsedAttributes?.imageUrl} // Pass the image URL
-                />
+                <ScreenshotImage
+                title={parsedAttributes?.title}
+                description={parsedAttributes?.description}
+                imageUrl={parsedAttributes?.imageUrl} // Pass the image URL
+              />
               )}
             </div>
           );
