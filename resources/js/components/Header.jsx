@@ -89,23 +89,50 @@ const Header = () => {
                         
                         {isLoading && <p className="text-gray-300">Loading...</p>}
                         
-                        {(searchResults.topics.length > 0) && (
+                        {searchResults.topics.length > 0 && (
                             <div className="mt-2">
                                 {searchResults.topics.map((result) => (
                                     <div
                                         key={result.id}
-                                        className="p-2 hover:bg-gray-600 rounded-lg cursor-pointer"
+                                        className="p-2 hover:bg-gray-600 cursor-pointer border-b border-gray-600 rounded-none" // Thin border and no rounded corners
                                         onClick={handleResultClick}
                                     >
                                         <a href={result.link} className="text-gray-300">
-                                            {highlightText(`#${result.name}`)}
+                                            {highlightText(`#${result.name}`)} {/* Display highlighted topic name */}
                                         </a>
                                     </div>
                                 ))}
                             </div>
                         )}
 
-                        {searchQuery.trim() !== "" && !isLoading && searchResults.topics.length === 0 && (
+                        {searchResults.topic_blocks.length > 0 && (
+                            <div className="mt-2">
+                                {searchResults.topic_blocks.map((result) => {
+                                    const attributes = JSON.parse(result.attributes);
+                                    const matchedContent = Object.entries(attributes).filter(([key, value]) => {
+                                        return typeof value === 'string' && value.toLowerCase().includes(searchQuery.toLowerCase());
+                                    });
+
+                                    return matchedContent.length > 0 ? (
+                                        <div
+                                            key={result.id}
+                                            className="p-2 hover:bg-gray-600 cursor-pointer border-b border-gray-600 rounded-none" // Added border-b
+                                            onClick={handleResultClick}
+                                        >
+                                            <a href={result.topic.link} className="text-gray-300">
+                                                {matchedContent.map(([key, value], index) => (
+                                                    <div key={index}>
+                                                        {highlightText(value)} {/* Highlight the matched value */}
+                                                    </div>
+                                                ))}
+                                            </a>
+                                        </div>
+                                    ) : null;
+                                })}
+                            </div>
+                        )}
+
+                        {searchQuery.trim() !== "" && !isLoading && searchResults.topics.length === 0 && searchResults.topic_blocks.length === 0 && (
                             <p className="text-gray-400 mt-2">No results found.</p>
                         )}
 
