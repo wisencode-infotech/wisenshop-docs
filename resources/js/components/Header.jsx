@@ -118,7 +118,7 @@ const Header = () => {
                                             className="p-2 hover:bg-gray-600 cursor-pointer border-b border-gray-600 rounded-none"
                                             onClick={handleResultClick}
                                         >
-                                            <Link to={`/${result.topic.slug}/block/${result.id}`} className="text-gray-300">
+                                            <Link to={`/${result.topic.slug}/blocks/${result.id}`} className="text-gray-300">
                                                {matchedContent.map(([key, value], index) => {
                                                     // Remove HTML tags using regex
                                                     const plainText = value.replace(/<\/?[^>]+(>|$)/g, "");
