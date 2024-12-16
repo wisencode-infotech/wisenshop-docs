@@ -29,19 +29,17 @@ class SearchController extends Controller
             ->with('topic:id,name,slug')
             ->get()
             ->filter(function($topic_block) use ($query) {
-                // Decode the JSON and check if any value contains the search query
                 $attributes = json_decode($topic_block->attributes, true);
 
                 foreach ($attributes as $key => $value) {
-                    // Check if the value is a string and contains the search query (case-insensitive)
                     if (is_string($value) && stripos($value, $query) !== false) {
-                        return true; // Found a match, return true to keep this record
+                        return true;
                     }
                 }
 
-                return false; // No match found, exclude this record
+                return false;
             })
-            ->values(); // Reset the collection keys to 0-based indexing
+            ->values();
 
         // Combine all results into one collection
         $results = collect([

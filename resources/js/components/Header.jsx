@@ -115,15 +115,19 @@ const Header = () => {
                                     return matchedContent.length > 0 ? (
                                         <div
                                             key={result.id}
-                                            className="p-2 hover:bg-gray-600 cursor-pointer border-b border-gray-600 rounded-none" // Added border-b
+                                            className="p-2 hover:bg-gray-600 cursor-pointer border-b border-gray-600 rounded-none"
                                             onClick={handleResultClick}
                                         >
                                             <Link to={`/${result.topic.slug}/block-${result.id}`} className="text-gray-300">
-                                                {matchedContent.map(([key, value], index) => (
-                                                    <div key={index}>
-                                                        {highlightText(value)} {/* Highlight the matched value */}
-                                                    </div>
-                                                ))}
+                                               {matchedContent.map(([key, value], index) => {
+                                                    // Remove HTML tags using regex
+                                                    const plainText = value.replace(/<\/?[^>]+(>|$)/g, "");
+                                                    return (
+                                                        <div key={index}>
+                                                            {highlightText(plainText)} {/* Highlight the matched plain text */}
+                                                        </div>
+                                                    );
+                                                })}
                                             </Link>
                                         </div>
                                     ) : null;
