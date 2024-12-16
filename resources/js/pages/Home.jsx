@@ -21,6 +21,12 @@ const Home = () => {
           if (topics.length > 0) {
             navigate(`/${topics[0].slug}`);
           }
+        } else {
+          const isValidTopic = topics.some(topic => topic.slug === topicSlug);
+
+          if (!isValidTopic) {
+            navigate("/"); // Redirect to the homepage if invalid
+          }
         }
       } catch (error) {
         console.error("Error fetching topics:", error);
@@ -29,7 +35,7 @@ const Home = () => {
 
     fetchTopics();
   }, [navigate]); 
-  
+
   return (
     <div>
       <Header />
