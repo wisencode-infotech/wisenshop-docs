@@ -8,13 +8,14 @@ import List from '../components/List/List';
 import Note from '../components/Note/Note';
 import ScreenshotImage from './Screenshot/ScreenshotImage';
 import ScreenshotGallery from '../components/Screenshot/ScreenshotGallery';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { ScaleLoader } from "react-spinners"; 
 
 const ContentSection = ({ topicSlug }) => {
   const [topic, setTopic] = useState(null);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     if (topicSlug) {
@@ -24,7 +25,7 @@ const ContentSection = ({ topicSlug }) => {
 
   useEffect(() => {
     const handleScrollToBlock = () => {
-      const pathname = window.location.pathname;
+      const pathname = location.pathname; 
       const blockId = pathname.split("/").pop();
   
       if (blockId && !isNaN(blockId)) {
@@ -48,13 +49,9 @@ const ContentSection = ({ topicSlug }) => {
     };
   
     if (topic) {
-      const timeoutId = setTimeout(() => {
-        handleScrollToBlock();
-      }, 500);
-  
-      return () => clearTimeout(timeoutId); // Cleanup the timeout on unmount
+      handleScrollToBlock();
     }
-  }, [topic]);
+  }, [location.pathname, topic, navigate, topicSlug]);
 
   const fetchTopicBlocks = async (slug) => {
     setLoading(true);
@@ -71,7 +68,7 @@ const ContentSection = ({ topicSlug }) => {
   if (loading) {
 
     return (
-      <div className='loader-container'>
+      <div className='loader-container fixed inset-0 bg-gray-800 bg-opacity-70 flex justify-center items-start z-20' >
         <ScaleLoader
           color='#3d5f8a'
           loading

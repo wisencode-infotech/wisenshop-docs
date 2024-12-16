@@ -1,23 +1,43 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const SidebarMenu = ({topicSlug}) => {
-    const [topics, setMenuItems] = useState([]);
+    const [topics, setTopics] = useState([]);
+    const navigate = useNavigate();
+    const [isLoaded, setIsLoaded] = useState(false); // Track if topics are already fetched
 
     useEffect(() => {
       const fetchTopics = async () => {
         try {
-          const response = await axios.get("/api/topics"); // API endpoint
-          setMenuItems(response.data);
+          const response = await axios.get("/api/topics");
+          const topicsData = response.data;
+
+          if (window.location.pathname === "/") {
+            if (topicsData.length > 0) {
+              navigate(`/${topicsData[0].slug}`);
+            }
+          } else {
+            const isValidTopic = topicsData.some(
+              (topic) => topic.slug === topicSlug
+            );
+
+            if (!isValidTopic) {
+              window.location.href = "/";
+            }
+          }
+
+          setTopics(topicsData);
+          setIsLoaded(true);
         } catch (error) {
           console.error("Error fetching topics", error);
         }
       };
-  
-      fetchTopics();
 
-    }, []);
+      if (!isLoaded) {
+        fetchTopics();
+      }
+    }, [navigate, topicSlug, isLoaded]);
 
     return (
         <nav className="space-y-1">
