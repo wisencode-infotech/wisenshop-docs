@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 
 const Header = () => {
@@ -6,6 +6,13 @@ const Header = () => {
     const [searchQuery, setSearchQuery] = useState("");
     const [searchResults, setSearchResults] = useState({ topics: [], block_types: [], topic_blocks: [] });
     const [isLoading, setIsLoading] = useState(false);
+    const inputRef = useRef(null); // Create a ref for the input field
+
+    useEffect(() => {
+        if (isSearchOpen) {
+            inputRef.current?.focus(); // Focus the input field when the popup is opened
+        }
+    }, [isSearchOpen]);
 
     useEffect(() => {
         if (searchQuery.trim() === "") {
@@ -39,7 +46,6 @@ const Header = () => {
         setSearchQuery(""); // Reset search query when closing
     };
 
-    // Function to highlight the matched query in the result text
     const highlightText = (text) => {
         if (!searchQuery.trim()) return text;
         const regex = new RegExp(`(${searchQuery.trim()})`, "gi");
@@ -64,12 +70,16 @@ const Header = () => {
             </div>
 
             {isSearchOpen && (
-                <div className="fixed inset-0 bg-gray-800 bg-opacity-70 flex justify-center items-center z-20" onClick={() => setIsSearchOpen(false)}>
+                <div
+                    className="fixed inset-0 bg-gray-800 bg-opacity-70 flex justify-center items-start z-20" 
+                    onClick={() => setIsSearchOpen(false)}
+                >
                     <div
-                        className="relative w-full max-w-lg p-8 bg-gray-700 rounded-lg" 
+                        className="relative w-full max-w-lg top-[20%] p-8 bg-gray-700 rounded-lg max-h-[80vh] overflow-auto" 
                         onClick={(e) => e.stopPropagation()}
                     >
                         <input
+                            ref={inputRef} // Attach the ref to the input field
                             type="text"
                             placeholder="Search..."
                             value={searchQuery}
@@ -98,7 +108,8 @@ const Header = () => {
                         {searchQuery.trim() !== "" && !isLoading && searchResults.topics.length === 0 && (
                             <p className="text-gray-400 mt-2">No results found.</p>
                         )}
-                        
+
+                        <div className="text-right text-xs text-gray-400 mt-4">Search in <strong>WisenDocs</strong></div>
                     </div>
                 </div>
             )}
