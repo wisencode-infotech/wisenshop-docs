@@ -129,6 +129,7 @@ const Header = () => {
                                                     );
                                                 })}
                                             </Link>
+                                            <div className="mt-2 text-xs text-theme-light">#{result.topic.name}</div>
                                         </div>
                                     ) : null;
                                 })}

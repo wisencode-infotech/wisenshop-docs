@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .main-content{
     overflow-y: auto;
     height: 100vh;
@@ -19,6 +18,24 @@ code {
     border-radius: 4px;
     font-family: "Courier New", Courier, monospace;
     font-size: 0.95em;
+}
+
+.popup-effect {
+    animation: popup-animation 0.8s ease-out forwards;
+}
+
+@keyframes popup-animation {
+    0% {
+        transform: scale(0) translateY(50%); /* Start small and below */
+        opacity: 0; /* Fully invisible */
+    }
+    50% {
+        transform: scale(1.2) translateY(0); /* Overshoot for emphasis */
+        opacity: 1; /* Fully visible */
+    }
+    100% {
+        transform: scale(1) translateY(0); /* Settle to original size */
+    }
 }
 
 .loader-container {

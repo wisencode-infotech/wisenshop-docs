@@ -27,13 +27,23 @@ const ContentSection = ({ topicSlug }) => {
       const pathname = window.location.pathname;
       const blockId = pathname.split("/").pop();
   
-      if (blockId) {
+      if (blockId && !isNaN(blockId)) {
         const element = document.getElementById(blockId);
         if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
+          element.scrollIntoView({ block: "nearest", behavior: "smooth" });
+      
+          setTimeout(() => {
+            element.classList.add("popup-effect");
+      
+            setTimeout(() => {
+              element.classList.remove("popup-effect");
+            }, 1500);
+          }, 100);
         } else {
           navigate(`/${topicSlug}`);
         }
+      } else {
+        navigate(`/${topicSlug}`);
       }
     };
   
