@@ -8,10 +8,12 @@ import List from '../components/List/List';
 import Note from '../components/Note/Note';
 import ScreenshotImage from './Screenshot/ScreenshotImage';
 import ScreenshotGallery from '../components/Screenshot/ScreenshotGallery';
+import { useNavigate } from 'react-router-dom';
 
 const ContentSection = ({ topicSlug }) => {
   const [topic, setTopic] = useState(null);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (topicSlug) {
@@ -20,24 +22,26 @@ const ContentSection = ({ topicSlug }) => {
   }, [topicSlug]);
 
   useEffect(() => {
-    if (topic) {
-      const handleScrollToBlock = () => {
-        const pathname = window.location.pathname;
-        const blockId = pathname.split("/").pop();
-
-        if (blockId.startsWith("block-")) {
-          const element = document.getElementById(blockId);
-          if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
-          }
+    const handleScrollToBlock = () => {
+      const pathname = window.location.pathname;
+      const blockId = pathname.split("/").pop();
+  
+      if (blockId) {
+        const element = document.getElementById(blockId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        } else {
+          navigate(`/${topicSlug}`);
         }
-      };
-
+      }
+    };
+  
+    if (topic) {
       const timeoutId = setTimeout(() => {
         handleScrollToBlock();
       }, 500);
-
-      return () => clearTimeout(timeoutId);
+  
+      return () => clearTimeout(timeoutId); // Cleanup the timeout on unmount
     }
   }, [topic]);
 
@@ -81,7 +85,7 @@ const ContentSection = ({ topicSlug }) => {
 
 
           return (
-            <div key={block.id} id={`block-${block.id}`} style={{ paddingLeft }} className="mb-6">
+            <div key={block.id} id={`${block.id}`} style={{ paddingLeft }} className="mb-6">
               {block.block_type.type === 'title' && (
                 <Title text={parsedAttributes?.text} level="h2" />
               )}
