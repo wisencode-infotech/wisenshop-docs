@@ -113,12 +113,11 @@ const Header = () => {
                                     });
 
                                     return matchedContent.length > 0 ? (
-                                        <div
-                                            key={result.id}
-                                            className="p-2 hover:bg-gray-600 cursor-pointer border-b border-gray-600 rounded-none"
+                                        <Link  key={result.id} to={`/${result.topic.slug}/blocks/${result.id}`} className="text-gray-300">
+                                        <div className="p-2 hover:bg-gray-600 cursor-pointer border-b border-gray-600 rounded-none"
                                             onClick={handleResultClick}
                                         >
-                                            <Link to={`/${result.topic.slug}/blocks/${result.id}`} className="text-gray-300">
+                                            
                                                {matchedContent.map(([key, value], index) => {
                                                     // Remove HTML tags using regex
                                                     const plainText = value.replace(/<\/?[^>]+(>|$)/g, "");
@@ -128,9 +127,10 @@ const Header = () => {
                                                         </div>
                                                     );
                                                 })}
-                                            </Link>
+                                           
                                             <div className="mt-2 text-xs text-theme-light">#{result.topic.name}</div>
                                         </div>
+                                        </Link>
                                     ) : null;
                                 })}
                             </div>
