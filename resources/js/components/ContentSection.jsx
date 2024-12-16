@@ -9,6 +9,7 @@ import Note from '../components/Note/Note';
 import ScreenshotImage from './Screenshot/ScreenshotImage';
 import ScreenshotGallery from '../components/Screenshot/ScreenshotGallery';
 import { useNavigate } from 'react-router-dom';
+import { BounceLoader } from "react-spinners"; 
 
 const ContentSection = ({ topicSlug }) => {
   const [topic, setTopic] = useState(null);
@@ -58,7 +59,13 @@ const ContentSection = ({ topicSlug }) => {
   };
 
   if (loading) {
-    return <p className="text-gray-400">Loading...</p>;
+
+    return (
+      <div className='loader-container'>
+        <BounceLoader color="#3d5f8a" size={100} />
+      </div>
+    );
+
   }
 
   if (!topic) {
