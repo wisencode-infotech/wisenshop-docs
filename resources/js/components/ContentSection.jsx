@@ -9,20 +9,42 @@ import Note from '../components/Note/Note';
 import ScreenshotImage from './Screenshot/ScreenshotImage';
 import ScreenshotGallery from '../components/Screenshot/ScreenshotGallery';
 
-const ContentSection = ({ activeHash, topicId }) => {
+const ContentSection = ({ topicSlug }) => {
   const [topic, setTopic] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (topicId) {
-      fetchTopicBlocks(topicId);
+    if (topicSlug) {
+      fetchTopicBlocks(topicSlug);
     }
-  }, [activeHash]);
+  }, [topicSlug]);
 
-  const fetchTopicBlocks = async (id) => {
+  useEffect(() => {
+    if (topic) {
+      const handleScrollToBlock = () => {
+        const pathname = window.location.pathname;
+        const blockId = pathname.split("/").pop();
+
+        if (blockId.startsWith("block-")) {
+          const element = document.getElementById(blockId);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+          }
+        }
+      };
+
+      const timeoutId = setTimeout(() => {
+        handleScrollToBlock();
+      }, 500);
+
+      return () => clearTimeout(timeoutId);
+    }
+  }, [topic]);
+
+  const fetchTopicBlocks = async (slug) => {
     setLoading(true);
     try {
-      const response = await axios.get(`/api/topics/${id}`);
+      const response = await axios.get(`/api/topics/${slug}`);
       setTopic(response.data);
     } catch (error) {
       console.error('Error fetching topic blocks:', error);
@@ -59,7 +81,7 @@ const ContentSection = ({ activeHash, topicId }) => {
 
 
           return (
-            <div key={block.id}  style={{ paddingLeft }} className="mb-6">
+            <div key={block.id} id={`block-${block.id}`} style={{ paddingLeft }} className="mb-6">
               {block.block_type.type === 'title' && (
                 <Title text={parsedAttributes?.text} level="h2" />
               )}

@@ -13,9 +13,11 @@ class TopicController extends Controller
         return response()->json($topics);
     }
 
-    public function getTopicBlocks($id)
+    public function getTopicBlocks($slug)
     {
-        $topic = Topic::with(['blocks.blockType'])->find($id);
+        // $topic = Topic::with(['blocks.blockType'])->find($id);
+       
+        $topic = Topic::with(['blocks.blockType'])->where('slug', $slug)->first();
 
         if (!$topic) {
             return response()->json(['message' => 'Topic not found'], 404);

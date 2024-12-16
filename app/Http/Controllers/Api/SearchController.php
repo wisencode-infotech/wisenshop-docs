@@ -21,12 +21,12 @@ class SearchController extends Controller
 
         // Search in topics
         $topics = Topic::where('name', 'like', "%{$query}%")
-            ->select('id', 'name', 'link')
+            ->select('id', 'name', 'slug')
             ->limit(5)
             ->get();
 
         $topic_blocks = TopicBlock::select('id', 'attributes', 'topic_id')
-            ->with('topic:id,name,link')
+            ->with('topic:id,name,slug')
             ->get()
             ->filter(function($topic_block) use ($query) {
                 // Decode the JSON and check if any value contains the search query

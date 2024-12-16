@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Header = () => {
     const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -92,15 +93,13 @@ const Header = () => {
                         {searchResults.topics.length > 0 && (
                             <div className="mt-2">
                                 {searchResults.topics.map((result) => (
-                                    <div
-                                        key={result.id}
-                                        className="p-2 hover:bg-gray-600 cursor-pointer border-b border-gray-600 rounded-none" // Thin border and no rounded corners
-                                        onClick={handleResultClick}
-                                    >
-                                        <a href={result.link} className="text-gray-300">
+                                    <Link key={result.id} to={`/${result.slug}`} className="text-gray-300">
+                                        <div className="p-2 hover:bg-gray-600 cursor-pointer border-b border-gray-600 rounded-none" // Thin border and no rounded corners
+                                            onClick={handleResultClick}
+                                        >
                                             {highlightText(`#${result.name}`)} {/* Display highlighted topic name */}
-                                        </a>
-                                    </div>
+                                        </div>
+                                    </Link>
                                 ))}
                             </div>
                         )}
@@ -119,13 +118,13 @@ const Header = () => {
                                             className="p-2 hover:bg-gray-600 cursor-pointer border-b border-gray-600 rounded-none" // Added border-b
                                             onClick={handleResultClick}
                                         >
-                                            <a href={result.topic.link} className="text-gray-300">
+                                            <Link to={`/${result.topic.slug}/block-${result.id}`} className="text-gray-300">
                                                 {matchedContent.map(([key, value], index) => (
                                                     <div key={index}>
                                                         {highlightText(value)} {/* Highlight the matched value */}
                                                     </div>
                                                 ))}
-                                            </a>
+                                            </Link>
                                         </div>
                                     ) : null;
                                 })}
