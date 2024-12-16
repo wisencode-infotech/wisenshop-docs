@@ -9,7 +9,7 @@ import Note from '../components/Note/Note';
 import ScreenshotImage from './Screenshot/ScreenshotImage';
 import ScreenshotGallery from '../components/Screenshot/ScreenshotGallery';
 import { useNavigate } from 'react-router-dom';
-import { BounceLoader } from "react-spinners"; 
+import { ScaleLoader } from "react-spinners"; 
 
 const ContentSection = ({ topicSlug }) => {
   const [topic, setTopic] = useState(null);
@@ -72,7 +72,13 @@ const ContentSection = ({ topicSlug }) => {
 
     return (
       <div className='loader-container'>
-        <BounceLoader color="#3d5f8a" size={100} />
+        <ScaleLoader
+          color='#3d5f8a'
+          loading
+          margin={4}
+          radius={26}
+          speedMultiplier={2}
+        />
       </div>
     );
 

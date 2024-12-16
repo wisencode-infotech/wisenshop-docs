@@ -9,6 +9,8 @@ class TopicController extends Controller
 {
     public function index()
     {
+        sleep(20);
+
         $topics = Topic::all();
         return response()->json($topics);
     }
@@ -16,6 +18,8 @@ class TopicController extends Controller
     public function getTopicBlocks($slug)
     {
         // $topic = Topic::with(['blocks.blockType'])->find($id);
+
+        sleep(20);
        
         $topic = Topic::with(['blocks.blockType'])->where('slug', $slug)->first();
 
