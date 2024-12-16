@@ -69,7 +69,7 @@ const ContentSection = ({ topicSlug }) => {
   }
 
   if (!topic) {
-    return <p className="text-gray-400">Select a topic to see the content.</p>;
+    return <p className="text-gray-400"></p>;
   }
 
   return (
