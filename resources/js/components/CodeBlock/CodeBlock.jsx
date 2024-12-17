@@ -6,13 +6,13 @@ const CodeBlock = ({ title, description, buttonText, copyContent }) => {
 
   const toast = useRef(null);
 
-  const showCopyMessage = (message) => {
+  const showInfoMessage = (message) => {
     toast.current.show({ label: 'Info', severity: 'info', detail: message, life: 3000 });
   };
 
   const handleCopy = () => {
     navigator.clipboard.writeText(copyContent);
-    showCopyMessage('Copied to clipboard!');
+    showInfoMessage('Copied to clipboard!');
   };
 
   return (
