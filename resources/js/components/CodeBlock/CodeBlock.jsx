@@ -1,18 +1,18 @@
 import React, { useRef } from 'react';
 import { Toast } from 'primereact/toast';
-import "primereact/resources/themes/lara-light-cyan/theme.css";
+import "primereact/resources/themes/viva-dark/theme.css";
 
 const CodeBlock = ({ title, description, buttonText, copyContent }) => {
 
   const toast = useRef(null);
 
-  const showSuccess = (message) => {
-    toast.current.show({ label: 'Success', severity: 'success', summary: 'Success', detail: message, life: 3000 });
+  const showCopyMessage = (message) => {
+    toast.current.show({ label: 'Info', severity: 'info', detail: message, life: 3000 });
   };
 
   const handleCopy = () => {
     navigator.clipboard.writeText(copyContent);
-    showSuccess('Copied to clipboard!');
+    showCopyMessage('Copied to clipboard!');
   };
 
   return (
