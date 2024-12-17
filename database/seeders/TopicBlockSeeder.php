@@ -209,12 +209,32 @@ class TopicBlockSeeder extends Seeder
             ],
             [
                 'topic_id' => 2,
-                'block_type_id' => 6,
+                'block_type_id' => 8,
                 'attributes' => json_encode([
-                    'title' => 'Setup Screenshot',
-                    'description' => 'Here is a screenshot of the setup process.',
-                    'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot.png'
+                    'images' => [
+                        [
+                            'title' => 'Database settings Screenshot',
+                            'description' => 'This screenshot shows the Database settings.',
+                            'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-installation1.png'
+                        ],
+                        [
+                            'title' => 'Database settings validation Screenshot',
+                            'description' => 'This screenshot shows the Database settings validation.',
+                            'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-installation2.png'
+                        ],
+                        [
+                            'title' => 'Database Configuration settings Screenshot',
+                            'description' => 'This screenshot shows the Database Configuration settings.',
+                            'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-installation3.png'
+                        ],
+                        [
+                            'title' => 'Redirecting to Home Page Screenshot',
+                            'description' => 'This screenshot shows the redirection to the home page after a successful setup.',
+                            'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-installation4.png'
+                        ]
+                    ]
                 ]),
+                
                 'order' => 20,
                 'start_content_level' => 1,
                 'created_at' => now(),
