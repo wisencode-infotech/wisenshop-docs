@@ -25,7 +25,7 @@ const ContentSection = ({ topicSlug }) => {
 
   useEffect(() => {
     const handleScrollToBlock = () => {
-      const pathname = window.location.pathname;
+      const pathname = location.pathname;
       const blockId = pathname.split("/").pop();
   
       if (blockId && !isNaN(blockId)) {
@@ -41,8 +41,8 @@ const ContentSection = ({ topicSlug }) => {
             }, 1500);
           }, 100);
         } else {
-          // navigate(`/${topicSlug}`);
-          // window.scrollTo({ top: 0, behavior: "smooth" });
+          navigate(`/${topicSlug}`);
+          window.scrollTo({ top: 0, behavior: "smooth" });
         }
       } else {
         navigate(`/${topicSlug}`);
@@ -52,15 +52,13 @@ const ContentSection = ({ topicSlug }) => {
   
     if (topic) {
 
-      handleScrollToBlock();
+      // handleScrollToBlock();
 
       const timeoutId = setTimeout(() => {
         handleScrollToBlock();
       }, 500);
   
-      return () => clearTimeout(timeoutId); // Cleanup the timeout on unmount
-
-      // handleScrollToBlock();
+      return () => clearTimeout(timeoutId);
     }
   }, [location.pathname, topic, navigate, topicSlug]);
 
