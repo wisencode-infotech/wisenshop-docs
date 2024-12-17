@@ -201,7 +201,7 @@ class TopicBlockSeeder extends Seeder
             [
                 'topic_id' => 2,
                 'block_type_id' => 2,
-                'attributes' => json_encode(['text' => '1. User visits the website for the first time:']),
+                'attributes' => json_encode(['text' => '1. Visiting website for the first time after hosting the script, installation wizard will be shown to proceed:']),
                 'order' => 19,   
                 'start_content_level' => 2, 
                 'created_at' => now(),
