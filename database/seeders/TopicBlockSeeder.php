@@ -234,9 +234,8 @@ class TopicBlockSeeder extends Seeder
                         ]
                     ]
                 ]),
-                
                 'order' => 20,
-                'start_content_level' => 1,
+                'start_content_level' => 3,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
