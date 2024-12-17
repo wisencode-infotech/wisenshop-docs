@@ -64,8 +64,8 @@ const Header = () => {
             <div className="container mx-auto flex items-center justify-center px-6 py-4">
                 <div className="flex items-center space-x-3"></div>
                 <div className="flex-grow max-w-md mx-4 cursor-pointer" onClick={() => setIsSearchOpen(!isSearchOpen)}>
-                    <button className="w-full px-4 py-2 bg-gray-700 rounded-lg text-gray-300 focus:outline-none focus:ring-1 focus:ring-theme">
-                        Search
+                    <button className="w-full px-4 py-2 bg-gray-700 rounded-lg text-gray-400 focus:outline-none focus:ring-1 focus:ring-theme">
+                        <i className="fa-solid fa-search"></i> Search
                     </button>
                 </div>
             </div>
