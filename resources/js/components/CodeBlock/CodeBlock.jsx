@@ -1,12 +1,13 @@
 import React, { useRef } from 'react';
 import { Toast } from 'primereact/toast';
 
+
 const CodeBlock = ({ title, description, buttonText, copyContent }) => {
 
   const toast = useRef(null);
 
   const showInfoMessage = (message) => {
-    toast.current.show({ label: 'Info', severity: 'info',summary: 'Info', detail: message, life: 3000 });
+    toast.current.show({ label: 'Info', severity: 'info',summary: 'Info', detail: message, life: 30000000 });
   };
 
   const handleCopy = () => {
