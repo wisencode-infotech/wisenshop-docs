@@ -1,31 +1,28 @@
-import React, { useRef } from 'react';
-import { Toast } from 'primereact/toast';
+import React from 'react';
+import { showToast } from '../../utils/toastrUtils';
 
 const CodeBlock = ({ title, description, buttonText, copyContent }) => {
 
-  const toast = useRef(null);
-
-  const showInfoMessage = (message) => {
-    toast.current.show({ label: 'Info', severity: 'info',summary: 'Info', detail: message, life: 3000 });
-  };
-
+  // Function to handle content copy and show toast
   const handleCopy = () => {
     navigator.clipboard.writeText(copyContent);
-    showInfoMessage('Copied to clipboard!');
+    showToast('Copied to clipboard!', 'success');
   };
 
   return (
     <div className="bg-theme-dark text-gray-100 rounded-lg shadow-lg overflow-hidden">
-      <Toast ref={toast} />
+      {/* Header Section */}
       <div className="flex justify-between items-center px-4 py-3 bg-white border-b border-theme-dark">
         <span className="text-sm font-semibold text-gray-900">{title}</span>
-        
-        <button onClick={handleCopy}
+        <button
+          onClick={handleCopy}
           className="text-sm bg-gray-800 hover:bg-gray-700 text-white px-3 py-1 rounded focus:outline-none focus:ring-2 focus:ring-theme-accent"
         >
           {buttonText}
         </button>
       </div>
+
+      {/* Description Section */}
       <div className="p-4 bg-gray-700 text-sm text-white font-mono leading-relaxed text-left whitespace-pre-line">
         {description}
       </div>

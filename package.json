@@ -16,10 +16,9 @@
         "vite": "^5.4.11"
     },
     "dependencies": {
-        "primeicons": "^7.0.0",
-        "primereact": "^10.8.5",
         "react": "^19.0.0",
         "react-dom": "^19.0.0",
+        "react-hot-toast": "^2.4.1",
         "react-router-dom": "^7.0.2",
         "react-spinners": "^0.15.0"
     }
