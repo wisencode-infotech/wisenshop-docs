@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
 import { Toast } from 'primereact/toast';
-import "primereact/resources/themes/viva-dark/theme.css";
 
 const CodeBlock = ({ title, description, buttonText, copyContent }) => {
 

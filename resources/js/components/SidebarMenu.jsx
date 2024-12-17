@@ -15,7 +15,7 @@ const SidebarMenu = ({topicSlug}) => {
 
           if (window.location.pathname === "/") {
             if (topicsData.length > 0) {
-              navigate(`/${topicsData[0].slug}`);
+              window.location.href = topicsData[0].slug;
             }
           } else {
             const isValidTopic = topicsData.some(

@@ -5,6 +5,7 @@ module.exports = {
         "./resources/**/*.jsx",
         "./resources/**/*.js",
         "./resources/**/*.css",
+        './node_modules/primereact/**/*.{js,ts,jsx,tsx}',
     ],
     theme: {
         extend: {
