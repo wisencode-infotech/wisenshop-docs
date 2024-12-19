@@ -40,23 +40,27 @@ const SidebarMenu = ({topicSlug}) => {
     }, [navigate, topicSlug, isLoaded]);
 
     return (
-        <nav className="space-y-1">
-            {topics.map((topic) => {
-            const isActive = `${topic.slug}` === topicSlug; // Check if the current hash matches the topic
-            return (
-              <Link
-                key={topic.id}
-                to={`/${topic.slug}`} // Use Link instead of href
-                className={`flex items-center space-x-3 py-3 px-4 rounded-lg ${
-                    isActive ? "bg-theme-dark text-white" : "text-gray-400"
-                } group`}
+      <nav className="space-y-1">
+        {topics.map((topic) => {
+          const isActive = `${topic.slug}` === topicSlug; // Check if the current hash matches the topic
+          return (
+            <Link
+              key={topic.id}
+              to={`/${topic.slug}`} // Use Link instead of href
+              className={`flex items-center space-x-3 py-3 px-4 rounded-lg relative ${
+                isActive ? "bg-theme-dark text-white" : "text-gray-400"
+              } group`}
             >
-                <i className="fa-solid fa-arrow-right"></i>
-                <span>{topic.name}</span>
+              {/* Badge */}
+              {topic.isNew && (
+                <span className="absolute top-50 right-2 bg-blue-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">New</span>
+              )}
+              <i className="fa-solid fa-arrow-right"></i>
+              <span>{topic.name}</span>
             </Link>
-            );
-          })}
-        </nav>
+          );
+        })}
+      </nav>
     );
 };
 

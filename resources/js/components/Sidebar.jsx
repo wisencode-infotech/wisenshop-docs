@@ -8,7 +8,7 @@ const Sidebar = ({ topicSlug }) => {
                 <div className="text-left space-x-3 px-4">
                     <h2 className="text-1xl font-semibold text-gray-200 tracking-wide">Topics</h2>
                 </div>
-                <SidebarMenu topicSlug={topicSlug} />
+                <SidebarMenu topicSlug={topicSlug} isNew={true} />
             </div>
         </aside>
     );
