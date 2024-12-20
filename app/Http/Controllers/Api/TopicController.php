@@ -13,9 +13,10 @@ class TopicController extends Controller
 {
     public function index(Request $request, Version $version)
     {
-        $topics = General::cacheForever(Str::slug($version->identifier) . '-topics', function() use ($version) {
-            return Topic::version($version)->get();
-        });
+        $topics = Topic::version($version)->get();
+        // $topics = General::cacheForever(Str::slug($version->identifier) . '-topics', function() use ($version) {
+        //     return Topic::version($version)->get();
+        // });
 
         return response()->json($topics);
     }

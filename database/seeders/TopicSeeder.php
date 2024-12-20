@@ -20,6 +20,7 @@ class TopicSeeder extends Seeder
             ['name' => 'Backend Site Settings', 'slug' => 'backend-site-settings', 'version_id' => 1],
             ['name' => 'Terminal Commands', 'slug' => 'terminal-commands', 'version_id' => 1],
             ['name' => 'FAQs', 'slug' => 'faqs', 'version_id' => 1],
+            ['name' => 'Introduction', 'slug' => 'faqs', 'version_id' => 2],
         ]);
     }
 }

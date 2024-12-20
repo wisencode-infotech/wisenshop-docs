@@ -14,7 +14,8 @@ class VersionSeeder extends Seeder
     public function run(): void
     {
         Version::insert([
-            ['identifier' => '1.0', 'description' => 'Initial launched documentation', 'notes' => null]
+            ['identifier' => '1.0', 'description' => 'Initial launched documentation', 'notes' => null],
+            ['identifier' => '2.0', 'description' => 'Initial launched documentation', 'notes' => null]
         ]);
     }
 }
