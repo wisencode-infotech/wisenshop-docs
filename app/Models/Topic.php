@@ -19,5 +19,10 @@ class Topic extends Model
     {
         return $this->hasMany(TopicBlock::class)->orderBy('order', 'asc');
     }
+
+    public function scopeVersion($query, $version)
+    {
+        return $query->where('version_id', $version->id);
+    }
 }
 

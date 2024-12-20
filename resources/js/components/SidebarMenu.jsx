@@ -2,15 +2,18 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const SidebarMenu = ({topicSlug}) => {
+const SidebarMenu = ({topicSlug, selectedVersion}) => {
     const [topics, setTopics] = useState([]);
     const navigate = useNavigate();
     const [isLoaded, setIsLoaded] = useState(false); // Track if topics are already fetched
 
     useEffect(() => {
       const fetchTopics = async () => {
+
+        if (!selectedVersion) return;
+
         try {
-          const response = await axios.get("/api/topics");
+          const response = await axios.get("/api/version/1/topics");
           const topicsData = response.data;
 
           if (window.location.pathname === "/") {
@@ -37,7 +40,7 @@ const SidebarMenu = ({topicSlug}) => {
       if (!isLoaded) {
         fetchTopics();
       }
-    }, [navigate, topicSlug, isLoaded]);
+    }, [navigate, topicSlug, selectedVersion, isLoaded]);
 
     return (
       <nav className="space-y-1">

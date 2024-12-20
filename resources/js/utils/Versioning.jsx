@@ -41,7 +41,6 @@ const Versioning = ({ selectedVersion, setSelectedVersion }) => {
                     onChange={handleVersionChange}
                     className="bg-gray-700 text-gray-400 rounded-lg pl-4 pr-10 py-2 focus:outline-none focus:ring-1 focus:ring-theme appearance-none"
                 >
-                    <option value="">Select Version</option>
                     {versions.map((version) => (
                         <option key={version.id} value={version.id}>
                             {version.identifier}

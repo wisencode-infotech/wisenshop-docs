@@ -6,13 +6,15 @@ use App\Helpers\General;
 use App\Http\Controllers\Controller;
 use App\Models\Topic;
 use Illuminate\Support\Str;
+use App\Models\Version;
+use Illuminate\Http\Request;
 
 class TopicController extends Controller
 {
-    public function index()
+    public function index(Request $request, Version $version)
     {
-        $topics = General::cacheForever('topics', function() {
-            return Topic::all();
+        $topics = General::cacheForever(Str::slug($version->identifier) . '-topics', function() use ($version) {
+            return Topic::version($version)->get();
         });
 
         return response()->json($topics);
