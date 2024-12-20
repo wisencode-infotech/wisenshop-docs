@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
+            VersionSeeder::class,
             TopicSeeder::class,
             BlockTypeSeeder::class,
             TopicBlockSeeder::class,

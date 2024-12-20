@@ -7,6 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Topic extends Model
 {
+    protected $fillable = [
+        'version_id',
+        'name',
+        'slug'
+    ];
+
     use HasFactory;
 
     public function blocks()

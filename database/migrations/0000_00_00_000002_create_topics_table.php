@@ -10,9 +10,12 @@ return new class extends Migration
     {
         Schema::create('topics', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('version_id');
             $table->string('name');
             $table->string('slug');
             $table->timestamps();
+
+            $table->foreign('version_id')->references('id')->on('versions')->onDelete('cascade');
         });
     }
 
