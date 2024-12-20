@@ -1,5 +1,5 @@
 import React from 'react';
-import { showToast } from '../../utils/toastrUtils';
+import { showToast } from '../../utils/ToastrUtils';
 
 
 const CodeBlock = ({ title, description, buttonText, copyContent }) => {

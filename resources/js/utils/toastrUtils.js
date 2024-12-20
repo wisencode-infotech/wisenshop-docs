@@ -20,7 +20,7 @@ export const showToast = (message, type = 'success', props = {}) => {
       toast(message, options);
       break;
     case 'warning':
-      toast(message, { ...options, className: 'toastr warning' });
+      toast(message, { ...options, className: 'toastr warning' }); 
       break;
     default:
       toast(message, options);
