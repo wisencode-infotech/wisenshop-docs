@@ -13,7 +13,7 @@ const SidebarMenu = ({ topicSlug, selectedVersion }) => {
       if (!selectedVersion) return;
 
       try {
-        const response = await axios.get(`/api/version/${selectedVersion}/topics`);
+        const response = await axios.get(`/api/version/${selectedVersion}/topics/all`);
         const topicsData = response.data;
 
         // Redirect logic to ensure valid topicSlug

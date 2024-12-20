@@ -65,7 +65,7 @@ const ContentSection = ({ topicSlug }) => {
   const fetchTopicBlocks = async (slug) => {
     setLoading(true);
     try {
-      const response = await axios.get(`/api/topics/${slug}`);
+      const response = await axios.get(`/api/version/1/topics/${slug}`);
       setTopic(response.data);
     } catch (error) {
       console.error('Error fetching topic blocks:', error);

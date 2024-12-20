@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { useVersioning } from "../utils/VersioningContext"; // Import the hook
+import { useVersioning } from "../utils/VersioningContext";
 import Versioning from "../utils/Versioning";
+import Search from "../utils/Search";
 
 const Header = () => {
   const { selectedVersion, setSelectedVersion } = useVersioning();
@@ -31,7 +32,8 @@ const Header = () => {
         </div>
       </div>
 
-      {isSearchOpen && <Search />}
+      {/* Pass isSearchOpen and setIsSearchOpen as props */}
+      {isSearchOpen && <Search isSearchOpen={isSearchOpen} setIsSearchOpen={setIsSearchOpen} />}
     </header>
   );
 };

@@ -1,9 +1,8 @@
 import React from "react";
 import SidebarMenu from "./SidebarMenu";
-import { useVersioning } from "../utils/VersioningContext"; // Import the context
-
+import { useVersioning } from "../utils/VersioningContext";
 const Sidebar = ({ topicSlug }) => {
-  const { selectedVersion } = useVersioning(); // Get selected version from context
+  const { selectedVersion } = useVersioning();
 
   return (
     <aside className="bg-gray-900 lg:w-1/5 w-full lg:h-screen p-4 shadow-lg border-r border-opacity-10 border-theme-light left-sidebar">
