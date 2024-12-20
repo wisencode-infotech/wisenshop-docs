@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('versions', function (Blueprint $table) {
             $table->id();
-            $table->string('version_number')->unique();
+            $table->string('identifier')->unique();
             $table->string('description')->nullable();
             $table->text('notes')->nullable();
             $table->timestamps();
