@@ -5,20 +5,20 @@ namespace App\Helpers;
 use Illuminate\Support\Facades\Cache;
 
 /**
- * Class General
- * A utility class for managing application level common operations.
+ * Class SystemUtils
+ * A utility class for managing application-level common operations.
  *
- * This class provides methods to interact to application at
- * on very top of the layer and very bottom of the layer also.
+ * This class provides methods to interact with the application at
+ * both the very top and very bottom of the layer.
  */
-class General
+class SystemUtils
 {
     /**
      * Cache key prefix used to standardize and avoid key collisions.
      *
      * @var string
      */
-    public static $cache_key_prefix = '_wisendocs_cache_';
+    public $cache_key_prefix = '_wisendocs_cache_';
 
     /**
      * Generate a standardized cache key with the defined prefix.
@@ -29,9 +29,9 @@ class General
      * @param string $key The original key to be used for the cache.
      * @return string The fully qualified cache key with the prefix applied.
      */
-    public static function _getCacheKey(string $key): string
+    public function _getCacheKey(string $key): string
     {
-        return self::$cache_key_prefix . $key;
+        return $this->cache_key_prefix . $key;
     }
 
     /**
@@ -42,9 +42,9 @@ class General
      * @param int|null $ttl Time-to-live in seconds (optional). Defaults to Laravel's configuration.
      * @return bool True if the cache was successfully stored, false otherwise.
      */
-    public static function cache(string $key, $value, int $ttl = null): bool
+    public function cache(string $key, $value, int $ttl = null): bool
     {
-        return Cache::put(self::_getCacheKey($key), $value, $ttl);
+        return Cache::put($this->_getCacheKey($key), $value, $ttl);
     }
 
     /**
@@ -57,10 +57,10 @@ class General
      * @param callable $callback The callback to generate the value if not cached.
      * @return mixed The cached value or the generated value from the callback.
      */
-    public static function cacheForever(string $key, callable $callback)
+    public function cacheForever(string $key, callable $callback)
     {
         // Use Cache::rememberForever to handle caching and return the stored value
-        return Cache::rememberForever(self::_getCacheKey($key), $callback);
+        return Cache::rememberForever($this->_getCacheKey($key), $callback);
     }
 
     /**
@@ -70,9 +70,9 @@ class General
      * @param mixed $default The default value to return if the key doesn't exist.
      * @return mixed The cached value or the default value.
      */
-    public static function cached(string $key, $default = null)
+    public function cached(string $key, $default = null)
     {
-        return Cache::get(self::_getCacheKey($key), $default);
+        return Cache::get($this->_getCacheKey($key), $default);
     }
 
     /**
@@ -83,11 +83,11 @@ class General
      * @param int|null $ttl Time-to-live in seconds (optional). Defaults to Laravel's configuration.
      * @return bool True if the cache was successfully refreshed, false otherwise.
      */
-    public static function refreshCached(string $key, $value, int $ttl = null): bool
+    public function refreshCached(string $key, $value, int $ttl = null): bool
     {
-        self::clearCached(self::_getCacheKey($key));
+        $this->clearCached($this->_getCacheKey($key));
 
-        return self::cache(self::_getCacheKey($key), $value, $ttl);
+        return $this->cache($this->_getCacheKey($key), $value, $ttl);
     }
 
     /**
@@ -96,9 +96,9 @@ class General
      * @param string $key The cache key to remove.
      * @return bool True if the cache key was successfully removed, false otherwise.
      */
-    public static function clearCached(string $key): bool
+    public function clearCached(string $key): bool
     {
-        return Cache::forget(self::_getCacheKey($key));
+        return Cache::forget($this->_getCacheKey($key));
     }
 
     /**
@@ -106,7 +106,7 @@ class General
      *
      * @return void
      */
-    public static function clearAllCache(): void
+    public function clearAllCache(): void
     {
         Cache::flush();
     }

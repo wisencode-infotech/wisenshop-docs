@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Helpers\General;
+use App\Helpers\SystemUtils;
 use App\Http\Controllers\Controller;
 use App\Models\Topic;
 use Illuminate\Support\Str;
@@ -11,9 +11,16 @@ use Illuminate\Http\Request;
 
 class TopicController extends Controller
 {
+    public $system_utils;
+
+    public function __construct()
+    {
+        $this->system_utils = new SystemUtils();
+    }
+
     public function index(Request $request, Version $version)
     {
-        $topics = General::cacheForever(Str::slug($version->identifier) . '-topics', function() use ($version) {
+        $topics = $this->system_utils->cacheForever('version-' . Str::slug($version->identifier) . '-topics', function() use ($version) {
             return Topic::version($version)->get();
         });
 
@@ -24,7 +31,7 @@ class TopicController extends Controller
     {  
         $slug_to_cache = Str::replace('-', '_', $slug);
 
-        $topic = General::cacheForever('topic-' . $slug_to_cache . '-blocks', function() use ($version, $slug) {
+        $topic = $this->system_utils->cacheForever('version-' . Str::slug($version->identifier) . '.topic-' . $slug_to_cache . '-blocks', function() use ($version, $slug) {
             return Topic::version($version)->with(['blocks.blockType'])->where('slug', $slug)->first();
         });
 

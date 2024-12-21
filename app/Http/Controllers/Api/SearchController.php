@@ -2,15 +2,24 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Helpers\General;
+use App\Helpers\SystemUtils;
 use App\Http\Controllers\Controller;
 use App\Models\Topic;
 use App\Models\TopicBlock;
+use App\Models\Version;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class SearchController extends Controller
 {
-    public function search(Request $request)
+    public $system_utils;
+
+    public function __construct()
+    {
+        $this->system_utils = new SystemUtils();
+    }
+    
+    public function search(Request $request, Version $version)
     {
         $query = $request->input('query');
 
@@ -20,8 +29,8 @@ class SearchController extends Controller
         }
 
         // Get the cached topics (if available) or load them from the database and cache them
-        $topics = General::cacheForever('topics', function() {
-            return Topic::all(); // Cache all topics forever if not cached
+        $topics = $this->system_utils->cacheForever(Str::slug($version->identifier) . '-topics', function() use ($version) {
+            return Topic::version($version)->get(); // Cache all topics forever if not cached
         });
 
         // Filter the cached topics using collection's `filter` method
@@ -39,9 +48,12 @@ class SearchController extends Controller
         });
 
         // Get the cached topic blocks (if available) or load them from the database and cache them
-        $all_topic_blocks = General::cacheForever('topic_blocks', function() {
+        $all_topic_blocks = $this->system_utils->cacheForever('topic_blocks', function() {
             return TopicBlock::select('id', 'attributes', 'topic_id')
-                ->with('topic:id,name,slug')
+                ->with([
+                    'topic:id,name,slug,version_id',
+                    'topic.versioning:identifier'
+                ])
                 ->get(); // Cache all topic blocks forever if not cached
         });
 

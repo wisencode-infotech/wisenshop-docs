@@ -1,18 +1,22 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useVersioning } from "../utils/VersioningContext";
 
 const Search = ({ isSearchOpen, setIsSearchOpen }) => {
     const [searchQuery, setSearchQuery] = useState("");
     const [searchResults, setSearchResults] = useState({ topics: [], block_types: [], topic_blocks: [] });
     const [isLoading, setIsLoading] = useState(false);
     const inputRef = useRef(null);
+    const { selectedVersion } = useVersioning();
 
     useEffect(() => {
+        if (!selectedVersion) return;
+
         if (isSearchOpen) {
             inputRef.current?.focus();
         }
-    }, [isSearchOpen]);
+    }, [isSearchOpen, selectedVersion]);
 
     useEffect(() => {
         if (searchQuery.trim() === "") {
@@ -23,7 +27,7 @@ const Search = ({ isSearchOpen, setIsSearchOpen }) => {
         const timer = setTimeout(async () => {
             setIsLoading(true);
             try {
-                const response = await axios.get("/api/search", {
+                const response = await axios.get(`/api/version/${selectedVersion}/search`, {
                     params: { query: searchQuery },
                 });
                 setSearchResults(response.data);
@@ -115,7 +119,10 @@ const Search = ({ isSearchOpen, setIsSearchOpen }) => {
                                                 </div>
                                             );
                                         })}
-                                        <div className="mt-2 text-xs text-theme-light">#{result.topic.name}</div>
+                                        <div className="mt-2 text-xs text-theme-light flex justify-between">
+                                            <span>#{result.topic.name}</span>
+                                            <span>V {result.topic.versioning.identifier}</span>
+                                        </div>
                                     </div>
                                 </Link>
                             ) : null;

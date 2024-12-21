@@ -10,7 +10,8 @@ Route::group(['prefix' => 'version/{version}', 'as' => 'version.'], function() {
         Route::get('/all', [TopicController::class, 'index']);
         Route::get('/{slug}', [TopicController::class, 'getTopicBlocks']);
     });
+
+    Route::get('search', [SearchController::class, 'search']);
 });
 
-Route::get('search', [SearchController::class, 'search']);
 Route::get('/versions', [VersionController::class, 'index']);
