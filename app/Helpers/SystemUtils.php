@@ -2,6 +2,7 @@
 
 namespace App\Helpers;
 
+use App\Models\Version;
 use Illuminate\Support\Facades\Cache;
 
 /**
@@ -20,6 +21,8 @@ class SystemUtils
      */
     public $cache_key_prefix = '_wisendocs_cache_';
 
+    public $version_identifier = 1;
+
     /**
      * Generate a standardized cache key with the defined prefix.
      *
@@ -31,7 +34,23 @@ class SystemUtils
      */
     public function _getCacheKey(string $key): string
     {
-        return $this->cache_key_prefix . $key;
+        return $this->cache_key_prefix . '_version_' . $this->version_identifier . '_' . $key;
+    }
+
+    /**
+     * Set version identifier for the process
+     *
+     * This method set version identifier from given
+     * \App\Models\Version object
+     *
+     * @param \App\Models\Version $version The version object
+     * @return \App\Helpers\SystemUtils $this object
+     */
+    public function setVersionIdentifier(Version $version)
+    {
+        $this->version_identifier = $version->version_identifier ?? 1;
+
+        return $this;
     }
 
     /**

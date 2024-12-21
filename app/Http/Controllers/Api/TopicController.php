@@ -20,7 +20,7 @@ class TopicController extends Controller
 
     public function index(Request $request, Version $version)
     {
-        $topics = $this->system_utils->cacheForever('version-' . Str::slug($version->identifier) . '-topics', function() use ($version) {
+        $topics = $this->system_utils->setVersionIdentifier($version)->cacheForever('topics', function() use ($version) {
             return Topic::version($version)->get();
         });
 
@@ -31,7 +31,7 @@ class TopicController extends Controller
     {  
         $slug_to_cache = Str::replace('-', '_', $slug);
 
-        $topic = $this->system_utils->cacheForever('version-' . Str::slug($version->identifier) . '.topic-' . $slug_to_cache . '-blocks', function() use ($version, $slug) {
+        $topic = $this->system_utils->setVersionIdentifier($version)->cacheForever('topic_' . $slug_to_cache . '_blocks', function() use ($version, $slug) {
             return Topic::version($version)->with(['blocks.blockType'])->where('slug', $slug)->first();
         });
 

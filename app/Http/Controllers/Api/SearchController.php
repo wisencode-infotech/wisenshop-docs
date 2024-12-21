@@ -29,8 +29,8 @@ class SearchController extends Controller
         }
 
         // Get the cached topics (if available) or load them from the database and cache them
-        $topics = $this->system_utils->cacheForever(Str::slug($version->identifier) . '-topics', function() use ($version) {
-            return Topic::version($version)->get(); // Cache all topics forever if not cached
+        $topics = $this->system_utils->setVersionIdentifier($version)->cacheForever(Str::slug($version->identifier) . '-topics', function() use ($version) {
+            return Topic::version($version)->get();
         });
 
         // Filter the cached topics using collection's `filter` method
@@ -48,12 +48,15 @@ class SearchController extends Controller
         });
 
         // Get the cached topic blocks (if available) or load them from the database and cache them
-        $all_topic_blocks = $this->system_utils->cacheForever('topic_blocks', function() {
+        $all_topic_blocks = $this->system_utils->setVersionIdentifier($version)->cacheForever('topic_blocks', function() use ($version) {
             return TopicBlock::select('id', 'attributes', 'topic_id')
                 ->with([
                     'topic:id,name,slug,version_id',
                     'topic.versioning:identifier'
                 ])
+                ->whereHas('topic', function ($query) use ($version) {
+                    $query->where('version_id', $version->id);
+                })
                 ->get(); // Cache all topic blocks forever if not cached
         });
 
