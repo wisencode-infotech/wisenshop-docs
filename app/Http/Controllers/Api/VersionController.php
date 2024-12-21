@@ -10,9 +10,9 @@ class VersionController extends Controller
 {
     public $system_utils;
 
-    public function __construct()
+    public function __construct(SystemUtils $system_utils)
     {
-        $this->system_utils = new SystemUtils();
+        $this->system_utils = $system_utils;
     }
 
     public function index()
