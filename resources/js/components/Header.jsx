@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useVersioning } from "../utils/VersioningContext";
 import Versioning from "../utils/Versioning";
 import Search from "../utils/Search";
+import logoDark from '../../logos/logo-dark.png';
 
 const Header = () => {
   const { selectedVersion, setSelectedVersion } = useVersioning();
@@ -11,8 +12,13 @@ const Header = () => {
     <header className="bg-gray-800 shadow-lg sticky top-0 z-10">
       <div className="container mx-auto flex items-center justify-between px-6 py-4">
         {/* Left section: Image/Logo */}
-        <div className="flex-shrink-0">
-          <a href="/">Logo</a>
+        <div className="flex-shrink-0 relative">
+          <a href="/">
+            <img src={logoDark} alt="Dark Logo" />
+            <span className="text-xs text-white-500 px-2 py-1 rounded ms-3">
+              Documentation
+            </span>
+          </a>
         </div>
 
         {/* Middle section: Search */}
