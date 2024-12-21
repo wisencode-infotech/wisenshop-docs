@@ -1,16 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Toaster } from "react-hot-toast"; // Import the Toaster component
-import Home from "./pages/Home"; // Home component path
-import "../css/app.css"; // Ensure the CSS file is correctly imported
-import { VersioningProvider } from "./utils/VersioningContext"; // Ensure correct import path
+import { Toaster } from "react-hot-toast";
+import Home from "./pages/Home";
+import "../css/app.css";
+import { VersioningProvider } from "./utils/VersioningContext";
 
 const App = () => (
   <VersioningProvider>
     <Router>
       <div>
-        {/* Include Toaster globally */}
         <Toaster
           position="bottom-right"
           toastOptions={{
@@ -28,8 +27,14 @@ const App = () => (
 );
 
 const root = ReactDOM.createRoot(document.getElementById("app"));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+
+// Wrap with StrictMode only in development
+if (process.env.NODE_ENV === "development") {
+  root.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  );
+} else {
+  root.render(<App />);
+}

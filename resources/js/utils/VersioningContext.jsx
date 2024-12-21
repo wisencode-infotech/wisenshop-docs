@@ -6,7 +6,29 @@ export const useVersioning = () => useContext(VersioningContext);
 
 export const VersioningProvider = ({ children }) => {
   const [selectedVersion, setSelectedVersion] = useState("");
+  const [versions, setVersions] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
+  // Fetch versions once when the context is initialized
+  useEffect(() => {
+    const fetchVersions = async () => {
+      try {
+        const response = await fetch("/api/versions"); // Replace with your API endpoint
+        const data = await response.json();
+        setVersions(data);
+      } catch (err) {
+        setError("Failed to load versions");
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchVersions();
+  }, []);
+
+  // Check if there's a stored version in localStorage
   useEffect(() => {
     const storedVersion = localStorage.getItem("selectedVersion");
     if (storedVersion) {
@@ -16,6 +38,7 @@ export const VersioningProvider = ({ children }) => {
     }
   }, []);
 
+  // Store selected version in localStorage
   useEffect(() => {
     if (selectedVersion) {
       localStorage.setItem("selectedVersion", selectedVersion);
@@ -23,7 +46,7 @@ export const VersioningProvider = ({ children }) => {
   }, [selectedVersion]);
 
   return (
-    <VersioningContext.Provider value={{ selectedVersion, setSelectedVersion }}>
+    <VersioningContext.Provider value={{ selectedVersion, setSelectedVersion, versions, loading, error }}>
       {children}
     </VersioningContext.Provider>
   );
