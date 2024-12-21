@@ -119,9 +119,11 @@ const Search = ({ isSearchOpen, setIsSearchOpen }) => {
                                                 </div>
                                             );
                                         })}
-                                        <div className="mt-2 text-xs text-theme-light flex justify-between">
-                                            <span>#{result.topic.name}</span>
-                                            <span>V {result.topic.versioning.identifier}</span>
+                                        <div className="mt-2 text-xs flex justify-between">
+                                            <span className="text-theme-light">#{result.topic.name}</span>
+                                            {result.topic.versioning && result.topic.versioning.identifier && (
+                                                <span className="text-gray-400">V {result.topic.versioning.identifier}</span>
+                                            )}
                                         </div>
                                     </div>
                                 </Link>
