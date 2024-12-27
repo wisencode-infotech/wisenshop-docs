@@ -12,8 +12,9 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { ScaleLoader } from "react-spinners"; 
 import HorizontalLine from '../components/Common/HorizontalLine/HorizontalLine';
 import Button from '../components/Common/Button/Button';
+import NoDataFoundTemplate from './Common/Template/NoDataFoundTemplate';
 
-const ContentSection = ({ topicSlug }) => {
+const ContentSection = ({ topicSlug, selectedVersion }) => {
   const [topic, setTopic] = useState(null);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
@@ -79,7 +80,7 @@ const ContentSection = ({ topicSlug }) => {
   const fetchTopicBlocks = async (slug) => {
     setLoading(true);
     try {
-      const response = await axios.get(`/api/version/1/topics/${slug}`);
+      const response = await axios.get(`/api/version/${selectedVersion}/topics/${slug}`);
       setTopic(response.data);
     } catch (error) {
       console.error('Error fetching topic blocks:', error);
@@ -102,6 +103,10 @@ const ContentSection = ({ topicSlug }) => {
       </div>
     );
 
+  }
+
+  if (topicSlug && topicSlug === 'undefined') {
+    navigate('/')
   }
 
   if (!topicSlug) {
@@ -138,6 +143,12 @@ const ContentSection = ({ topicSlug }) => {
 
   if (!topic) {
     return <p className="text-gray-400"></p>;
+  }
+
+  if (!topic.hasOwnProperty('blocks')) {
+    return <NoDataFoundTemplate
+      text={`No results found for <strong>#${topicSlug}</strong>`}
+      icon='fa fa-hourglass-start' />
   }
 
   return (

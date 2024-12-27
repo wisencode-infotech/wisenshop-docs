@@ -6,7 +6,7 @@ const SidebarMenu = ({ topicSlug, selectedVersion, menus }) => {
 
   // Handle click event if needed, for example, tracking clicks
   const handleMenuClick = (slug) => {
-    console.log(`Menu clicked: ${slug}`);
+    // console.log(`Menu clicked: ${slug}`);
     // You can handle additional logic here when a menu is clicked, if needed
   };
 

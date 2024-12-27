@@ -1,0 +1,44 @@
+import React from "react";
+import Subtitle from "../Subtitle/Subtitle";
+import { useNavigate } from "react-router-dom";
+import Button from "../Button/Button";
+
+const NoDataFoundTemplate = ({ text, icon = '' }) => {
+
+  const navigate = useNavigate();
+
+  return (
+    <main className="min-h-screen bg-gray-900"> 
+      {/* Centered Popup */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="bg-gray-800 rounded-xl shadow-lg p-8 max-w-md w-full text-center">
+
+          <div className="mb-4">
+            <Subtitle 
+              text={`<span><i class="${icon}"></i></span>`} 
+              classNames="text-4xl font-semibold text-gray-400 mb-8" 
+            />
+          </div>
+
+          <Subtitle 
+            text={text} 
+            classNames="text-sm font-semibold text-gray-400 mb-4" 
+          />
+
+          <div>
+            <Button 
+              text={'Go home'} 
+              onClick={() => navigate('/')}  // Redirect to home page
+              size="small" 
+              classNames='mt-4'
+              color='themeLight'
+              icon={'fa fa-home'} 
+            />
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+};
+
+export default NoDataFoundTemplate;
