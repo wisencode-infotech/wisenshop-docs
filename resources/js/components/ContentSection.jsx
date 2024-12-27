@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Title from '../components/Title/Title';
-import Subtitle from '../components/Subtitle/Subtitle';
-import Description from '../components/Description/Description';
+import Title from '../components/Common/Title/Title';
+import Subtitle from '../components/Common/Subtitle/Subtitle';
+import Description from '../components/Common/Description/Description';
 import CodeBlock from '../components/CodeBlock/CodeBlock';
 import List from '../components/List/List';
 import Note from '../components/Note/Note';
@@ -10,7 +10,7 @@ import ScreenshotImage from './Screenshot/ScreenshotImage';
 import ScreenshotGallery from '../components/Screenshot/ScreenshotGallery';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ScaleLoader } from "react-spinners"; 
-import HorizontalLine from './Common/HorizontalLine';
+import HorizontalLine from '../components/Common/HorizontalLine/HorizontalLine';
 
 const ContentSection = ({ topicSlug }) => {
   const [topic, setTopic] = useState(null);
