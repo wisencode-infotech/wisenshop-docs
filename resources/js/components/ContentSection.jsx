@@ -31,12 +31,12 @@ const ContentSection = ({ topicSlug, selectedVersion }) => {
 
   useEffect(() => {
     if (topicSlug) {
-      fetchTopicBlocks(topicSlug);
+      fetchTopicBlocks(topicSlug, selectedVersion);
     } else {
       setLoading(false);
       return;
     }
-  }, [topicSlug]);
+  }, [topicSlug, selectedVersion]);
 
   useEffect(() => {
     const handleScrollToBlock = () => {
@@ -75,9 +75,9 @@ const ContentSection = ({ topicSlug, selectedVersion }) => {
   
       return () => clearTimeout(timeoutId);
     }
-  }, [location.pathname, topic, navigate, topicSlug]);
+  }, [location.pathname, topic, navigate, topicSlug, selectedVersion]);
 
-  const fetchTopicBlocks = async (slug) => {
+  const fetchTopicBlocks = async (slug, selectedVersion) => {
     setLoading(true);
     try {
       const response = await axios.get(`/api/version/${selectedVersion}/topics/${slug}`);

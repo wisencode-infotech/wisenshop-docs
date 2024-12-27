@@ -20,6 +20,7 @@ const Versioning = () => {
   return (
     <div className="relative">
       <select 
+        name="app-doc-version-dropdown"
         className="bg-gray-700 text-gray-400 rounded-lg pl-4 pr-10 py-2 focus:outline-none focus:ring-1 focus:ring-theme appearance-none"
         value={selectedVersion} 
         onChange={handleVersionChange}>

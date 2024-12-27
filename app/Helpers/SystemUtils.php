@@ -34,7 +34,7 @@ class SystemUtils
      */
     public function _getCacheKey(string $key): string
     {
-        return $this->cache_key_prefix . '_version_' . $this->version_identifier . '_' . $key;
+        return $this->cache_key_prefix . 'version_' . $this->version_identifier . '_' . $key;
     }
 
     /**
