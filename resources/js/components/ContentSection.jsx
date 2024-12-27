@@ -11,6 +11,7 @@ import ScreenshotGallery from '../components/Screenshot/ScreenshotGallery';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ScaleLoader } from "react-spinners"; 
 import HorizontalLine from '../components/Common/HorizontalLine/HorizontalLine';
+import Button from '../components/Common/Button/Button';
 
 const ContentSection = ({ topicSlug }) => {
   const [topic, setTopic] = useState(null);
@@ -21,7 +22,10 @@ const ContentSection = ({ topicSlug }) => {
   const homePage = {
     title: "Welcome to the official documentation for WisenShop",
     description: "This documentation is designed to provide a comprehensive and professional resource for understanding and utilizing our software to its fullest potential. We are committed to ensuring your success with WisenShop. Please use the navigation menu to explore topics or leverage the search functionality to find specific information.",
-    buttonText: "Start Exploring"
+    button: {
+      text: 'Start Exploring',
+      icon: 'far fa-window-maximize'
+    }
   };
 
   useEffect(() => {
@@ -104,14 +108,29 @@ const ContentSection = ({ topicSlug }) => {
     return (
       <main className="flex-1 p-6 main-content">
         <div className="bg-gray-800 rounded-xl shadow-lg p-8 right-side-content">
-          <Title text={homePage?.title} level="h2" classNames='text-xl font-semibold text-gray-200 mb-3' />
+          <Title 
+            text={homePage?.title} 
+            level="h2" 
+            classNames='text-xl font-semibold text-gray-200 mb-3' />
+
           <HorizontalLine
             height="1px"
             color="#dedede" 
             opacity={0.2} 
             margin="10px 0"
           />
-          <Description content={homePage?.description} classNames='text-sm font-semibold text-gray-400' />
+
+          <Description 
+            content={homePage?.description} 
+            classNames='text-sm font-semibold text-gray-400' />
+
+          <Button 
+            text={homePage.button.text} 
+            onClick={() => document.querySelector(".sidebar-menu-item")?.click()} 
+            size="small" 
+            classNames='mt-4'
+            color='themeLight'
+            icon={homePage.button.icon} />
         </div>
       </main>
     );
