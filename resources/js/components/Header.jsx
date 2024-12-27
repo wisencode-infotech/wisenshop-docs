@@ -15,9 +15,6 @@ const Header = () => {
         <div className="flex-shrink-0 relative">
           <a href="/">
             <img src={logoDark} alt="Dark Logo" />
-            <span className="text-xs text-white-500 px-2 py-1 rounded ms-3">
-              Documentation
-            </span>
           </a>
         </div>
 

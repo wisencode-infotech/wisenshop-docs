@@ -21,7 +21,7 @@ const SidebarMenu = ({ topicSlug, selectedVersion, menus }) => {
             onClick={() => handleMenuClick(topic.slug)} // Handling the click event
             className={`flex items-center space-x-3 py-3 px-4 rounded-lg relative ${
               isActive ? "bg-theme-dark text-white" : "text-gray-400"
-            } group`}
+            } group sidebar-menu-item`}
           >
             {topic.isNew && (
               <span className="absolute top-50 right-2 bg-blue-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">

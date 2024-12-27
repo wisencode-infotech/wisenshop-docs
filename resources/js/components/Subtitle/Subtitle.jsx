@@ -1,10 +1,11 @@
 import React from 'react';
 
-const Subtitle = ({ text }) => {
+const Subtitle = ({ text, classNames = 'text-md font-semibold text-gray-200 mb-4' }) => {
   
   return (
-    <span className="text-md font-semibold text-gray-200 mb-4">
-      {text}
+    <span 
+      className={`${classNames}`}
+      dangerouslySetInnerHTML={{ __html: text }}>
     </span>
   );
 };
