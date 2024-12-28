@@ -29,7 +29,7 @@ class SearchController extends Controller
         }
 
         // Get the cached topics (if available) or load them from the database and cache them
-        $topics = $this->system_utils->setVersionIdentifier($version)->cacheForever(Str::slug($version->identifier) . '-topics', function() use ($version) {
+        $topics = $this->system_utils->setVersionIdentifier($version)->cacheForever('topics', function() use ($version) {
             return Topic::version($version)->get();
         });
 

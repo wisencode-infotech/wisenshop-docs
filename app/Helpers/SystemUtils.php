@@ -48,7 +48,7 @@ class SystemUtils
      */
     public function setVersionIdentifier(Version $version)
     {
-        $this->version_identifier = $version->version_identifier ?? 1;
+        $this->version_identifier = $version->identifier ?? 1;
 
         return $this;
     }
