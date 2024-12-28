@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const SidebarMenu = ({ topicSlug, menus, selectedVersion }) => {
+const SidebarMenu = ({ topicSlug, menus, selectedVersion, toggleSidebar }) => {
   // Handle click events for tracking or additional logic
   const handleMenuClick = (slug) => {
-    // Add any additional logic needed when a menu is clicked
+    // Close the sidebar on mobile/ipad
+    toggleSidebar(); // Call the toggleSidebar function to hide the sidebar
   };
 
   return (
@@ -15,7 +16,7 @@ const SidebarMenu = ({ topicSlug, menus, selectedVersion }) => {
           <Link
             key={topic.id}
             to={`/${topic.slug}`}
-            onClick={() => handleMenuClick(topic.slug)} // Handle click event
+            onClick={() => handleMenuClick(topic.slug)} // Close the sidebar when clicked
             className={`flex items-center space-x-3 py-3 px-4 rounded-lg relative 
               ${
                 isActive

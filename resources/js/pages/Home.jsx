@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
@@ -10,26 +10,33 @@ import useVersioningHook from "../hooks/useVersioningHook";
 const fetchVersions = async () => {
   try {
     const response = await axios.get("/api/versions");
-    return response.data; // Returning the versions data
+    return response.data;
   } catch (error) {
     console.error("Error fetching versions:", error);
-    return []; // Return an empty array in case of error
+    return [];
   }
 };
 
 const Home = () => {
   const { topicSlug } = useParams();
-  const { availableVersions, currentVersion, setCurrentVersion } = useVersioningHook(null, fetchVersions); // Passing fetchVersions
+  const { availableVersions, currentVersion, setCurrentVersion } = useVersioningHook(null, fetchVersions);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
       <Header
         availableVersions={availableVersions}
         currentVersion={currentVersion}
         setCurrentVersion={setCurrentVersion}
+        toggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
       />
-      <div className="flex flex-col lg:flex-row">
-        <Sidebar topicSlug={topicSlug} currentVersion={currentVersion} />
+      <div className="flex flex-col lg:flex-row flex-grow">
+        <Sidebar
+          topicSlug={topicSlug}
+          currentVersion={currentVersion}
+          isSidebarOpen={isSidebarOpen}
+          toggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
+        />
         <ContentSection topicSlug={topicSlug} currentVersion={currentVersion} />
       </div>
       <Footer />

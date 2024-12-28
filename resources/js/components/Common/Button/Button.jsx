@@ -23,13 +23,13 @@ const Button = ({
   };
 
   const colorStyles = {
-    themeLight: 'bg-theme-light hover:bg-theme-dark text-theme-dark hover:text-theme-light',
-    themeDark: 'bg-theme-dark hover:bg-theme-light text-theme-light hover:text-theme-dark',
-    primary: 'bg-blue-500 hover:bg-blue-600 text-white',
-    secondary: 'bg-gray-500 hover:bg-gray-600 text-white',
-    danger: 'bg-red-500 hover:bg-red-600 text-white',
-    success: 'bg-green-500 hover:bg-green-600 text-white',
-    outline: 'border-2 border-blue-500 text-blue-500 hover:bg-blue-100',
+    themeLight: 'bg-theme-dark dark:bg-theme-light hover:bg-theme-light dark:hover:bg-theme-dark text-theme-light dark:text-theme-dark hover:text-theme-dark dark:hover:text-theme-light',
+    themeDark: 'bg-theme-light dark:bg-theme-dark hover:bg-theme-dark dark:hover:bg-theme-light text-theme-dark dark:text-theme-light hover:text-theme-light dark:hover:text-theme-dark',
+    primary: 'bg-blue-600 dark:bg-blue-500 hover:bg-blue-500 dark:hover:bg-blue-600 text-white',
+    secondary: 'bg-gray-600 dark:bg-gray-500 hover:bg-gray-500 dark:hover:bg-gray-600 text-white',
+    danger: 'bg-red-600 dark:bg-red-500 hover:bg-red-500 dark:hover:bg-red-600 text-white',
+    success: 'bg-green-600 dark:bg-green-500 hover:bg-green-500 dark:hover:bg-green-600 text-white',
+    outline: 'border-2 border-blue-600 dark:border-blue-500 text-blue-600 dark:text-blue-500 hover:bg-blue-200 dark:hover:bg-blue-100',
   };
 
   const buttonClassNames = `

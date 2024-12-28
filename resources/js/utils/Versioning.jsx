@@ -2,9 +2,9 @@ import React from "react";
 
 const Versioning = ({ availableVersions, currentVersion, onChangeVersion }) => {
   return (
-    <div className="relative">
+    <div className="relative w-full max-w-xs">
       <select
-        className="bg-theme-lightBackground dark:bg-theme-darkBackground text-theme-lightText dark:text-theme-darkText rounded-lg pl-4 pr-10 py-2 focus:outline-none focus:ring-1 focus:ring-theme appearance-none"
+        className="bg-theme-lightBackground dark:bg-theme-darkBackground text-theme-lightText dark:text-theme-darkText rounded-lg pl-4 pr-10 py-2 focus:outline-none focus:ring-1 focus:ring-theme appearance-none text-sm sm:text-base w-full"
         value={currentVersion || ""}
         onChange={(e) => onChangeVersion(e.target.value)}
       >
