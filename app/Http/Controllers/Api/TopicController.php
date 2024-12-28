@@ -8,7 +8,6 @@ use App\Models\Topic;
 use Illuminate\Support\Str;
 use App\Models\Version;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cache;
 
 class TopicController extends Controller
 {

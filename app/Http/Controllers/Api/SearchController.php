@@ -8,7 +8,6 @@ use App\Models\Topic;
 use App\Models\TopicBlock;
 use App\Models\Version;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 
 class SearchController extends Controller
 {
