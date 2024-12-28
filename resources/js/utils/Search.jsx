@@ -53,7 +53,7 @@ const Search = ({ isSearchOpen, setIsSearchOpen, currentVersion }) => {
         const regex = new RegExp(`(${searchQuery.trim()})`, "gi");
         return text.split(regex).map((part, index) =>
             part.toLowerCase() === searchQuery.trim().toLowerCase() ? (
-                <span key={index} className="font-bold text-white">{part}</span>
+                <span key={index} className="font-bold text-theme-lightText dark:text-theme-darkText">{part}</span>
             ) : (
                 part
             )
@@ -62,11 +62,11 @@ const Search = ({ isSearchOpen, setIsSearchOpen, currentVersion }) => {
 
     return (
         <div
-            className="fixed inset-0 bg-gray-800 bg-opacity-70 flex justify-center items-start z-20"
+            className="fixed inset-0 bg-theme-dark bg-opacity-90 flex justify-center items-start z-20"
             onClick={() => setIsSearchOpen(false)}
         >
             <div
-                className="relative w-full max-w-lg top-[20%] p-8 bg-gray-700 rounded-lg max-h-[80vh] overflow-auto"
+                className="relative w-full max-w-lg top-[20%] p-8 bg-theme-light dark:bg-gray-900 rounded-lg max-h-[80vh] overflow-auto"
                 onClick={(e) => e.stopPropagation()}
             >
                 <input
@@ -75,17 +75,17 @@ const Search = ({ isSearchOpen, setIsSearchOpen, currentVersion }) => {
                     placeholder="Search..."
                     value={searchQuery}
                     onChange={handleSearchChange}
-                    className="w-full px-4 py-2 bg-gray-600 rounded-lg text-gray-300 focus:outline-none focus:ring-1 focus:ring-theme"
+                    className="w-full px-4 py-2 bg-theme-light dark:bg-theme-dark text-theme-lightText dark:text-theme-darkText rounded-lg focus:outline-none focus:ring-1 focus:ring-theme"
                 />
 
-                {isLoading && <p className="text-gray-300">Loading...</p>}
+                {isLoading && <p className="text-theme-lightText dark:text-theme-darkText">Loading...</p>}
 
                 {searchResults.topics.length > 0 && (
                     <div className="mt-2">
                         {searchResults.topics.map((result) => (
-                            <Link key={result.id} to={`/${result.slug}`} className="text-gray-300">
+                            <Link key={result.id} to={`/${result.slug}`} className="text-theme-lightText dark:text-theme-darkText">
                                 <div
-                                    className="p-2 hover:bg-gray-600 cursor-pointer border-b border-gray-600 rounded-none"
+                                    className="p-2 hover:bg-theme-accent dark:hover:bg-theme-dark cursor-pointer border-b border-theme-dark rounded-none transition-colors duration-200"
                                     onClick={handleResultClick}
                                 >
                                     {highlightText(`#${result.name}`)}
@@ -104,9 +104,9 @@ const Search = ({ isSearchOpen, setIsSearchOpen, currentVersion }) => {
                             });
 
                             return matchedContent.length > 0 ? (
-                                <Link key={result.id} to={`/${result.topic.slug}/blocks/${result.id}`} className="text-gray-300">
+                                <Link key={result.id} to={`/${result.topic.slug}/blocks/${result.id}`} className="text-theme-lightText dark:text-theme-darkText">
                                     <div
-                                        className="p-2 hover:bg-gray-600 cursor-pointer border-b border-gray-600 rounded-none"
+                                        className="p-2 hover:bg-theme-accent dark:hover:bg-theme-dark cursor-pointer border-b border-theme-dark rounded-none transition-colors duration-200"
                                         onClick={handleResultClick}
                                     >
                                         {matchedContent.map(([key, value], index) => {
@@ -117,10 +117,10 @@ const Search = ({ isSearchOpen, setIsSearchOpen, currentVersion }) => {
                                                 </div>
                                             );
                                         })}
-                                        <div className="mt-2 text-xs flex justify-between">
-                                            <span className="text-theme-light">#{result.topic.name}</span>
+                                        <div className="mt-2 text-xs flex justify-between text-theme-lightText dark:text-theme-darkText">
+                                            <span className="text-theme-lightText dark:text-theme-darkText">#{result.topic.name}</span>
                                             {result.topic.versioning && result.topic.versioning.identifier && (
-                                                <span className="text-gray-400">V {result.topic.versioning.identifier}</span>
+                                                <span className="text-theme-lightText dark:text-theme-darkText">V {result.topic.versioning.identifier}</span>
                                             )}
                                         </div>
                                     </div>
@@ -131,10 +131,10 @@ const Search = ({ isSearchOpen, setIsSearchOpen, currentVersion }) => {
                 )}
 
                 {searchQuery.trim() !== "" && !isLoading && searchResults.topics.length === 0 && searchResults.topic_blocks.length === 0 && (
-                    <p className="text-gray-400 mt-2">No results found.</p>
+                    <p className="text-theme-lightText dark:text-theme-darkText mt-2">No results found.</p>
                 )}
 
-                <div className="text-right text-xs text-gray-400 mt-4">Search in <strong>WisenDocs</strong></div>
+                <div className="text-right text-xs text-theme-lightText dark:text-theme-darkText mt-4">Search in <strong>WisenDocs</strong></div>
             </div>
         </div>
     );

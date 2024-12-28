@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import SidebarMenu from "./SidebarMenu";
-import { ScaleLoader } from "react-spinners"; 
+import { ScaleLoader } from "react-spinners";
 
 const Sidebar = ({ topicSlug, currentVersion }) => {
   const [menus, setMenus] = useState([]);
@@ -31,12 +31,12 @@ const Sidebar = ({ topicSlug, currentVersion }) => {
 
   if (isLoading) {
     return (
-      <aside className="bg-gray-900 lg:w-1/5 w-full lg:h-screen p-4 shadow-lg border-r border-opacity-10 border-theme-light left-sidebar flex flex-col">
+      <aside className="bg-theme-light dark:bg-theme-dark lg:w-1/5 w-full lg:h-screen p-4 shadow-lg border-r border-opacity-10 border-theme-light dark:border-theme-dark left-sidebar flex flex-col">
         <div className="flex flex-col space-y-6">
           <div className="text-left space-x-3 px-4">
-            <h2 className="text-1xl font-semibold text-gray-200 tracking-wide">Topics</h2>
+            <h2 className="text-xl font-semibold text-theme-dark dark:text-theme-light tracking-wide">Topics</h2>
           </div>
-          <div className="loader text-gray-400 text-center">
+          <div className="loader text-gray-500 text-center">
             <ScaleLoader
               color='#3d5f8a'
               loading
@@ -53,36 +53,36 @@ const Sidebar = ({ topicSlug, currentVersion }) => {
 
   if (error) {
     return (
-      <aside className="bg-gray-900 lg:w-1/5 w-full lg:h-screen p-4 shadow-lg border-r border-opacity-10 border-theme-light left-sidebar flex flex-col">
+      <aside className="bg-theme-light dark:bg-theme-dark lg:w-1/5 w-full lg:h-screen p-4 shadow-lg border-r border-opacity-10 border-theme-light dark:border-theme-dark left-sidebar flex flex-col">
         <div className="flex flex-col space-y-6">
           <div className="text-left space-x-3 px-4">
-            <h2 className="text-1xl font-semibold text-gray-200 tracking-wide">Topics</h2>
+            <h2 className="text-xl font-semibold text-theme-dark dark:text-theme-light tracking-wide">Topics</h2>
           </div>
-          <div className="text-red-500">{error}</div> {/* Display error message */}
+          <div className="text-red-600">{error}</div> {/* Display error message */}
         </div>
       </aside>
     );
   }
 
   return (
-    <aside className="bg-gray-900 lg:w-1/5 w-full lg:h-screen p-4 shadow-lg border-r border-opacity-10 border-theme-light left-sidebar flex flex-col">
+    <aside className="bg-theme-light dark:bg-theme-dark lg:w-1/5 w-full lg:h-screen p-4 shadow-lg border-r border-opacity-10 border-theme-light dark:border-theme-dark left-sidebar flex flex-col">
       <div className="flex flex-col space-y-6 flex-grow">
         <div className="text-left space-x-3 px-4">
-          <h2 className="text-1xl font-semibold text-gray-200 tracking-wide">Topics</h2>
+          <h2 className="text-xl font-semibold text-theme-dark dark:text-theme-light tracking-wide">Topics</h2>
         </div>
         <SidebarMenu topicSlug={topicSlug} menus={menus} selectedVersion={currentVersion} />
       </div>
 
       {/* Contact Information Section */}
-      <div className="pt-2 border-t border-gray-800 text-sm text-gray-400">
-        <h1 className="text-gray-400 text-center mb-4">
+      <div className="pt-2 border-t border-gray-100 dark:border-gray-700 text-sm text-theme-dark dark:text-theme-light">
+        <h1 className="text-center mb-4">
           <span>Need Help?</span>
         </h1>
-        <div className="flex justify-center items-center mt-4 text-gray-400">
+        <div className="flex justify-center items-center mt-4 ">
           <span className="flex-1 text-center"><i className="fa fa-envelope"></i></span>
           <span className="flex-1 text-center"><i className="fa fa-phone"></i></span>
         </div>
-        <div className="flex justify-center items-center text-gray-400">
+        <div className="flex justify-center items-center ">
           <span className="flex-1 text-center">info.wisencode@gmail.com</span>
           <span className="flex-1 text-center">+91 8238136154</span>
         </div>
