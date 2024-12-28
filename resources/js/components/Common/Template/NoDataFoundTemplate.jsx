@@ -2,8 +2,9 @@ import React from "react";
 import Subtitle from "../Subtitle/Subtitle";
 import { useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
+import Description from "../Description/Description";
 
-const NoDataFoundTemplate = ({ text, icon = '' }) => {
+const NoDataFoundTemplate = ({ heading, description = '', icon = '' }) => {
 
   const navigate = useNavigate();
 
@@ -20,10 +21,17 @@ const NoDataFoundTemplate = ({ text, icon = '' }) => {
             />
           </div>
 
-          <Subtitle 
-            text={text} 
-            classNames="text-sm font-semibold text-gray-400 mb-4" 
-          />
+          {heading && (
+            <Subtitle 
+              text={heading} 
+              classNames="text-sm font-semibold text-gray-400 mb-8" />
+          )}
+
+          {description && (
+            <Description 
+              content={description}
+              classNames="text-xs text-gray-400 mt-2" />
+          )}
 
           <div>
             <Button 

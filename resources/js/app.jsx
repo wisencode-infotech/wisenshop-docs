@@ -4,11 +4,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import Home from "./pages/Home";
 import "../css/app.css";
-import { VersioningProvider } from "./utils/VersioningContext";
 
 const App = () => (
-  <VersioningProvider>
-    <Router>
+  <Router>
       <div>
         <Toaster
           position="bottom-right"
@@ -23,7 +21,6 @@ const App = () => (
         </Routes>
       </div>
     </Router>
-  </VersioningProvider>
 );
 
 const root = ReactDOM.createRoot(document.getElementById("app"));

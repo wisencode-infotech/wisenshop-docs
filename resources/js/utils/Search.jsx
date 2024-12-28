@@ -1,22 +1,20 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { useVersioning } from "../utils/VersioningContext";
 
-const Search = ({ isSearchOpen, setIsSearchOpen }) => {
+const Search = ({ isSearchOpen, setIsSearchOpen, currentVersion }) => {
     const [searchQuery, setSearchQuery] = useState("");
     const [searchResults, setSearchResults] = useState({ topics: [], block_types: [], topic_blocks: [] });
     const [isLoading, setIsLoading] = useState(false);
     const inputRef = useRef(null);
-    const { selectedVersion } = useVersioning();
 
     useEffect(() => {
-        if (!selectedVersion) return;
+        if (!currentVersion) return;
 
         if (isSearchOpen) {
             inputRef.current?.focus();
         }
-    }, [isSearchOpen, selectedVersion]);
+    }, [isSearchOpen, currentVersion]);
 
     useEffect(() => {
         if (searchQuery.trim() === "") {
@@ -27,7 +25,7 @@ const Search = ({ isSearchOpen, setIsSearchOpen }) => {
         const timer = setTimeout(async () => {
             setIsLoading(true);
             try {
-                const response = await axios.get(`/api/version/${selectedVersion}/search`, {
+                const response = await axios.get(`/api/version/${currentVersion}/search`, {
                     params: { query: searchQuery },
                 });
                 setSearchResults(response.data);

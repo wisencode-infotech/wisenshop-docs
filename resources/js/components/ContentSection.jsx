@@ -14,9 +14,10 @@ import HorizontalLine from '../components/Common/HorizontalLine/HorizontalLine';
 import Button from '../components/Common/Button/Button';
 import NoDataFoundTemplate from './Common/Template/NoDataFoundTemplate';
 
-const ContentSection = ({ topicSlug, selectedVersion }) => {
+const ContentSection = ({ topicSlug, currentVersion }) => {
   const [topic, setTopic] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [noDataFound, setNoDataFound] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -29,15 +30,7 @@ const ContentSection = ({ topicSlug, selectedVersion }) => {
     }
   };
 
-  useEffect(() => {
-    if (topicSlug) {
-      fetchTopicBlocks(topicSlug, selectedVersion);
-    } else {
-      setLoading(false);
-      return;
-    }
-  }, [topicSlug, selectedVersion]);
-
+  // Effect to handle scroll on page load
   useEffect(() => {
     const handleScrollToBlock = () => {
       const pathname = location.pathname;
@@ -64,35 +57,46 @@ const ContentSection = ({ topicSlug, selectedVersion }) => {
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
     };
-  
+
     if (topic) {
-
-      // handleScrollToBlock();
-
       const timeoutId = setTimeout(() => {
         handleScrollToBlock();
       }, 500);
-  
       return () => clearTimeout(timeoutId);
     }
-  }, [location.pathname, topic, navigate, topicSlug, selectedVersion]);
+  }, [location.pathname, topic, navigate, topicSlug]);
 
-  const fetchTopicBlocks = async (slug, selectedVersion) => {
+  // Effect to fetch topic blocks data based on topicSlug and currentVersion
+  useEffect(() => {
+    if (topicSlug && topicSlug !== 'undefined' && currentVersion) {
+      fetchTopicBlocks(topicSlug, currentVersion);
+    } else {
+      setLoading(false);
+    }
+  }, [topicSlug, currentVersion]);
+
+  const fetchTopicBlocks = async (slug, version) => {
     setLoading(true);
+    setNoDataFound(false); // Reset error state at the start of the request
     try {
-      const response = await axios.get(`/api/version/${selectedVersion}/topics/${slug}`);
-      setTopic(response.data);
+      const response = await axios.get(`/api/version/${version}/topics/${slug}`);
+      setTopic(response.data); // Update the topic state on successful response
     } catch (error) {
-      console.error('Error fetching topic blocks:', error);
+      setLoading(false);
+      if (error.response && error.response.status === 404) {
+        setNoDataFound(true); // Set error if 404 is returned
+      } else {
+        console.error('Error fetching topic blocks:', error);
+      }
     } finally {
       setLoading(false);
     }
   };
 
+  // Loading screen
   if (loading) {
-
     return (
-      <div className='loader-container fixed inset-0 bg-gray-800 bg-opacity-70 flex justify-center items-start z-20' >
+      <div className='loader-container fixed inset-0 bg-gray-800 bg-opacity-70 flex justify-center items-start z-20'>
         <ScaleLoader
           color='#3d5f8a'
           loading
@@ -102,13 +106,15 @@ const ContentSection = ({ topicSlug, selectedVersion }) => {
         />
       </div>
     );
-
   }
 
-  if (topicSlug && topicSlug === 'undefined') {
-    navigate('/')
+  // Redirect if topicSlug is 'undefined'
+  if (topicSlug === 'undefined') {
+    navigate('/');
+    return null;
   }
 
+  // Home page if no topicSlug
   if (!topicSlug) {
     return (
       <main className="flex-1 p-6 main-content">
@@ -141,16 +147,20 @@ const ContentSection = ({ topicSlug, selectedVersion }) => {
     );
   }
 
+  // If topic is not found
   if (!topic) {
-    return <p className="text-gray-400"></p>;
+    return <p className="text-gray-400">Loading topic data...</p>;
   }
 
-  if (!topic.hasOwnProperty('blocks')) {
+  // If no blocks or data not found
+  if (!topic.hasOwnProperty('blocks') || noDataFound) {
     return <NoDataFoundTemplate
-      text={`No results found for <strong>#${topicSlug}</strong>`}
+      heading={`No results found for <strong>#${topicSlug}</strong>`}
+      description={`<span class="text-muted">[Version ${currentVersion}]`}
       icon='fa fa-hourglass-start' />
   }
 
+  // Render the topic blocks
   return (
     <main className="flex-1 p-6 main-content">
       <div className="bg-gray-800 rounded-xl shadow-lg p-8 right-side-content">
@@ -163,27 +173,23 @@ const ContentSection = ({ topicSlug, selectedVersion }) => {
             console.error('Failed to parse block.attributes:', error);
           }
 
-        const paddingLeft = block.start_content_level === 1 
-        ? '0%' 
-        : block.start_content_level === 2 
-        ? '2%' 
-        : '5%';
-
+          const paddingLeft = block.start_content_level === 1 
+            ? '0%' 
+            : block.start_content_level === 2 
+            ? '2%' 
+            : '5%';
 
           return (
             <div key={block.id} id={`${block.id}`} style={{ paddingLeft }} className="mb-6">
               {block.block_type.type === 'title' && (
                 <Title text={parsedAttributes?.text} level="h2" />
               )}
-              
               {block.block_type.type === 'subtitle' && (
                 <Subtitle text={parsedAttributes?.text} />
               )}
-              
               {block.block_type.type === 'description' && (
                 <Description content={parsedAttributes?.text} />
               )}
-
               {block.block_type.type === 'code_block' && (
                 <CodeBlock
                   title={parsedAttributes?.title}
@@ -192,28 +198,24 @@ const ContentSection = ({ topicSlug, selectedVersion }) => {
                   copyContent={parsedAttributes?.copy_content}
                 />
               )}
-
               {block.block_type.type === 'note' && (
-                  <Note
-                    type={parsedAttributes?.type}
-                    title={parsedAttributes?.title}
-                    icon={parsedAttributes?.icon}
-                    text={parsedAttributes?.text}
-                  />
+                <Note
+                  type={parsedAttributes?.type}
+                  title={parsedAttributes?.title}
+                  icon={parsedAttributes?.icon}
+                  text={parsedAttributes?.text}
+                />
               )}
-              
               {block.block_type.type === 'list' && (
                 <List items={parsedAttributes?.list || []} />
               )}
-
               {block.block_type.type === 'screenshot' && (
                 <ScreenshotImage
-                title={parsedAttributes?.title}
-                description={parsedAttributes?.description}
-                imageUrl={parsedAttributes?.imageUrl} // Pass the image URL
-              />
+                  title={parsedAttributes?.title}
+                  description={parsedAttributes?.description}
+                  imageUrl={parsedAttributes?.imageUrl}
+                />
               )}
-
               {block.block_type.type === 'screenshot-gallery' && (
                 <ScreenshotGallery images={parsedAttributes?.images || []} />
               )}

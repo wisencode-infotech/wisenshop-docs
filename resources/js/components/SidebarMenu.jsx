@@ -1,13 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
-const SidebarMenu = ({ topicSlug, selectedVersion, menus }) => {
-  const [isLoaded, setIsLoaded] = useState(true);  // Assuming menus are passed as a prop, no need for loading state
-
-  // Handle click event if needed, for example, tracking clicks
+const SidebarMenu = ({ topicSlug, menus, selectedVersion }) => {
+  // Handle click events for tracking or additional logic
   const handleMenuClick = (slug) => {
-    console.log(`Menu clicked: ${slug} for ${selectedVersion}`);
-    // You can handle additional logic here when a menu is clicked, if needed
+    // console.log(`Menu clicked: ${slug} for version ${selectedVersion}`);document.querySelector(".sidebar-menu-item")?.click()
+    // Add any additional logic needed when a menu is clicked
   };
 
   return (
@@ -18,7 +16,7 @@ const SidebarMenu = ({ topicSlug, selectedVersion, menus }) => {
           <Link
             key={topic.id}
             to={`/${topic.slug}`}
-            onClick={() => handleMenuClick(topic.slug)} // Handling the click event
+            onClick={() => handleMenuClick(topic.slug)} // Handle click event
             className={`flex items-center space-x-3 py-3 px-4 rounded-lg relative ${
               isActive ? "bg-theme-dark text-white" : "text-gray-400"
             } group sidebar-menu-item`}

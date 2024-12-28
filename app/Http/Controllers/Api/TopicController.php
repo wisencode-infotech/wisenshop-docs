@@ -21,6 +21,8 @@ class TopicController extends Controller
 
     public function index(Request $request, Version $version)
     {
+        $this->system_utils->clearCached('topics');
+
         $topics = $this->system_utils->setVersionIdentifier($version)->cacheForever('topics', function() use ($version) {
             return Topic::version($version)->get();
         });
@@ -31,6 +33,8 @@ class TopicController extends Controller
     public function getTopicBlocks(Request $request, Version $version, $slug)
     {  
         $slug_to_cache = Str::replace('-', '_', $slug);
+
+        $this->system_utils->clearCached('topic_' . $slug_to_cache . '_blocks');
 
         $topic = $this->system_utils->setVersionIdentifier($version)->cacheForever('topic_' . $slug_to_cache . '_blocks', function() use ($version, $slug) {
             return Topic::version($version)->with(['blocks.blockType'])->where('slug', $slug)->first();
