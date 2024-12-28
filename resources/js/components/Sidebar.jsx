@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import SidebarMenu from "./SidebarMenu";
+import { ScaleLoader } from "react-spinners"; 
 
 const Sidebar = ({ topicSlug, currentVersion }) => {
   const [menus, setMenus] = useState([]);
@@ -35,7 +36,16 @@ const Sidebar = ({ topicSlug, currentVersion }) => {
           <div className="text-left space-x-3 px-4">
             <h2 className="text-1xl font-semibold text-gray-200 tracking-wide">Topics</h2>
           </div>
-          <div className="loader">Loading...</div> {/* Placeholder loading UI */}
+          <div className="loader text-gray-400 text-center">
+            <ScaleLoader
+              color='#3d5f8a'
+              loading
+              height={20}
+              margin={2}
+              radius={13}
+              speedMultiplier={2}
+            />
+          </div>
         </div>
       </aside>
     );

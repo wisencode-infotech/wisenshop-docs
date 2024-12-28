@@ -2,17 +2,22 @@ import React from "react";
 
 const Versioning = ({ availableVersions, currentVersion, onChangeVersion }) => {
   return (
-    <select
-      className="bg-gray-700 text-gray-100 p-2 rounded"
-      value={currentVersion || ""}
-      onChange={(e) => onChangeVersion(e.target.value)}
-    >
-      {availableVersions.map((version) => (
-        <option key={version.id} value={version.id}>
-          Version {version.identifier}
-        </option>
-      ))}
-    </select>
+    <div className="relative">
+      <select
+        className="bg-gray-700 text-gray-400 rounded-lg pl-4 pr-10 py-2 focus:outline-none focus:ring-1 focus:ring-theme appearance-none"
+        value={currentVersion || ""}
+        onChange={(e) => onChangeVersion(e.target.value)}
+      >
+        {availableVersions.map((version) => (
+          <option key={version.id} value={version.id}>
+            Version {version.identifier}
+          </option>
+        ))}
+      </select>
+      <span className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+        <i className="fa-solid fa-chevron-down text-gray-400"></i>
+      </span>
+    </div>
   );
 };
 
