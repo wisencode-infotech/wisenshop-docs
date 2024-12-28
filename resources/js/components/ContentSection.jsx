@@ -118,7 +118,7 @@ const ContentSection = ({ topicSlug, currentVersion }) => {
   if (!topicSlug) {
     return (
       <main className="flex-1 p-6 main-content">
-        <div className="bg-gray-800 rounded-xl shadow-lg p-8 right-side-content">
+        <div className="bg-theme-light dark:bg-theme-dark rounded-xl shadow-lg p-8 right-side-content">
           <Title 
             text={homePage?.title} 
             level="h2" 
@@ -160,8 +160,8 @@ const ContentSection = ({ topicSlug, currentVersion }) => {
 
   return (
     <main className="flex-1 p-6 main-content">
-      <div className="bg-gray-800 rounded-xl shadow-lg p-8 right-side-content">
-        <h2 className="text-3xl font-bold text-gray-100 mb-4">{topic.name}</h2>
+      <div className="bg-theme-light dark:bg-theme-dark rounded-xl shadow-lg p-8 right-side-content">
+        <h2 className="text-3xl font-bold text-theme-dark dark:text-theme-light mb-4">{topic.name}</h2>
         {topic.blocks.map((block) => {
           let parsedAttributes = {};
           try {

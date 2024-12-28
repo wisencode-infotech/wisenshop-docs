@@ -9,10 +9,10 @@ const NoDataFoundTemplate = ({ heading, description = '', icon = '' }) => {
   const navigate = useNavigate();
 
   return (
-    <main className="min-h-screen bg-gray-900"> 
+    <main className="bg-theme-light dark:bg-theme-dark"> 
       {/* Centered Popup */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="bg-gray-800 rounded-xl shadow-lg p-8 max-w-md w-full text-center">
+        <div className="bg-theme-light dark:bg-theme-dark rounded-xl shadow-lg p-8 max-w-md w-full text-center">
 
           <div className="mb-4">
             <Subtitle 
