@@ -16,17 +16,17 @@ module.exports = {
             colors: {
                 theme: {
                     DEFAULT: '#3d5f8a', // Default primary color (light mode)
-                    dark: '#0E0D0E', // Dark mode primary color (darker shade of blue)
-                    light: '#F5FDFD', // Light theme accent color (soft light blue)
-                    accent: '#F1F8FF', // Light theme accent background (pale light blue)
-                    code: '#4de77a', // Code highlighting color (green)
+                    dark: '#0E0D0E', // Dark mode primary color
+                    light: '#FFFFFF', // Light theme accent color
+                    accent: '#F1F8FF', // Light theme accent background
+                    code: '#4de77a', // Code highlighting color
                     codebg: '#3f3f3f', // Code background (dark gray)
-                    lightBackground: '#dededed', // Light mode background color (white)
+                    lightBackground: '#f0f2f5', // Light mode background color (white)
                     lightText: '#333333', // Light mode text color (dark gray)
-                    lightBorder: '#e0e0e0', // Light mode border color (light gray)
-                    darkBackground: '#121212', // Dark mode background color (blackish)
-                    darkText: '#ffffff', // Dark mode text color (light gray)
-                    darkBorder: '#444444', // Dark mode border color (darker gray)
+                    lightBorder: '#D9D9D9', // Light mode border color (neutral gray)
+                    darkBackground: '#181818', // Dark mode background color (blackish)
+                    darkText: '#E0E0E0', // Dark mode text color (light gray)
+                    darkBorder: '#333333', // Dark mode border color (darker gray)
                 },
             },
         },

@@ -4,7 +4,7 @@ const Versioning = ({ availableVersions, currentVersion, onChangeVersion }) => {
   return (
     <div className="relative">
       <select
-        className="bg-theme-light dark:bg-theme-dark text-theme-lightText dark:text-theme-darkText rounded-lg pl-4 pr-10 py-2 focus:outline-none focus:ring-1 focus:ring-theme appearance-none"
+        className="bg-theme-lightBackground dark:bg-theme-darkBackground text-theme-lightText dark:text-theme-darkText rounded-lg pl-4 pr-10 py-2 focus:outline-none focus:ring-1 focus:ring-theme appearance-none"
         value={currentVersion || ""}
         onChange={(e) => onChangeVersion(e.target.value)}
       >

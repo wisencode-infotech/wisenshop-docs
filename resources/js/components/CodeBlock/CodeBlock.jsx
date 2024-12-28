@@ -11,13 +11,13 @@ const CodeBlock = ({ title, description, buttonText, copyContent }) => {
   };
 
   return (
-    <div className="bg-theme-dark text-gray-100 rounded-lg shadow-lg overflow-hidden">
+    <div className="bg-theme-light dark:bg-theme-dark text-gray-100 rounded-lg shadow-lg overflow-hidden">
       {/* Header Section */}
       <div className="flex justify-between items-center px-4 py-3 bg-white border-b border-theme-dark">
         <span className="text-sm font-semibold text-gray-900">{title}</span>
         <button
           onClick={handleCopy}
-          className="text-sm bg-gray-800 hover:bg-gray-700 text-white px-3 py-1 rounded focus:outline-none focus:ring-2 focus:ring-theme-accent"
+          className="text-sm bg-gray-800 hover:bg-gray-700 text-white px-3 py-1 rounded focus:outline-none focus:ring-1 focus:ring-theme-accent"
         >
           {buttonText}
         </button>

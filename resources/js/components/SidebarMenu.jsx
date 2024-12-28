@@ -19,13 +19,13 @@ const SidebarMenu = ({ topicSlug, menus, selectedVersion }) => {
             className={`flex items-center space-x-3 py-3 px-4 rounded-lg relative 
               ${
                 isActive
-                  ? "bg-theme-dark text-white dark:bg-theme-light dark:text-darkText"
+                  ? "bg-theme-dark text-lightText dark:bg-theme-light dark:text-gray-500"
                   : "text-gray-400 dark:text-gray-300"
               } 
               group sidebar-menu-item`}
           >
-            {topic.isNew && (
-              <span className="absolute top-50 right-2 bg-blue-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">
+            {true && (
+              <span className="absolute top-50 right-2 bg-blue-500 text-white dark:text-darkText text-[10px] font-bold px-1.5 py-0.5 rounded-full">
                 New
               </span>
             )}
