@@ -58,7 +58,7 @@ const Sidebar = ({ topicSlug, currentVersion, isSidebarOpen, toggleSidebar }) =>
         {/* Help section at the bottom */}
         <div className="pt-2 border-t border-gray-100 dark:border-gray-700 text-sm text-theme-dark dark:text-theme-light">
           <h1 className="text-center mb-4">Need Help?</h1>
-          <div className="flex justify-center items-center mt-4 space-x-4">
+          <div className="flex justify-center items-center mt-4 space-x-2">
             <span><i className="fa fa-envelope"></i> info.wisencode@gmail.com</span>
             <span><i className="fa fa-phone"></i> +91 8238136154</span>
           </div>
