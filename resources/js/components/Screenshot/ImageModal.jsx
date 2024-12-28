@@ -59,7 +59,7 @@ const ImageModal = ({
       onClick={closeModal}
     >
       <div
-        className="relative w-[70vw] max-h-[80vh] flex flex-col justify-between"
+        className="relative bg-theme-lightBackground dark:bg-theme-darkBackground w-[80vw] max-w-[90vw] h-[80vh] max-h-[90vh] md:w-[70vw] md:max-w-[80vw] md:h-[80vh] md:max-h-[80vh] lg:w-[50vw] lg:max-w-[60vw] lg:h-[70vh] lg:max-h-[80vh] flex flex-col justify-between"
         onClick={stopPropagation} // Prevent closing modal on content click
       >
         {/* Header with Title and Description */}
@@ -77,7 +77,7 @@ const ImageModal = ({
           <img
             src={imageUrl}
             alt={title}
-            className="rounded-b-lg"
+            className="rounded-b-lg w-full h-full object-contain"
             style={{
               transform: `scale(${zoomLevel}) translate(${offset.x}px, ${offset.y}px)`,
               transition: "transform 0.3s ease",

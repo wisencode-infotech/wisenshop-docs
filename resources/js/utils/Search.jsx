@@ -66,7 +66,7 @@ const Search = ({ isSearchOpen, setIsSearchOpen, currentVersion }) => {
             onClick={() => setIsSearchOpen(false)}
         >
             <div
-                className="relative w-full max-w-lg top-[20%] p-8 bg-theme-light dark:bg-gray-900 rounded-lg max-h-[80vh] overflow-auto"
+                className="relative w-full max-w-lg sm:max-w-md md:max-w-xl lg:max-w-lg xl:max-w-2xl top-[20%] p-6 sm:p-8 bg-theme-light dark:bg-gray-900 rounded-lg max-h-[80vh] overflow-auto mx-4 sm:mx-6 md:mx-8"
                 onClick={(e) => e.stopPropagation()}
             >
                 <input
