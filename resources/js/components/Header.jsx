@@ -15,11 +15,16 @@ const Header = ({ availableVersions, currentVersion, setCurrentVersion, toggleSi
           <a href="/">
             <img src={logoDark} alt="Dark Logo" className="h-8" />
           </a>
+        </div>
+
+        {/* Middle section: Search */}
+        <div className="hidden lg:flex flex-grow max-w-md mx-4">
           <button
-            className="block sm:hidden text-theme-lightText dark:text-theme-darkText"
-            onClick={toggleSidebar}
+            className="w-full px-4 py-2 bg-theme-lightBackground dark:bg-theme-darkBackground rounded-lg text-theme-lightText dark:text-theme-darkText focus:outline-none focus:ring-1 focus:ring-theme"
+            aria-label="Toggle Search"
+            onClick={() => setIsSearchOpen(!isSearchOpen)}
           >
-            <i className="fas fa-bars" aria-hidden="true"></i>
+            <i className="fa-solid fa-search"></i> Search
           </button>
         </div>
 
@@ -41,6 +46,12 @@ const Header = ({ availableVersions, currentVersion, setCurrentVersion, toggleSi
             onChangeVersion={setCurrentVersion}
           />
           <ThemeModeSwitcher />
+          <button
+            className="block sm:hidden text-theme-lightText dark:text-theme-darkText"
+            onClick={toggleSidebar}
+          >
+            <i className="fas fa-bars" aria-hidden="true"></i>
+          </button>
         </div>
 
         {/* Right section: Versioning and ThemeSwitcher for larger screens */}
