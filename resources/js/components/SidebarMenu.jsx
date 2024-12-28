@@ -25,7 +25,7 @@ const SidebarMenu = ({ topicSlug, menus, selectedVersion, toggleSidebar }) => {
               } 
               group sidebar-menu-item`}
           >
-            {true && (
+            {topic.isNew && (
               <span className="absolute top-50 right-2 bg-blue-500 text-white dark:text-darkText text-[10px] font-bold px-1.5 py-0.5 rounded-full">
                 New
               </span>
