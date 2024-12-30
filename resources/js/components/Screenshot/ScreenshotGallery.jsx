@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ImageModal from "./ImageModal"; // Import the ImageModal component
 
-const ScreenshotGallery = ({ images }) => {
+const ScreenshotGallery = ({ images, maxVisible = 2 }) => {
   const [currentIndex, setCurrentIndex] = useState(0); // State to track the current image index
   const [isModalOpen, setIsModalOpen] = useState(false); // State to track modal visibility
 
@@ -14,32 +14,39 @@ const ScreenshotGallery = ({ images }) => {
     setIsModalOpen(false); // Close the modal
   };
 
+  const visibleImages = images.slice(0, maxVisible); // Get the visible images up to maxVisible
+
   return (
     <div className="screenshot-gallery">
-      {/* Gallery Thumbnails */}
-      <div className="flex gap-4 flex-wrap">
-        {images.map((image, index) => (
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {visibleImages.map((image, index) => (
           <div
             key={index}
-            className="relative w-40 h-40 cursor-pointer"
+            className="relative aspect-w-4 aspect-h-6 sm:aspect-h-7 md:aspect-h-5 cursor-pointer"
             onClick={() => openModal(index)}
           >
-            {/* Thumbnail Image */}
             <img
               src={image.imageUrl}
               alt={image.title}
               className="w-full h-full object-cover rounded-lg shadow-md"
             />
-            {/* Centered Eye Icon and Title */}
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 hover:bg-opacity-70 rounded-lg">
-              <i className="fas fa-eye text-white text-2xl mb-2"></i>
-              <p className="text-white text-sm text-center">{image.title}</p>
+              <i className="fas fa-eye text-white text-lg sm:text-xl md:text-2xl mb-1 sm:mb-2"></i>
+              <p className="text-white text-xs sm:text-sm md:text-base text-center">{image.title}</p>
             </div>
+
+            {/* Show the "+x more images" indicator only on the last visible image */}
+            {index === visibleImages.length - 1 && images.length > maxVisible && (
+              <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-70 rounded-lg">
+                <span className="text-xl sm:text-2xl text-white font-bold">
+                  +{images.length - maxVisible}
+                </span>
+              </div>
+            )}
           </div>
         ))}
       </div>
 
-      {/* Image Modal Component */}
       {isModalOpen && (
         <ImageModal
           isOpen={isModalOpen}
