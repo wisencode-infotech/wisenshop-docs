@@ -19,8 +19,7 @@ class TopicSeeder extends Seeder
             ['name' => 'Custom Pages', 'slug' => 'custom-pages', 'version_id' => 1],
             ['name' => 'Backend Site Settings', 'slug' => 'backend-site-settings', 'version_id' => 1],
             ['name' => 'Terminal Commands', 'slug' => 'terminal-commands', 'version_id' => 1],
-            ['name' => 'FAQs', 'slug' => 'faqs', 'version_id' => 1],
-            ['name' => 'Introduction', 'slug' => 'introduction', 'version_id' => 2],
+            ['name' => 'FAQs', 'slug' => 'faqs', 'version_id' => 1]
         ]);
     }
 }
