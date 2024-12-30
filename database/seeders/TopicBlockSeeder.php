@@ -215,22 +215,22 @@ class TopicBlockSeeder extends Seeder
                         [
                             'title' => 'Database settings Screenshot',
                             'description' => 'This screenshot shows the Database settings.',
-                            'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-installation1.png'
+                            'imageUrl' => rtrim(env('APP_URL'), '/') . '/screenshot/screenshot-installation1.png'
                         ],
                         [
                             'title' => 'Database settings validation Screenshot',
                             'description' => 'This screenshot shows the Database settings validation.',
-                            'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-installation2.png'
+                            'imageUrl' => rtrim(env('APP_URL'), '/') . '/screenshot/screenshot-installation2.png'
                         ],
                         [
                             'title' => 'Database Configuration settings Screenshot',
                             'description' => 'This screenshot shows the Database Configuration settings.',
-                            'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-installation3.png'
+                            'imageUrl' => rtrim(env('APP_URL'), '/') . '/screenshot/screenshot-installation3.png'
                         ],
                         [
                             'title' => 'Redirecting to Home Page Screenshot',
                             'description' => 'This screenshot shows the redirection to the home page after a successful setup.',
-                            'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-installation4.png'
+                            'imageUrl' => rtrim(env('APP_URL'), '/') . '/screenshot/screenshot-installation4.png'
                         ]
                     ]
                 ]),
@@ -404,12 +404,12 @@ class TopicBlockSeeder extends Seeder
                         [
                             'title' => 'Theme Settings Interface Screenshot',
                             'description' => 'This screenshot shows how the theme settings appear in the admin panel, where you can easily toggle features and set your preferences.',
-                            'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-theme-setting1.png'
+                            'imageUrl' => rtrim(env('APP_URL'), '/') . '/screenshot/screenshot-theme-setting1.png'
                         ],
                         [
                             'title' => 'Theme Color Settings Interface Screenshot',
                             'description' => 'This screenshot shows how the theme color settings appear in the admin panel, where you can easily toggle features and set your preferences.',
-                            'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-theme-setting2.png'
+                            'imageUrl' => rtrim(env('APP_URL'), '/') . '/screenshot/screenshot-theme-setting2.png'
                         ]
                     ]
                 ]),
@@ -489,12 +489,12 @@ class TopicBlockSeeder extends Seeder
                         [
                             'title' => 'Payment Methods Listing.',
                             'description' => 'Here is a screenshot of the Payment Methods Listing.',
-                            'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-payment-method-setting1.png'
+                            'imageUrl' => rtrim(env('APP_URL'), '/') . '/screenshot/screenshot-payment-method-setting1.png'
                         ],
                         [
                             'title' => 'Payment Method Form.',
                             'description' => 'Here is a screenshot of the Payment Method Form.',
-                            'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-payment-method-setting2.png'
+                            'imageUrl' => rtrim(env('APP_URL'), '/') . '/screenshot/screenshot-payment-method-setting2.png'
                         ]
                     ]
                 ]),
@@ -694,7 +694,7 @@ class TopicBlockSeeder extends Seeder
                 'attributes' => json_encode([
                     'title' => 'Home Page Setting Screenshot',
                     'description' => 'Here is a screenshot of the Home Page Setting.',
-                    'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-home-page-settings.png'
+                    'imageUrl' => rtrim(env('APP_URL'), '/') . '/screenshot/screenshot-home-page-settings.png'
                 ]),
                 'order' => 15,
                 'start_content_level' => 1,
@@ -783,22 +783,22 @@ class TopicBlockSeeder extends Seeder
                         [
                             'title' => 'Footer Menu Listing.',
                             'description' => 'Here is a screenshot of the Footer Menu Listing.',
-                            'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-footer-setting1.png'
+                            'imageUrl' => rtrim(env('APP_URL'), '/') . '/screenshot/screenshot-footer-setting1.png'
                         ],
                         [
                             'title' => 'Footer Menu Item Listing.',
                             'description' => 'Here is a screenshot of the Footer Menu Item Listing.',
-                            'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-footer-setting2.png'
+                            'imageUrl' => rtrim(env('APP_URL'), '/') . '/screenshot/screenshot-footer-setting2.png'
                         ],
                         [
                             'title' => 'Footer Menu Item Form.',
                             'description' => 'Here is a screenshot of the Footer Menu Item Form.',
-                            'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-footer-setting3.png'
+                            'imageUrl' => rtrim(env('APP_URL'), '/') . '/screenshot/screenshot-footer-setting3.png'
                         ],
                         [
                             'title' => 'Footer Menu Item Form.',
                             'description' => 'Here is a screenshot of the Footer Menu Item Form.',
-                            'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-footer-setting4.png'
+                            'imageUrl' => rtrim(env('APP_URL'), '/') . '/screenshot/screenshot-footer-setting4.png'
                         ]
                     ]
                 ]),
@@ -840,7 +840,7 @@ class TopicBlockSeeder extends Seeder
                 'attributes' => json_encode([
                     'title' => 'Custom Pages Screenshot',
                     'description' => 'Here is a screenshot of the Custom Pages.',
-                    'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-custom-page.png'
+                    'imageUrl' => rtrim(env('APP_URL'), '/') . '/screenshot/screenshot-custom-page.png'
                 ]),
                 'order' => 4,
                 'start_content_level' => 1,
@@ -982,17 +982,17 @@ class TopicBlockSeeder extends Seeder
                         [
                             'title' => 'Logo and order prefix settings',
                             'description' => 'Here is a screenshot of the Logo and order prefix settings.',
-                            'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-backend-setting1.png'
+                            'imageUrl' => rtrim(env('APP_URL'), '/') . '/screenshot/screenshot-backend-setting1.png'
                         ],
                         [
                             'title' => 'Contact Correspondence & Social Media Links Settings.',
                             'description' => 'Here is a screenshot of the Contact Correspondence & Social Media Links Settings.',
-                            'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-backend-setting2.png'
+                            'imageUrl' => rtrim(env('APP_URL'), '/') . '/screenshot/screenshot-backend-setting2.png'
                         ],
                         [
                             'title' => 'General Site Settings.',
                             'description' => 'Here is a screenshot of the General Site Settings.',
-                            'imageUrl' => 'http://127.0.0.1:8000/screenshot/screenshot-backend-setting3.png'
+                            'imageUrl' => rtrim(env('APP_URL'), '/') . '/screenshot/screenshot-backend-setting3.png'
                         ]
                     ]
                 ]),
