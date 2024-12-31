@@ -13,6 +13,7 @@ import ScreenshotGallery from '../components/Screenshot/ScreenshotGallery';
 import HorizontalLine from '../components/Common/HorizontalLine/HorizontalLine';
 import Button from '../components/Common/Button/Button';
 import NoDataFoundTemplate from './Common/Template/NoDataFoundTemplate';
+import Tree from './Tree/Tree';
 
 const ContentSection = ({ topicSlug, currentVersion }) => {
   const [topic, setTopic] = useState(null);
@@ -194,6 +195,9 @@ const ContentSection = ({ topicSlug, currentVersion }) => {
               )}
               {block.block_type.type === 'screenshot-gallery' && (
                 <ScreenshotGallery images={parsedAttributes?.images || []} />
+              )}
+              {block.block_type.type === 'tree' && (
+                <Tree nodes={parsedAttributes?.nodes || []} />
               )}
             </div>
           );

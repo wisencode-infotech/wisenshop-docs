@@ -433,6 +433,75 @@ class TopicBlockSeeder extends Seeder
                 'updated_at' => now()
             ],
             [
+                'topic_id' => 3,
+                'block_type_id' => 2,
+                'attributes' => json_encode(['text' => '3. Setup your own theme around the livewire components']),
+                'order' => 15,
+                'start_content_level' => 1,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'topic_id' => 3,
+                'block_type_id' => 9,
+                'attributes' => json_encode([
+                    "nodes" => [
+                        [
+                            "label" => "public/assets/frontend/css/",
+                            "icon" => "fa-regular fa-folder",
+                            "children" => [
+                                [
+                                    "label" => "theme-1",
+                                    "icon" => "fa-regular fa-folder",
+                                    "children" => [
+                                        ["label" => "style-1.css", "icon" => "fa-regular fa-file"],
+                                        ["label" => "style-2.css", "icon" => "fa-regular fa-file"],
+                                        ["label" => "style-3.css", "icon" => "fa-regular fa-file"]
+                                    ]
+                                ],
+                                [
+                                    "label" => "theme-2",
+                                    "icon" => "fa-regular fa-folder",
+                                    "children" => [
+                                        ["label" => "style-1.css", "icon" => "fa-regular fa-file"],
+                                        ["label" => "style-2.css", "icon" => "fa-regular fa-file"],
+                                        ["label" => "style-3.css", "icon" => "fa-regular fa-file"]
+                                    ]
+                                ]
+                            ]
+                        ],
+                        [
+                            "label" => "public/assets/frontend/js/",
+                            "icon" => "fa-folder",
+                            "children" => [
+                                [
+                                    "label" => "theme-1",
+                                    "icon" => "fa-regular fa-folder",
+                                    "children" => [
+                                        ["label" => "script-1.js", "icon" => "fa-brands fa-js"],
+                                        ["label" => "script-2.js", "icon" => "fa-brands fa-js"],
+                                        ["label" => "script-3.js", "icon" => "fa-brands fa-js"]
+                                    ]
+                                ],
+                                [
+                                    "label" => "theme-2",
+                                    "icon" => "fa-regular fa-folder",
+                                    "children" => [
+                                        ["label" => "script-1.js", "icon" => "fa-brands fa-js"],
+                                        ["label" => "script-2.js", "icon" => "fa-brands fa-js"],
+                                        ["label" => "script-3.js", "icon" => "fa-brands fa-js"]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]),
+                'order' => 16,
+                'start_content_level' => 2,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
                 'topic_id' => 4,
                 'block_type_id' => 1,
                 'attributes' => json_encode(['text' => 'Overview']),
