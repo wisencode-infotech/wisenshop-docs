@@ -443,6 +443,45 @@ class TopicBlockSeeder extends Seeder
             ],
             [
                 'topic_id' => 3,
+                'block_type_id' => 2,
+                'attributes' => json_encode(['text' => 'Execute below command to create a new site theme in a database.']),
+                'order' => 16,
+                'start_content_level' => 2,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'topic_id' => 3,
+                'block_type_id' => 5,
+                'attributes' => json_encode([
+                    'title' => 'Create a site theme command:',
+                    'description' => 'php artisan wisenshop:create-site-theme --name="Theme 1"',
+                    'copy_btn_text' => 'Copy',
+                    'copy_content' => 'php artisan wisenshop:create-site-theme --name="Theme 1"',
+                    ]),
+                'order' => 17,    
+                'start_content_level' => 2,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'topic_id' => 3,
+                'block_type_id' => 10,
+                'attributes' => json_encode([
+                    'title' => 'Click here to know more about create site theme command',
+                    'url' => 'https://www.google.com',
+                    'icon' => 'fa fa-info-circle',
+                    'underline' => true,
+                    'new_tab' => false,
+                    'classes' => 'p-1 text-theme-dark dark:text-theme-light hover:text-gray-500 text-sm',
+                    ]),
+                'order' => 18,    
+                'start_content_level' => 2,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'topic_id' => 3,
                 'block_type_id' => 9,
                 'attributes' => json_encode([
                     "nodes" => [
@@ -496,7 +535,7 @@ class TopicBlockSeeder extends Seeder
                         ]
                     ]
                 ]),
-                'order' => 16,
+                'order' => 19,
                 'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now()
@@ -1114,7 +1153,7 @@ class TopicBlockSeeder extends Seeder
             [
                 'topic_id' => 9,
                 'block_type_id' => 7,
-                'attributes' => json_encode(['type' => 'warning', 'title' => '--force', 'icon' => 'fa-solid fa-list', 'text' => '<ul><li><b>php artisan wisenshop:fresh-install --force</b></li><li>Use this parameter to run the command forcefully without confirmation prompts.</li>']),
+                'attributes' => json_encode(['type' => 'warning', 'title' => '--force (optional)', 'icon' => 'fa-solid fa-list', 'text' => '<ul><li><b>php artisan wisenshop:fresh-install --force</b></li><li>Use this parameter to run the command forcefully without confirmation prompt.</li>']),
                 'order' => 5,
                 'start_content_level' => 2,
                 'created_at' => now(),
@@ -1189,6 +1228,56 @@ class TopicBlockSeeder extends Seeder
                     'copy_content' => 'php artisan wisenshop:update-currency-exchange-rates',
                     ]),
                 'order' => 12,    
+                'start_content_level' => 2,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'topic_id' => 9,
+                'block_type_id' => 2,
+                'attributes' => json_encode(['text' => '4. This command creates a site theme record in a database.']),
+                'order' => 13,
+                'start_content_level' => 1,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'topic_id' => 9,
+                'block_type_id' => 5,
+                'attributes' => json_encode([
+                    'title' => 'Create a site theme command:',
+                    'description' => 'php artisan wisenshop:create-site-theme',
+                    'copy_btn_text' => 'Copy',
+                    'copy_content' => 'php artisan wisenshop:create-site-theme',
+                    ]),
+                'order' => 14,    
+                'start_content_level' => 2,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'topic_id' => 9,
+                'block_type_id' => 7,
+                'attributes' => json_encode(['type' => 'warning', 'title' => '--name (required)', 'icon' => 'fa-solid fa-list', 'text' => '<ul><li><b>php artisan wisenshop:create-site-theme --name="Theme 1"</b></li><li>Assign a name to the new site.</li>']),
+                'order' => 15,
+                'start_content_level' => 2,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'topic_id' => 9,
+                'block_type_id' => 7,
+                'attributes' => json_encode(['type' => 'warning', 'title' => '--identifier (optional)', 'icon' => 'fa-solid fa-list', 'text' => '<ul><li><b>php artisan wisenshop:create-site-theme --name="Theme 1" --identifier="theme-1"</b></li><li>Assign an unique identifier to the new site.</li> <li>Note: If not passed then it will take snake case format of --name as an identifier. Example "theme-1" for "Theme 1"</li>']),
+                'order' => 16,
+                'start_content_level' => 2,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'topic_id' => 9,
+                'block_type_id' => 7,
+                'attributes' => json_encode(['type' => 'warning', 'title' => '--description (optional)', 'icon' => 'fa-solid fa-list', 'text' => '<ul><li><b>php artisan wisenshop:create-site-theme --name="Theme 1" --identifier="theme-1" --description="Theme 1 description"</b></li><li>Assign a description to the new site.</li>']),
+                'order' => 16,
                 'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now()

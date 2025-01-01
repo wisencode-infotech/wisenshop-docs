@@ -58,6 +58,11 @@ class BlockTypeSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now()
             ],
+            [
+                'title' => 'custom-link',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
         ]);
     }
 }
