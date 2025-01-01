@@ -63,7 +63,7 @@ const ImageModal = ({
         onClick={stopPropagation} // Prevent closing modal on content click
       >
         {/* Header with Title and Description */}
-        <div className="mb-0 bg-theme-darkBackground bg-opacity-75 p-2">
+        <div className="mb-0 bg-theme-darkBackground dark:bg-gray-600 bg-opacity-75 p-2">
           <h3 className="text-xl text-white font-bold">{title}</h3>
           <p className="text-sm text-gray-300">{description}</p>
         </div>
