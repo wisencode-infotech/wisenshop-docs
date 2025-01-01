@@ -454,25 +454,25 @@ class TopicBlockSeeder extends Seeder
                                     "label" => "theme-1",
                                     "icon" => "fa-regular fa-folder",
                                     "children" => [
-                                        ["label" => "style-1.css", "icon" => "fa-regular fa-file"],
-                                        ["label" => "style-2.css", "icon" => "fa-regular fa-file"],
-                                        ["label" => "style-3.css", "icon" => "fa-regular fa-file"]
+                                        ["label" => "style-1.css", "icon" => "fa fa-file-code"],
+                                        ["label" => "style-2.css", "icon" => "fa fa-file-code"],
+                                        ["label" => "style-3.css", "icon" => "fa fa-file-code"]
                                     ]
                                 ],
                                 [
                                     "label" => "theme-2",
                                     "icon" => "fa-regular fa-folder",
                                     "children" => [
-                                        ["label" => "style-1.css", "icon" => "fa-regular fa-file"],
-                                        ["label" => "style-2.css", "icon" => "fa-regular fa-file"],
-                                        ["label" => "style-3.css", "icon" => "fa-regular fa-file"]
+                                        ["label" => "style-1.css", "icon" => "fa fa-file-code"],
+                                        ["label" => "style-2.css", "icon" => "fa fa-file-code"],
+                                        ["label" => "style-3.css", "icon" => "fa fa-file-code"]
                                     ]
                                 ]
                             ]
                         ],
                         [
                             "label" => "public/assets/frontend/js/",
-                            "icon" => "fa-folder",
+                            "icon" => "fa-regular fa-folder",
                             "children" => [
                                 [
                                     "label" => "theme-1",
