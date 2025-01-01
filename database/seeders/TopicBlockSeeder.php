@@ -522,23 +522,24 @@ class TopicBlockSeeder extends Seeder
                                             "label" => "partials/head",
                                             "icon" => "fa-regular fa-folder",
                                             "children" => [
-                                                ["label" => "before-mix.blade.php", "icon" => "fa fa-file-code"]
+                                                ["label" => "before-mix.blade.php", "icon" => "fa fa-file-code"],
+                                                ["label" => "after-mix.blade.php", "icon" => "fa fa-file-code"]
                                             ]
                                         ],
                                         [
                                             "label" => "partials/body",
                                             "icon" => "fa-regular fa-folder",
                                             "children" => [
-                                                ["label" => "after-scripts.blade.php", "icon" => "fa fa-file-code"],
-                                                ["label" => "container.blade.php", "icon" => "fa fa-file-code"]
+                                                ["label" => "container.blade.php", "icon" => "fa fa-file-code"],
+                                                ["label" => "after-scripts.blade.php", "icon" => "fa fa-file-code"]
                                             ]
                                         ],
                                         [
                                             "label" => "partials/after-body",
                                             "icon" => "fa-regular fa-folder",
                                             "children" => [
-                                                ["label" => "after-mix.blade.php", "icon" => "fa fa-file-code"],
-                                                ["label" => "before-mix.blade.php", "icon" => "fa fa-file-code"]
+                                                ["label" => "before-mix.blade.php", "icon" => "fa fa-file-code"],
+                                                ["label" => "after-mix.blade.php", "icon" => "fa fa-file-code"]
                                             ]
                                         ]
                                     ]
