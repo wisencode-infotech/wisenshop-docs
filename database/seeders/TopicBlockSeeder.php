@@ -469,10 +469,10 @@ class TopicBlockSeeder extends Seeder
                 'block_type_id' => 10,
                 'attributes' => json_encode([
                     'title' => 'Click here to know more about create site theme command',
-                    'url' => 'https://www.google.com',
+                    'url' => rtrim(env('APP_URL'), '/') . '/terminal-commands/blocks/96',
                     'icon' => 'fa fa-info-circle',
                     'underline' => true,
-                    'new_tab' => false,
+                    'new_tab' => true,
                     'classes' => 'p-1 text-theme-dark dark:text-theme-light hover:text-gray-500 text-sm',
                     ]),
                 'order' => 18,    
