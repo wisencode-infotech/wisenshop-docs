@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Description = ({ content, classNames = 'text-theme-dark dark:text-theme-light leading-relaxed mb-4' }) => {
+const Description = ({ content, classNames = '' }) => {
   // Process the content to convert newlines to <br />
   const formattedContent = content.replace(/\n/g, '<br />');
 

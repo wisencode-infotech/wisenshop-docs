@@ -435,7 +435,7 @@ class TopicBlockSeeder extends Seeder
             [
                 'topic_id' => 3,
                 'block_type_id' => 2,
-                'attributes' => json_encode(['text' => '3. Setup your own theme around the livewire components']),
+                'attributes' => json_encode(['text' => '3. Setup your own theme around the livewire components [<span class="text-red-600">For Developers</span>]']),
                 'order' => 15,
                 'start_content_level' => 1,
                 'created_at' => now(),
@@ -479,6 +479,92 @@ class TopicBlockSeeder extends Seeder
                 'start_content_level' => 2,
                 'created_at' => now(),
                 'updated_at' => now()
+            ],
+            [
+                'topic_id' => 3,
+                'block_type_id' => 2,
+                'attributes' => json_encode([
+                    'text' => '<i class="fa-solid fa-folder-tree mr-2"></i>Directory hierarchy'
+                ]),
+                'order' => 19,
+                'start_content_level' => 2,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'topic_id' => 3,
+                'block_type_id' => 2,
+                'attributes' => json_encode(
+                    [
+                        'level' => 'span',
+                        'text' => '<i class="fa-regular fa-circle"></i> Theme layout wrapper and partials',
+                        'classes' => 'text-sm font-semibold text-gray-900 dark:text-gray-200 mb-4'
+                    ]),
+                'order' => 20,
+                'start_content_level' => 3,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'topic_id' => 3,
+                'block_type_id' => 9,
+                'attributes' => json_encode([
+                    "nodes" => [
+                        [
+                            "label" => "resources/views/frontend/layouts/themes",
+                            "icon" => "fa-regular fa-folder",
+                            "children" => [
+                                [
+                                    "label" => "theme-1",
+                                    "icon" => "fa-regular fa-folder",
+                                    "children" => [
+                                        [
+                                            "label" => "partials/head",
+                                            "icon" => "fa-regular fa-folder",
+                                            "children" => [
+                                                ["label" => "before-mix.blade.php", "icon" => "fa fa-file-code"]
+                                            ]
+                                        ],
+                                        [
+                                            "label" => "partials/body",
+                                            "icon" => "fa-regular fa-folder",
+                                            "children" => [
+                                                ["label" => "after-scripts.blade.php", "icon" => "fa fa-file-code"],
+                                                ["label" => "container.blade.php", "icon" => "fa fa-file-code"]
+                                            ]
+                                        ],
+                                        [
+                                            "label" => "partials/after-body",
+                                            "icon" => "fa-regular fa-folder",
+                                            "children" => [
+                                                ["label" => "after-mix.blade.php", "icon" => "fa fa-file-code"],
+                                                ["label" => "before-mix.blade.php", "icon" => "fa fa-file-code"]
+                                            ]
+                                        ]
+                                    ]
+                                ],
+                            ]
+                        ]
+                    ]
+                ]),
+                'order' => 21,
+                'start_content_level' => 3,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'topic_id' => 3,
+                'block_type_id' => 2,
+                'attributes' => json_encode(
+                    [
+                        'level' => 'span',
+                        'text' => '<i class="fa-regular fa-circle"></i> CSS & JS',
+                        'classes' => 'text-sm font-semibold text-gray-900 dark:text-gray-200 mb-4'
+                    ]),
+                'order' => 22,
+                'start_content_level' => 3,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'topic_id' => 3,
@@ -535,10 +621,60 @@ class TopicBlockSeeder extends Seeder
                         ]
                     ]
                 ]),
-                'order' => 19,
-                'start_content_level' => 2,
+                'order' => 23,
+                'start_content_level' => 3,
                 'created_at' => now(),
                 'updated_at' => now()
+            ],
+            [
+                'topic_id' => 3,
+                'block_type_id' => 2,
+                'attributes' => json_encode(
+                    [
+                        'level' => 'span',
+                        'text' => '<i class="fa-regular fa-circle"></i> LiveWire views',
+                        'classes' => 'text-sm font-semibold text-gray-900 dark:text-gray-200 mb-4'
+                    ]),
+                'order' => 24,
+                'start_content_level' => 3,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'topic_id' => 3,
+                'block_type_id' => 9,
+                'attributes' => json_encode([
+                    "nodes" => [
+                        [
+                            "label" => "resources/views/livewire/",
+                            "icon" => "fa-regular fa-folder",
+                            "children" => [
+                                [
+                                    "label" => "theme-1",
+                                    "icon" => "fa-regular fa-folder",
+                                    "children" => [
+                                        ["label" => "view-1.blade.php", "icon" => "fa fa-file-code"],
+                                        ["label" => "view-2.blade.php", "icon" => "fa fa-file-code"],
+                                        ["label" => "view-3.blade.php", "icon" => "fa fa-file-code"]
+                                    ]
+                                ],
+                                [
+                                    "label" => "theme-2",
+                                    "icon" => "fa-regular fa-folder",
+                                    "children" => [
+                                        ["label" => "view-1.blade.php", "icon" => "fa fa-file-code"],
+                                        ["label" => "view-2.blade.php", "icon" => "fa fa-file-code"],
+                                        ["label" => "view-3.blade.php", "icon" => "fa fa-file-code"]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]),
+                'order' => 25,
+                'start_content_level' => 3,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'topic_id' => 4,

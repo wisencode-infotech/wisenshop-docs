@@ -160,13 +160,13 @@ const ContentSection = ({ topicSlug, currentVersion }) => {
               className="mb-6 sm:mb-4"
             >
               {block.block_type.type === 'title' && (
-                <Title text={parsedAttributes?.text} level="h2" />
+                <Title text={parsedAttributes?.text} level={parsedAttributes?.level || 'h2'} classNames={parsedAttributes?.classes || 'text-xl font-semibold text-gray-900 dark:text-gray-200 mb-4'} />
               )}
               {block.block_type.type === 'subtitle' && (
-                <Subtitle text={parsedAttributes?.text} />
+                <Subtitle text={parsedAttributes?.text} classNames={parsedAttributes?.classes || 'text-md font-semibold text-gray-900 dark:text-gray-200 mb-4'} />
               )}
               {block.block_type.type === 'description' && (
-                <Description content={parsedAttributes?.text} />
+                <Description content={parsedAttributes?.text} classNames={parsedAttributes?.classes || 'text-theme-dark dark:text-theme-light leading-relaxed mb-4'} />
               )}
               {block.block_type.type === 'code_block' && (
                 <CodeBlock
