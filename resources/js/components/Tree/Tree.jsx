@@ -71,8 +71,8 @@ const Tree = ({ nodes }) => {
             <i className={`${node.icon} mr-3 text-gray-900 dark:text-gray-200`} />
             <span className="text-theme.lightText dark:text-theme.lightText">{node.label}</span>
 
-            {/* If description exists, show info icon to toggle popup */}
-            {node.description && (
+            {/* If info exists, show info icon to toggle popup */}
+            {node.info && (
               <i
                 className="fa fa-info-circle ml-2 text-gray-500 dark:text-gray-300 hover:text-theme.accent transition-colors cursor-pointer"
                 onClick={(e) => {
@@ -90,18 +90,18 @@ const Tree = ({ nodes }) => {
             </div>
           )}
 
-          {/* Popup description */}
-          {showPopup === nodeId && node.description && (
+          {/* Popup info */}
+          {showPopup === nodeId && node.info && (
             <div
               ref={popupRef}
-              className="fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-50 z-50"
+              className="fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-90 z-50"
               onClick={(e) => e.stopPropagation()} // Prevent closing when clicking on the popup itself
             >
               <div
-                className="bg-white dark:bg-gray-800 text-sm text-gray-700 dark:text-gray-200 p-4 rounded-md shadow-lg max-w-md w-auto relative"
+                className="bg-white dark:bg-gray-800 text-sm text-gray-700 dark:text-gray-200 p-4 rounded-md shadow-lg max-w-md w-auto relative mx-4 sm:mx-8"
                 style={{ whiteSpace: 'pre-line' }} // Preserve white space in the description
               >
-                {/* Close Button */}
+                {/* Close Button aligned to the title */}
                 <button
                   onClick={() => setShowPopup(null)} // Close popup on button click
                   className="absolute top-2 right-2 text-gray-500 dark:text-gray-200 hover:text-theme.accent dark:hover:text-theme.lightText"
@@ -109,7 +109,13 @@ const Tree = ({ nodes }) => {
                   <i className="fa fa-times"></i>
                 </button>
 
-                {node.description}
+                {/* Title */}
+                {node.info.title && (
+                  <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">{node.info.title}</h4> // Reduced top margin
+                )}
+
+                {/* Description */}
+                <p className="text-gray-700 dark:text-gray-300">{node.info.description}</p>
               </div>
             </div>
           )}
@@ -119,8 +125,8 @@ const Tree = ({ nodes }) => {
   };
 
   return (
-    <div ref={treeContainerRef} className="bg-theme.lightBackground dark:bg-theme.darkBackground rounded-lg shadow-sm p-4 border border-theme.lightBorder dark:border-theme.darkBorder w-full max-w-full relative">
-      <div className="tree-structure">{renderTree(nodes)}</div>
+    <div ref={treeContainerRef} className="bg-theme.lightBackground dark:bg-theme.darkBackground rounded-lg shadow-sm p-4 border border-theme.lightBorder dark:border-theme.darkBorder w-full max-w-full relative overflow-hidden">
+      <div className="tree-structure overflow-x-auto">{renderTree(nodes)}</div>
     </div>
   );
 };

@@ -521,10 +521,13 @@ class TopicBlockSeeder extends Seeder
                                         [
                                             "label" => "partials/head",
                                             "icon" => "fa-regular fa-folder",
-                                            "description" => "Create this directory to put the files for before-mix and after-mix in a blade format. Ex. For your theme if you need certain css or code needs to be rendered before or after mix files then you can use this directory. Note: This directory is not must, means script will try to find the directory or file and if exists then it will include otherwise it will continue to execute.",
+                                            "info" => [
+                                                "title" => "Head section wrapper",
+                                                "description" => "Create this directory to put the files for before-mix and after-mix in a blade format. Ex. For your theme if you need certain css or code needs to be rendered before or after mix files then you can use this directory. Note: This directory is not must, means script will try to find the directory or file and if exists then it will include otherwise it will continue to execute.",
+                                            ],
                                             "children" => [
-                                                ["label" => "before-mix.blade.php", "icon" => "fa fa-file-code", "description" => "Create this file to put the code to execute before mixed assets like css in head"],
-                                                ["label" => "after-mix.blade.php", "icon" => "fa fa-file-code", "description" => "Create this file to put the code to execute after mixed assets like css in head"]
+                                                ["label" => "before-mix.blade.php", "icon" => "fa fa-file-code", "info" => ["title" => "Head wrapper before mix file", "description" => "Create this file to put the code to execute before mixed assets like css in head"]],
+                                                ["label" => "after-mix.blade.php", "icon" => "fa fa-file-code", "info" => ["title" => "Head wrapper before mix file", "description" => "Create this file to put the code to execute after mixed assets like css in head"]]
                                             ]
                                         ],
                                         [
