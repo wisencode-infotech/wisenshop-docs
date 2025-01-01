@@ -522,28 +522,58 @@ class TopicBlockSeeder extends Seeder
                                             "label" => "partials/head",
                                             "icon" => "fa-regular fa-folder",
                                             "info" => [
-                                                "title" => "Head section wrapper",
-                                                "description" => "Create this directory to put the files for before-mix and after-mix in a blade format. Ex. For your theme if you need certain css or code needs to be rendered before or after mix files then you can use this directory. Note: This directory is not must, means script will try to find the directory or file and if exists then it will include otherwise it will continue to execute.",
+                                                "title" => "Head section wrapper after and before mix",
+                                                "description" => "<p><strong>Create this directory</strong> to store files for <code>before-mix</code> and <code>after-mix</code> in a <em>Blade format</em>.</p><br><p>For example, if your theme requires specific CSS or code to be rendered <strong>before</strong> or <strong>after</strong> the mix files in <code>head</code> tag, you can place them in this directory. The script will automatically check for the presence of the directory or files.</p><p><br><em>Note:</em> This directory is <strong>optional</strong>. If the directory does not exist, the script will simply skip it and continue executing.</p>",
                                             ],
                                             "children" => [
-                                                ["label" => "before-mix.blade.php", "icon" => "fa fa-file-code", "info" => ["title" => "Head wrapper before mix file", "description" => "Create this file to put the code to execute before mixed assets like css in head"]],
-                                                ["label" => "after-mix.blade.php", "icon" => "fa fa-file-code", "info" => ["title" => "Head wrapper before mix file", "description" => "Create this file to put the code to execute after mixed assets like css in head"]]
+                                                [
+                                                    "label" => "before-mix.blade.php", 
+                                                    "icon" => "fa fa-file-code", 
+                                                    "info" => [
+                                                        "title" => "Blade file before mix.css or mix .js in head", 
+                                                        "description" => "Create this file to put the code to execute <strong>before mixed assets like mix.css or mix.js</strong> in <code>head</code> tag. <br><em>Note:</em> This file is optional but nust be case-sensitive if present."
+                                                    ]
+                                                ],
+                                                [
+                                                    "label" => "after-mix.blade.php", 
+                                                    "icon" => "fa fa-file-code", 
+                                                    "info" => [
+                                                        "title" => "Blade file after mix.css or mix .js in head", 
+                                                        "description" => "Create this file to put the code to execute <strong>after mixed assets like mix.css or mix.js</strong> in <code>head</code> tag. <br><em>Note:</em> This file is optional but nust be case-sensitive if present."
+                                                    ]
+                                                ]
                                             ]
                                         ],
                                         [
                                             "label" => "partials/body",
                                             "icon" => "fa-regular fa-folder",
+                                            "info" => [
+                                                "title" => "Body section wrapper",
+                                                "description" => "Create this directory to put the files for container (MAIN WRAPPER OF VIEW FILES) and after-scripts in a blade format. Ex. For your theme if you need certain code needs to be rendered after the scripts section then you can use this directory and associated files. Note: This directory is must and <strong>container.blade.php must be present</strong> inside of it to wrap the views around it.",
+                                            ],
                                             "children" => [
-                                                ["label" => "container.blade.php", "icon" => "fa fa-file-code"],
-                                                ["label" => "after-scripts.blade.php", "icon" => "fa fa-file-code"]
+                                                [
+                                                    "label" => "container.blade.php", 
+                                                    "icon" => "fa fa-file-code", 
+                                                    "tags" => ['MUST'],
+                                                    "info" => [
+                                                        "title" => "Body section wrapper",
+                                                        "description" => "Main wrapper layout for all views of the application. Blade file to be rendered as a first thing in <code>body</code> tag. <br><br>Note: <strong>container.blade.php must be present</strong> inside <code>resources/views/frontend/layouts/themes/{theme-identifier}/partials/body/</code>",
+                                                    ],
+                                                ],
+                                                ["label" => "after-scripts.blade.php", "icon" => "fa fa-file-code", "info" => ["title" => "Blade file after @yield('scripts') section", "description" => "Create this file to put the code to execute after @yield('scripts') section in <code>body</code> tag"]]
                                             ]
                                         ],
                                         [
                                             "label" => "partials/after-body",
                                             "icon" => "fa-regular fa-folder",
+                                            "info" => [
+                                                "title" => "Body section wrapper after and before mix",
+                                                "description" => "<p><strong>Create this directory</strong> to store files for <code>before-mix</code> and <code>after-mix</code> in a <em>Blade format</em>.</p><br><p>For example, if your theme requires specific JS or code to be rendered <strong>before</strong> or <strong>after</strong> the mix files in <code>body</code> tag, you can place them in this directory. The script will automatically check for the presence of the directory or files.</p><p><br><em>Note:</em> This directory is <strong>optional</strong>. If the directory does not exist, the script will simply skip it and continue executing.</p>",
+                                            ],
                                             "children" => [
-                                                ["label" => "before-mix.blade.php", "icon" => "fa fa-file-code"],
-                                                ["label" => "after-mix.blade.php", "icon" => "fa fa-file-code"]
+                                                ["label" => "before-mix.blade.php", "icon" => "fa fa-file-code", "info" => ["title" => "Blade file before mix.css or mix .js in body", "description" => "Create this file to put the code to execute <strong>before mixed assets like mix.css or mix.js</strong> in <code>body</code> tag. <br><em>Note:</em> This file is optional but nust be case-sensitive if present."]],
+                                                ["label" => "after-mix.blade.php", "icon" => "fa fa-file-code", "info" => ["title" => "Blade file after mix.css or mix .js in body", "description" => "Create this file to put the code to execute <strong>after mixed assets like mix.css or mix.js</strong> in <code>body</code> tag. <br><em>Note:</em> This file is optional but nust be case-sensitive if present."]]
                                             ]
                                         ]
                                     ]
