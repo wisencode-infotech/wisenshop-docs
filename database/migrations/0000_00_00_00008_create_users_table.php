@@ -21,12 +21,6 @@ return new class extends Migration
             $table->string('profile_image')->nullable();
 
             $table->foreignId('user_role_id')->constrained('user_roles');
-
-            $table->string('affiliate_code')->nullable();
-            $table->string('referral_code')->nullable();
-            $table->text('address')->nullable();
-            $table->foreignId('currency_id')->nullable()->constrained('currencies')->onDelete('cascade');
-
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
