@@ -1,4 +1,4 @@
-<p align="center"><a href="https://wisenshop.com" target="_blank"><img src="https://wisenshop.com/assets/images/logo.png" width="400" alt="Wisenshop Logo"></a></p>
+<p align="center"><a href="https://wisenshop.com" target="_blank"><img src="https://wisenshop.com/assets/images/logo.png" width="200" alt="Wisenshop Logo"></a></p>
 
 ## About Wisenshop Docs
 
