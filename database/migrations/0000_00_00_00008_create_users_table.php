@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('password');
             $table->string('phone')->nullable();
             $table->string('profile_image')->nullable();
-
             $table->foreignId('user_role_id')->constrained('user_roles');
             $table->rememberToken();
             $table->timestamps();
