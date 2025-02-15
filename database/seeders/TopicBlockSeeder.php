@@ -266,6 +266,15 @@ class TopicBlockSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
+                'topic_id' => 2,
+                'block_type_id' => 7,
+                'attributes' => json_encode(['type' => 'success', 'title' => 'Special instructions for shared and limited access hosting server (where setting up npm is kind of difficult)', 'icon' => 'fa-solid fa-check-circle', 'text' => '<ul><li>&#9658; Go to public/assets/mix-manifest.json</li><li>&#9658; Add "public" in beginning of the path for mixed css and js. Ex. - /public/assets/frontend/js/default/mix.js</li><li>&#9658; Make sure you have correct APP_URL in .env based on your setup with public or without public. Ex. - https://example.com/public/ or  https://example.com.</li><li>&#9658; If you dont have build files then build the mixed files in your local for themes and upload to your server as /public/assets/frontend/js/default/mix.css or /public/assets/frontend/js/default/mix.js</li><li>&#9658; Note: Above all paths are mentioned for default theme but it can deifferent based on the current theme</li></ul>']),
+                'order' => 23,
+                'start_content_level' => 1,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
                 'topic_id' => 3,
                 'block_type_id' => 1,
                 'attributes' => json_encode(['text' => 'Overview']),
